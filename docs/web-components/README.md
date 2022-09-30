@@ -380,6 +380,7 @@ Si el elemento host tiene la clase `dark-theme` se aplicara el color rojo.
 Representa cualquier elemento que se haya colocado en un `<slot>` de una plantilla HTML. Esto solo funciona cuando se usa dentro de CSS colocado dentro de un Shadow Dom.
 [Tiene un buen soporte](https://caniuse.com/?search=%3A%3Aslotted)
     
+[Link al ejemplo](https://codi.link/PG15LWVsZW1lbnQ+CiAgICA8cD5QYXJhZ3JhcGggTGlnaHQgRE9NPC9wPgo8L215LWVsZW1lbnQ+|Omhvc3QgewogIGNvbG9yOiByZWQ7Cn0=|Y29uc3QgdGVtcGxhdGUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCJ0ZW1wbGF0ZSIpOwp0ZW1wbGF0ZS5pbm5lckhUTUwgPSBgCjxzdHlsZT4KOjpzbG90dGVkKHApIHsKICBiYWNrZ3JvdW5kOiBvcmFuZ2U7Cn0KPC9zdHlsZT4KPHA+UGFyYWdyYXBoIFNoYWRvdyBET008L3A+CjxzbG90Pjwvc2xvdD4KYDsKCmNsYXNzIE15RWxlbWVudCBleHRlbmRzIEhUTUxFbGVtZW50IHsKICBjb25zdHJ1Y3RvcigpIHsKICAgIHN1cGVyKCk7CiAgICBjb25zdCBzaGFkb3dSb290ID0gdGhpcy5hdHRhY2hTaGFkb3coeyBtb2RlOiAib3BlbiIgfSk7CiAgICBzaGFkb3dSb290LmFwcGVuZENoaWxkKHRlbXBsYXRlLmNvbnRlbnQuY2xvbmVOb2RlKHRydWUpKTsKICB9Cn0KCmN1c3RvbUVsZW1lbnRzLmRlZmluZSgibXktZWxlbWVudCIsIE15RWxlbWVudCk7)
 ```html
 <my-element>
     <p>Paragraph Light DOM</p>
