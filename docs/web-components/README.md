@@ -161,7 +161,6 @@ export class MyElement extends HTMLElement {
 #### Type module
 El uso de funciones del `import` y `export` de módulos ES es que el uso de `<script type="module">` pone su código en la ruta rápida del navegador para la evaluación de scripts. Esto significa que el navegador puede analizar y ejecutar su código mucho más rápido que si lo hiciera en un script normal.
 
-## Como usarlo
 ```html
 <my-element theme="dark">
     <p> Parrafo </p>
