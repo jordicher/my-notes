@@ -212,3 +212,158 @@ p {
 ```
 
 El resultado final es que solo se pondrá rojo `<p>Paragraph Light DOM</p>`. Da igual lo selectivos que seamos con los selectores css, id, class, etc. No se podrá modificar el `<p>Paragraph Shadow DOM</p>`.
+
+#### Como modificar los estilos del Shadow DOM
+
+No es para modificarlos de manera directa, pero hay estilos que son heredables por un iframe, y Shadow Dom se comporta como un iframe, en materia de la encapsulación. Por lo que puede heredar estilos como el `color` o el `font-family`. [Link al ejemplo](https://codi.link/PG15LWVsZW1lbnQ+CiAgICA8cD5QYXJhZ3JhcGggTGlnaHQgRE9NPC9wPgo8L215LWVsZW1lbnQ+Cg==|bXktZWxlbWVudCB7CiAgY29sb3I6IHJlZDsKICBmb250LWZhbWlseTogJ2NvdXJpZXInOwogIGZvbnQtd2VpZ2h0OiBib2xkZXI7Cn0KCm15LWVsZW1lbnQgcCB7CiAgYmFja2dyb3VuZC1jb2xvcjogYmx1ZTsKfQo=|Y29uc3QgdGVtcGxhdGUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCJ0ZW1wbGF0ZSIpOwp0ZW1wbGF0ZS5pbm5lckhUTUwgPSBgCjxzbG90Pjwvc2xvdD4KPHA+UGFyYWdyYXBoIFNoYWRvdyBET008L3A+CmA7CgpjbGFzcyBNeUVsZW1lbnQgZXh0ZW5kcyBIVE1MRWxlbWVudCB7CiAgY29uc3RydWN0b3IoKSB7CiAgICBzdXBlcigpOwogICAgdGhpcy5fc2hhZG93Um9vdCA9IHRoaXMuYXR0YWNoU2hhZG93KHsgbW9kZTogIm9wZW4iIH0pOwogICAgdGhpcy5fc2hhZG93Um9vdC5hcHBlbmRDaGlsZCh0ZW1wbGF0ZS5jb250ZW50LmNsb25lTm9kZSh0cnVlKSk7CiAgfQp9CgpjdXN0b21FbGVtZW50cy5kZWZpbmUoIm15LWVsZW1lbnQiLCBNeUVsZW1lbnQpOw==)
+
+#### Recursos:
+- [htmlwithsuperpowers](https://htmlwithsuperpowers.netlify.app/styling/inheritable.html)
+
+##### CSS Custom Properties
+
+También son un tipo de estilos heredables. [Link al ejemplo](https://codi.link/PG15LWVsZW1lbnQ+CiAgICA8cD5QYXJhZ3JhcGggTGlnaHQgRE9NPC9wPgo8L215LWVsZW1lbnQ+|Ym9keSB7CiAgLS1iZzogcmVkOwogIC0tdGV4dDogYmx1ZTsKfQ==|Y29uc3QgdGVtcGxhdGUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCJ0ZW1wbGF0ZSIpOwp0ZW1wbGF0ZS5pbm5lckhUTUwgPSBgCjxzdHlsZT4KICAgIHAgewogICAgICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWJnKTsgLyogcmVkICovCiAgICAgICAgY29sb3I6IHZhcigtLXRleHQpOyAvKiBibHVlICovCiAgICB9Cjwvc3R5bGU+CjxwPlBhcmFncmFwaCBTaGFkb3cgRE9NPC9wPgo8c2xvdD48L3Nsb3Q+CmA7CgpjbGFzcyBNeUVsZW1lbnQgZXh0ZW5kcyBIVE1MRWxlbWVudCB7CiAgY29uc3RydWN0b3IoKSB7CiAgICBzdXBlcigpOwogICAgdGhpcy5fc2hhZG93Um9vdCA9IHRoaXMuYXR0YWNoU2hhZG93KHsgbW9kZTogIm9wZW4iIH0pOwogICAgdGhpcy5fc2hhZG93Um9vdC5hcHBlbmRDaGlsZCh0ZW1wbGF0ZS5jb250ZW50LmNsb25lTm9kZSh0cnVlKSk7CiAgfQp9CgpjdXN0b21FbGVtZW50cy5kZWZpbmUoIm15LWVsZW1lbnQiLCBNeUVsZW1lbnQpOw==)
+
+```html
+<my-element>
+    <p>Paragraph Light DOM</p>
+</my-element>
+```
+
+```css
+body {
+  --bg: red;
+  --text: blue;
+}
+```
+
+```js
+const template = document.createElement("template");
+template.innerHTML = `
+<style>
+    p {
+        background-color: var(--bg); /* red */
+        color: var(--text); /* blue */
+    }
+</style>
+<p>Paragraph Shadow DOM</p> /* background-color === red, color === blue */
+<slot></slot>
+`;
+
+class MyElement extends HTMLElement {
+  constructor() {
+    super();
+    this._shadowRoot = this.attachShadow({ mode: "open" });
+    this._shadowRoot.appendChild(template.content.cloneNode(true));
+  }
+}
+
+customElements.define("my-element", MyElement);
+```
+
+##### Themes
+
+Podemos crear un web Component que reciba atributos, un ejemplo de atributo, por buenas practicas lo han decidido llamarlo theme. Hay librerias que simplifican la creación de temas. Sin hacer uso de ellas, un ejemplo podria ser el siguiente.
+
+[Link al ejemplo](https://codi.link/PG15LWVsZW1lbnQgdGhlbWU9ImRhcmsiPgogICAgPHA+UGFyYWdyYXBoIExpZ2h0IERPTTwvcD4KPC9teS1lbGVtZW50Pg==||Y29uc3QgdGVtcGxhdGUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCJ0ZW1wbGF0ZSIpOwogIHRlbXBsYXRlLmlubmVySFRNTCA9IGAKICA8c3R5bGU+PC9zdHlsZT4KICA8cD4gUGFyYWdyYXBoIFNoYWRvdyBEb20gPC9wPgogIDxzbG90Pjwvc2xvdD4KICBgOwoKICBjbGFzcyBNeUVsZW1lbnQgZXh0ZW5kcyBIVE1MRWxlbWVudCB7CiAgICAgIGNvbnN0cnVjdG9yKCkgewogICAgICAgICAgICBzdXBlcigpOwogICAgICAgICAgICB0aGlzLl9zaGFkb3dSb290ID0gdGhpcy5hdHRhY2hTaGFkb3coeyBtb2RlOiAib3BlbiIgfSk7CiAgICAgICAgICAgIHRoaXMuX3NoYWRvd1Jvb3QuYXBwZW5kQ2hpbGQodGVtcGxhdGUuY29udGVudC5jbG9uZU5vZGUodHJ1ZSkpOwogICAgICAgIH0KCiAgICAgICAgc3RhdGljIGdldCBvYnNlcnZlZEF0dHJpYnV0ZXMoKSB7CiAgICAgICAgICAgIHJldHVybiBbInRoZW1lIl07CiAgICAgICAgfQoKICAgICAgICBhdHRyaWJ1dGVDaGFuZ2VkQ2FsbGJhY2sobmFtZSwgb2xkVmFsdWUsIG5ld1ZhbHVlKSB7CiAgICAgICAgICAgIGlmIChuYW1lID09PSAidGhlbWUiKSB7CiAgICAgICAgICAgICAgICBpZiAobmV3VmFsdWUgPT09ICJkYXJrIikgewogICAgICAgICAgICAgICAgICAgIHRoaXMuX3NoYWRvd1Jvb3QucXVlcnlTZWxlY3Rvcigic3R5bGUiKS5pbm5lckhUTUwgPSBgCiAgICAgICAgICAgICAgICAgICAgOmhvc3QgeyAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICBjb2xvcjogYmx1ZTsKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgIDpob3N0IHAgewogICAgICAgICAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7ICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgYDsKICAgICAgICAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICAgICAgICAgdGhpcy5fc2hhZG93Um9vdC5xdWVyeVNlbGVjdG9yKCJzdHlsZSIpLmlubmVySFRNTCA9IGAKICAgICAgICAgICAgICAgICAgICA6aG9zdCB7CiAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yOiBncmVlbjsKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgYDsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgIH0KICAgIH0KCiAgICBjdXN0b21FbGVtZW50cy5kZWZpbmUoIm15LWVsZW1lbnQiLCBNeUVsZW1lbnQpOw==)
+```js
+const template = document.createElement('template');
+template.innerHTML = `
+  <style></style>
+  <p> Paragraph Shadow Dom </p>
+  <slot></slot>
+  `;
+
+class MyElement extends HTMLElement {
+  constructor() {
+    super();
+    this._shadowRoot = this.attachShadow({ mode: 'open' });
+    this._shadowRoot.appendChild(template.content.cloneNode(true));
+  }
+
+  static get observedAttributes() {
+    return ['theme'];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'theme') {
+      if (newValue === 'dark') {
+        this._shadowRoot.querySelector('style').innerHTML = `
+                    :host {                        
+                        color: blue;
+                    }
+                     :host p {
+                        background-color: red;                       
+                    }
+                    `;
+      } else {
+        this._shadowRoot.querySelector('style').innerHTML = `
+                    :host {                 
+                        color: green;
+                    }
+                    `;
+      }
+    }
+  }
+}
+
+customElements.define('my-element', MyElement);
+
+```
+
+```html
+<my-element theme="dark">
+    <p>Paragraph Light DOM</p>
+</my-element>
+
+<my-element>
+    <p>Paragraph Light DOM</p>
+</my-element>
+```
+
+Se podria seguir añadiendo atributos de manera customizada por ejemplo, por decidir que icono se muestra en el componente, o que color tiene el componente, etc.
+
+#### Nuevas features del DOM CSS
+
+##### `:host`
+
+El selector `:host` permite seleccionar el elemento host del shadow DOM. Esto es util para poder aplicar estilos al elemento host, solo funciona en el Shadow DOM. [Link al ejemplo](https://codi.link/PG15LWVsZW1lbnQ+ICAKICAgIDxwPlBhcmFncmFwaCBMaWdodCBET008L3A+CjwvbXktZWxlbWVudD4=|Omhvc3QgewogIGNvbG9yOiByZWQ7Cn0=|Y29uc3QgdGVtcGxhdGUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCJ0ZW1wbGF0ZSIpOwp0ZW1wbGF0ZS5pbm5lckhUTUwgPSBgCjxzdHlsZT4KOmhvc3QgcCB7CiAgYmFja2dyb3VuZDogb3JhbmdlOwp9Cjwvc3R5bGU+CjxzbG90Pjwvc2xvdD4KPHA+UGFyYWdyYXBoIFNoYWRvdyBET008L3A+CmA7CgpjbGFzcyBNeUVsZW1lbnQgZXh0ZW5kcyBIVE1MRWxlbWVudCB7CiAgY29uc3RydWN0b3IoKSB7CiAgICBzdXBlcigpOwogICAgY29uc3Qgc2hhZG93Um9vdCA9IHRoaXMuYXR0YWNoU2hhZG93KHsgbW9kZTogIm9wZW4iIH0pOwogICAgc2hhZG93Um9vdC5hcHBlbmRDaGlsZCh0ZW1wbGF0ZS5jb250ZW50LmNsb25lTm9kZSh0cnVlKSk7CiAgfQp9CgpjdXN0b21FbGVtZW50cy5kZWZpbmUoIm15LWVsZW1lbnQiLCBNeUVsZW1lbnQpOwo=)
+Esta soportado en todos los [navegadores relevantes](https://caniuse.com/?search=%3Ahost)
+
+```html
+<my-element>  
+    <p>Paragraph Light DOM</p>
+</my-element>
+```
+
+```css
+:host { /* esto no hace nada */
+  color: red;
+}
+```
+
+```js
+const template = document.createElement("template");
+template.innerHTML = `
+<style>
+:host p {
+  background: orange;
+}
+</style>
+<slot></slot>
+<p>Paragraph Shadow DOM</p>
+`;
+
+class MyElement extends HTMLElement {
+  constructor() {
+    super();
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    shadowRoot.appendChild(template.content.cloneNode(true));
+  }
+}
+
+customElements.define("my-element", MyElement);
+```
+
+##### `:host-context()`
+
