@@ -367,3 +367,48 @@ customElements.define("my-element", MyElement);
 
 ##### `:host-context()`
 
+[No tiene demasiado soporte](https://caniuse.com/?search=host-context), por lo que aun no vale la pena profundizar en ello. Simplemente saber que lo puedes utilizar como un condicional para aplicar estilos.
+
+```css
+:host-context(.dark-theme) {
+  color: red;
+}
+```
+Si el elemento host tiene la clase `dark-theme` se aplicara el color rojo.
+
+##### `::slotted()`
+
+Representa cualquier elemento que se haya colocado en un `<slot>` de una plantilla HTML. Esto solo funciona cuando se usa dentro de CSS colocado dentro de un Shadow Dom.
+[Tiene un buen soporte](https://caniuse.com/?search=%3A%3Aslotted)
+    
+```html
+<my-element>
+    <p>Paragraph Light DOM</p>
+</my-element>
+```
+
+```js
+const template = document.createElement("template");
+template.innerHTML = `
+<style>
+::slotted(p) {
+  background: orange;
+}
+</style>
+<p>Paragraph Shadow DOM</p>
+<slot></slot>
+`;
+
+class MyElement extends HTMLElement {
+  constructor() {
+    super();
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    shadowRoot.appendChild(template.content.cloneNode(true));
+  }
+}
+
+customElements.define("my-element", MyElement);
+```
+
+Se pintará el párrafo del Light DOM con el color naranja, aunque está en segunda posición en el DOM. Porque es el `<slot>`.
+
