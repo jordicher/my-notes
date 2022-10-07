@@ -412,3 +412,88 @@ customElements.define("my-element", MyElement);
 
 Se pintará el párrafo del Light DOM con el color naranja, aunque está en segunda posición en el DOM. Porque es el `<slot>`.
 
+## JavaScript Vainilla y Web Components
+
+Al momento de hacer un Web Component, tenemos que tener en cuenta diferentes puntos, como por ejemplo:
+
+```js
+class MyElement extends HTMLElement {
+  constructor() {
+    super();
+    this._name = this.getAttribute("name");
+  }
+
+  connectedCallback() {
+    console.log("connectedCallback");
+  }
+
+  disconnectedCallback() {
+    console.log("disconnectedCallback");
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    console.log("attributeChangedCallback", name, oldValue, newValue);
+    this._name = newValue;
+  }
+
+  static get observedAttributes() {
+    return ["name"];
+  }
+}
+
+customElements.define("my-element", MyElement);
+```
+### Component Lifecycle
+
+Los componentes web tienen un ciclo de vida, igual que podriamos encontrar en React o en Vue, o otro frameworks.
+
+#### `connectedCallback()`
+
+Se ejecuta cuando el elemento se conecta al DOM. Se ejecuta solo una vez. Es parecido a `componentDidMount` en React y `mounted` en Vue.
+
+#### `disconnectedCallback()`
+
+Se ejecuta cuando el elemento se desconecta del DOM. Se ejecuta solo una vez. Es parecido a `componentWillUnmount` en React y `unmounted` en Vue.
+
+#### `attributeChangedCallback()`
+
+Se ejecuta cuando un atributo del elemento cambia. Se ejecuta cada vez que un atributo cambia. Es parecido a `componentDidUpdate` en React y `updated` en Vue.
+
+
+
+### Component Properties
+
+Los componentes web tienen propiedades, igual que podriamos encontrar en React o en Vue, o otro frameworks,
+
+#### `observedAttributes`
+
+Es un array de strings que contiene los nombres de los atributos que queremos observar. Es parecido a `props`.
+
+```js
+static get observedAttributes() {
+  return ["name"];
+}
+```
+
+### Inyectar una template
+
+Para crear un Shadow DOM, tenemos que crear una `template`, y usarla como su contenido.
+
+```js
+const template = document.createElement("template");
+template.innerHTML = `
+  <style>
+  <h1>Hello, World!</h1>
+
+`;
+
+class MyElement extends HTMLElement {
+  constructor() {
+    super();
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    shadowRoot.appendChild(template.content.cloneNode(true));
+  }
+}
+
+customElements.define("my-element", MyElement);
+```
