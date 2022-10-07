@@ -497,3 +497,92 @@ class MyElement extends HTMLElement {
 
 customElements.define("my-element", MyElement);
 ```
+
+## Ejemplos
+
+### Contador
+
+[Link al ejemplo](https://codi.link/PG15LWNvdW50ZXI+PC9teS1jb3VudGVyPg==||Y29uc3QgdGVtcGxhdGUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCJ0ZW1wbGF0ZSIpOwp0ZW1wbGF0ZS5pbm5lckhUTUwgPSBgCiAgPHN0eWxlPgogICAgOmhvc3QgewogICAgICBkaXNwbGF5OiBibG9jazsKICAgICAgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7CiAgICAgIHRleHQtYWxpZ246IGNlbnRlcjsKICAgIH0KCiAgICBidXR0b24gewogICAgICBib3JkZXI6IG5vbmU7CiAgICAgIGN1cnNvcjogcG9pbnRlcjsKICAgICAgZm9udC1zaXplOiAxNnB4OwogICAgICBwYWRkaW5nOiA4cHg7CiAgICB9CgogICAgYnV0dG9uOmZvY3VzIHsKICAgICAgb3V0bGluZTogbm9uZTsKICAgIH0KCiAgICAuY291bnQgewogICAgICBwYWRkaW5nOiA4cHg7CiAgICB9CiAgPC9zdHlsZT4KICA8ZGl2IGlkPSJjb3VudCIgY2xhc3M9ImNvdW50Ij48L2Rpdj4KICA8YnV0dG9uIGlkPSJpbmNyZW1lbnQiPis8L2J1dHRvbj4KICA8YnV0dG9uIGlkPSJkZWNyZW1lbnQiPi08L2J1dHRvbj4KICA8YnV0dG9uIGlkPSJyZXNldCI+UmVzZXQ8L2J1dHRvbj4KYDsKCmNsYXNzIENvdW50ZXIgZXh0ZW5kcyBIVE1MRWxlbWVudCB7CiAgY29uc3RydWN0b3IoKSB7CiAgICBzdXBlcigpOwogICAgdGhpcy5fY291bnQgPSAwOwogICAgdGhpcy5fc2hhZG93Um9vdCA9IHRoaXMuYXR0YWNoU2hhZG93KHsgbW9kZTogIm9wZW4iIH0pOwogICAgdGhpcy5fc2hhZG93Um9vdC5hcHBlbmRDaGlsZCh0ZW1wbGF0ZS5jb250ZW50LmNsb25lTm9kZSh0cnVlKSk7CiAgICB0aGlzLiRjb3VudCA9IHRoaXMuX3NoYWRvd1Jvb3QucXVlcnlTZWxlY3RvcigiI2NvdW50Iik7CiAgICB0aGlzLiRpbmNyZW1lbnQgPSB0aGlzLl9zaGFkb3dSb290LnF1ZXJ5U2VsZWN0b3IoIiNpbmNyZW1lbnQiKTsKICAgIHRoaXMuJGRlY3JlbWVudCA9IHRoaXMuX3NoYWRvd1Jvb3QucXVlcnlTZWxlY3RvcigiI2RlY3JlbWVudCIpOwogICAgdGhpcy4kcmVzZXQgPSB0aGlzLl9zaGFkb3dSb290LnF1ZXJ5U2VsZWN0b3IoIiNyZXNldCIpOwogIH0KCiAgY29ubmVjdGVkQ2FsbGJhY2soKSB7CiAgICB0aGlzLiRpbmNyZW1lbnQuYWRkRXZlbnRMaXN0ZW5lcigiY2xpY2siLCB0aGlzLl9pbmNyZW1lbnQuYmluZCh0aGlzKSk7CiAgICB0aGlzLiRkZWNyZW1lbnQuYWRkRXZlbnRMaXN0ZW5lcigiY2xpY2siLCB0aGlzLl9kZWNyZW1lbnQuYmluZCh0aGlzKSk7CiAgICB0aGlzLiRyZXNldC5hZGRFdmVudExpc3RlbmVyKCJjbGljayIsIHRoaXMuX3Jlc2V0LmJpbmQodGhpcykpOwogICAgdGhpcy5fcmVuZGVyKCk7CiAgfQoKICBkaXNjb25uZWN0ZWRDYWxsYmFjaygpIHsKICAgIHRoaXMuJGluY3JlbWVudC5yZW1vdmVFdmVudExpc3RlbmVyKCJjbGljayIsIHRoaXMuX2luY3JlbWVudC5iaW5kKHRoaXMpKTsKICAgIHRoaXMuJGRlY3JlbWVudC5yZW1vdmVFdmVudExpc3RlbmVyKCJjbGljayIsIHRoaXMuX2RlY3JlbWVudC5iaW5kKHRoaXMpKTsKICAgIHRoaXMuJHJlc2V0LnJlbW92ZUV2ZW50TGlzdGVuZXIoImNsaWNrIiwgdGhpcy5fcmVzZXQuYmluZCh0aGlzKSk7CiAgfQoKICBfaW5jcmVtZW50KCkgewogICAgdGhpcy5fY291bnQrKzsKICAgIHRoaXMuX3JlbmRlcigpOwogIH0KCiAgX2RlY3JlbWVudCgpIHsKICAgIHRoaXMuX2NvdW50LS07CiAgICB0aGlzLl9yZW5kZXIoKTsKICB9CgogIF9yZXNldCgpIHsKICAgIHRoaXMuX2NvdW50ID0gMDsKICAgIHRoaXMuX3JlbmRlcigpOwogIH0KCiAgX3JlbmRlcigpIHsKICAgIHRoaXMuJGNvdW50LnRleHRDb250ZW50ID0gdGhpcy5fY291bnQ7CiAgfQp9CgpjdXN0b21FbGVtZW50cy5kZWZpbmUoIm15LWNvdW50ZXIiLCBDb3VudGVyKTs=)
+
+```html
+<my-counter></my-counter>
+```
+
+```js
+const template = document.createElement("template");
+template.innerHTML = `
+  <style>
+    :host {
+      display: block;
+      font-family: sans-serif;
+      text-align: center;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 8px;
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+    .count {
+      padding: 8px;
+    }
+  </style>
+  <div id="count" class="count"></div>
+  <button id="increment">+</button>
+  <button id="decrement">-</button>
+  <button id="reset">Reset</button>
+`;
+
+class Counter extends HTMLElement {
+  constructor() {
+    super();
+    this._count = 0;
+    this._shadowRoot = this.attachShadow({ mode: "open" });
+    this._shadowRoot.appendChild(template.content.cloneNode(true));
+    this.$count = this._shadowRoot.querySelector("#count");
+    this.$increment = this._shadowRoot.querySelector("#increment");
+    this.$decrement = this._shadowRoot.querySelector("#decrement");
+    this.$reset = this._shadowRoot.querySelector("#reset");
+  }
+
+  connectedCallback() {
+    this.$increment.addEventListener("click", this._increment.bind(this));
+    this.$decrement.addEventListener("click", this._decrement.bind(this));
+    this.$reset.addEventListener("click", this._reset.bind(this));
+    this._render();
+  }
+
+  disconnectedCallback() {
+    this.$increment.removeEventListener("click", this._increment.bind(this));
+    this.$decrement.removeEventListener("click", this._decrement.bind(this));
+    this.$reset.removeEventListener("click", this._reset.bind(this));
+  }
+
+  _increment() {
+    this._count++;
+    this._render();
+  }
+
+  _decrement() {
+    this._count--;
+    this._render();
+  }
+
+  _reset() {
+    this._count = 0;
+    this._render();
+  }
+
+  _render() {
+    this.$count.textContent = this._count;
+  }
+}
+
+customElements.define("my-counter", Counter);
+```
