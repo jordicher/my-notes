@@ -1,5 +1,4 @@
 # Mis apuntes
 
-[TDD: Test-Driven Development](./test-driven-development)
-
-[Web Components](./web-components)
+## [Web Components](./web-components)
+## [TDD: Test-Driven Development](./test-driven-development)
