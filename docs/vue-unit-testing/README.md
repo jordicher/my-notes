@@ -125,3 +125,130 @@ describe('Counter.vue', () => {
   });
 });
 ```
+
+## Eventos
+
+Para testear eventos, podemos utilizar el método `trigger` del wrapper.
+
+```js
+// Counter.spec.js
+import { shallowMount } from '@vue/test-utils';
+import Counter from '@/components/Counter.vue';
+
+describe('Counter.vue', async () => {
+  test('increment the counter', () => {
+    const wrapper = shallowMount(Counter);
+
+    const button = wrapper.find('button');
+
+    expect(wrapper.vm.count).toEqual(0);
+    await button.trigger('click');
+    expect(wrapper.vm.count).toEqual(1);
+  });
+});
+```
+
+## Mocks
+
+Los mocks sirven para simular dependencias. Por ejemplo, si tenemos un componente que hace una petición a un endpoint, podemos mockear el servicio para que no haga la petición y así poder testear el componente.
+
+Podemos mockear componentes, directivas, filtros, etc. para poder testear nuestros componentes.
+
+### SpyOn
+
+```js
+// Counter.spec.js
+import { shallowMount } from '@vue/test-utils';
+import Counter from '@/components/Counter.vue';
+
+test('increment the counter', async () => {
+  const spy = jest.spyOn(Counter.methods, 'increment');
+
+  const wrapper = shallowMount(Counter);
+
+  const button = wrapper.find('button');
+
+  expect(wrapper.vm.count).toEqual(0);
+  await button.trigger('click');
+  expect(wrapper.vm.count).toEqual(1);
+  expect(spy).toHaveBeenCalled();
+});
+```
+
+### jest.fn()
+
+En el caso que queramos mockear un método de un componente, podemos utilizar `jest.fn()`. Esto nos permite comprobar que el método ha sido llamado y con qué parámetros. También podemos mockear el método para que devuelva un valor. En este caso, no se ejecutará el método original.
+
+```js
+// Counter.spec.js
+import { shallowMount } from '@vue/test-utils';
+import Counter from '@/components/Counter.vue';
+
+test('increment the counter', async () => {
+  const initialCounter = 10;
+  const mockIncrement = jest.fn();
+
+  const wrapper = shallowMount(Counter, {
+    data() {
+      return {
+        counter: initialCounter,
+      };
+    },
+    methods: {
+      increment: mockIncrement,
+    },
+  });
+
+  const button = wrapper.find('button');
+
+  expect(wrapper.vm.counter).toEqual(initialCounter);
+  await button.trigger('click');
+  expect(wrapper.vm.counter).toEqual(initialCounter);
+  expect(mockIncrement).toHaveBeenCalled();
+});
+```
+
+## Múltiples componentes
+
+En el caso que queramos testear un componente que tiene varios componentes hijos, podemos utilizar el método `findComponent` para encontrar el componente hijo.
+
+```js
+// Counter.spec.js
+import { shallowMount } from '@vue/test-utils';
+import Counter from '@/components/Counter.vue';
+
+describe('Counter.vue', () => {
+  test('increment the counter', async () => {
+    const wrapper = shallowMount(Counter);
+
+    const button = wrapper.find('button');
+    const counter = wrapper.findComponent({ name: 'Counter' });
+
+    expect(counter.vm.count).toEqual(0);
+    await wrapper.vm.increment();
+    expect(counter.vm.count).toEqual(1);
+  });
+});
+```
+
+## Testing UI
+
+Para testear la UI, podemos utilizar `attributes` y `classes` del wrapper.
+
+```js
+// Counter.spec.js
+
+import { shallowMount } from '@vue/test-utils';
+import Counter from '@/components/Counter.vue';
+
+describe('Counter.vue', () => {
+  test('the button must not be disabled', async () => {
+    const wrapper = shallowMount(Counter);
+
+    const button = wrapper.find('button');
+
+    expect(button.attributes('disabled')).toBeUndefined();
+    expect(button.classes()).not.toContain('disabled');
+  });
+});
+```
