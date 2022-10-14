@@ -64,7 +64,7 @@ console.log(event.target.assignedNodes());
 
 ### Custom Elements
 
-Si intentamos crear un elemento personalizado como `<my-element></my-element>` el navegador, nos dará un error.
+Si intentamos crear un elemento personalizado como `<my-element></my-element>` el navegador, nos dará un error o no hara nada.
 
 ```html
 <body>
@@ -72,25 +72,43 @@ Si intentamos crear un elemento personalizado como `<my-element></my-element>` e
 </body>
 ```
 
-`<my-element>`
-La habilidad de crear tu propio interfaz de HTML. La única diferencia es el `-` en el nombre del elemento. Ya que reservaremos el uso del `_` para los componentes nativos.
+Con los customElements podemos hacer este codigo valido, podemos crear un elemento personalizado.`<my-element>`. Pues tenemos la habilidad de crear tu propio interfaz de HTML. A tener en cuenta que la única diferencia al nombrarlos es el `-` en el nombre del elemento. Ya que reservaremos el uso del `_` para los componentes nativos.
+
+Ejemplo, [link al ejemplo](https://codi.link/PG15LWVsZW1lbnQ+PC9teS1lbGVtZW50Pg==||Y2xhc3MgTXlFbGVtZW50IGV4dGVuZHMgSFRNTEVsZW1lbnQgewogIGNvbnN0cnVjdG9yKCkgewogICAgc3VwZXIoKTsgCiAgICB0aGlzLmlubmVySFRNTCA9ICJIZWxsbyBXb3JsZCIKICB9Cn0KCmN1c3RvbUVsZW1lbnRzLmRlZmluZSgibXktZWxlbWVudCIsIE15RWxlbWVudCk7)
 
 ```html
-<my-element theme="dark">
-  <p>Parrafo</p>
-</my-element>
+<my-element></my-element>
 ```
 
 ```js
 class MyElement extends HTMLElement {
-  static get observedAttributes() {
-    return ['theme'];
-  }
-
   constructor() {
     super();
+    this.innerHTML = 'Hello World';
   }
 }
+
+customElements.define('my-element', MyElement); // Aqui registramos el elemento
+```
+
+### Atributos
+
+Cualquier atributo que pongamos en el elemento, se va a pasar al constructor.
+
+Ejemplo, [link al ejemplo](https://codi.link/PG15LWVsZW1lbnQgbmFtZT0iSm9yZGkiPjwvbXktZWxlbWVudD4=||Y2xhc3MgTXlFbGVtZW50IGV4dGVuZHMgSFRNTEVsZW1lbnQgewogIGNvbnN0cnVjdG9yKCkgewogICAgc3VwZXIoKTsgCiAgICB0aGlzLmlubmVySFRNTCA9IGBIZWxsbyAke3RoaXMuZ2V0QXR0cmlidXRlKCJuYW1lIil9YAogIH0KfQoKY3VzdG9tRWxlbWVudHMuZGVmaW5lKCJteS1lbGVtZW50IiwgTXlFbGVtZW50KTs=)
+
+```html
+<my-element name="Jordi"></my-element>
+```
+
+```js
+class MyElement extends HTMLElement {
+  constructor() {
+    super();
+    this.innerHTML = `Hello ${this.getAttribute('name')}`;
+  }
+}
+
 customElements.define('my-element', MyElement);
 ```
 
@@ -123,7 +141,7 @@ class MyElement extends HTMLElement {
 customElements.define("my-element", MyElement);
 ```
 
-Los diferentes modos, `open` y closed, nos permiten acceder al shadow dom desde el js. Si es `closed`, no podemos acceder al shadow dom desde el js y nos devolvera null.
+Los diferentes modos, `open` y `closed`, nos permiten acceder al shadow dom desde el js. Si es `closed`, no podemos acceder al shadow dom desde el js y nos devolvera null.
 
 Código de ejemplo, extraido de [cybmeta](https://cybmeta.com/que-es-el-shadow-dom)
 
@@ -478,7 +496,11 @@ Los componentes web tienen un ciclo de vida, igual que podriamos encontrar en Re
 
 #### `connectedCallback()`
 
-Se ejecuta cuando el elemento se conecta al DOM. Se ejecuta solo una vez. Es parecido a `componentDidMount` en React y `mounted` en Vue.
+Cuando el elemento se conecta al DOM. Se ejecuta solo una vez. Es parecido a `componentDidMount` en React y `mounted` en Vue.
+
+Si añadimos la modicaciones al DOM en el constructor, no funcionarian si el elemento es añadido al DOM antes de que sea declarada, y esto es algo que queremos evitar.
+
+Por lo que es mejor añadir las modificaciones al DOM, o todos los estados iniciales en el `connectedCallback`. Porque esta función se ejecuta despues que el elemento sea definido.
 
 #### `disconnectedCallback()`
 
@@ -487,6 +509,13 @@ Se ejecuta cuando el elemento se desconecta del DOM. Se ejecuta solo una vez. Es
 #### `attributeChangedCallback()`
 
 Se ejecuta cuando un atributo del elemento cambia. Se ejecuta cada vez que un atributo cambia. Es parecido a `componentDidUpdate` en React y `updated` en Vue.
+
+```js
+attributeChangedCallback(name, oldValue, newValue) {
+  console.log('attributeChangedCallback', name, oldValue, newValue);
+  this._name = newValue;
+}
+```
 
 ### Component Properties
 
@@ -498,7 +527,14 @@ Es un array de strings que contiene los nombres de los atributos que queremos ob
 
 ```js
 static get observedAttributes() {
-  return ["name"];
+  return ["label"];
+}
+
+attributeChangedCallback(attrName, oldValue, newValue) {
+  console.log('attributeChangedCallback', attrName, oldValue, newValue);
+  if (attrName === "label") {
+    this._label = newValue;
+  }  
 }
 ```
 
@@ -506,19 +542,18 @@ static get observedAttributes() {
 
 Para crear un Shadow DOM, tenemos que crear una `template`, y usarla como su contenido.
 
+[Link al ejemplo](https://codi.link/PG15LWVsZW1lbnQ+PC9teS1lbGVtZW50Pg==||Y29uc3QgdGVtcGxhdGUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCd0ZW1wbGF0ZScpOwp0ZW1wbGF0ZS5pbm5lckhUTUwgPSBgCiAgPGgxPkhlbGxvLCBXb3JsZCE8L2gxPgpgOwoKY2xhc3MgTXlFbGVtZW50IGV4dGVuZHMgSFRNTEVsZW1lbnQgewogIGNvbm5lY3RlZENhbGxiYWNrKCkgewogICAgY29uc3QgdGVtcGxhdGVDb250ZW50ID0gZG9jdW1lbnQuaW1wb3J0Tm9kZSh0ZW1wbGF0ZS5jb250ZW50LCB0cnVlKTsKICAgIHRoaXMuYXBwZW5kQ2hpbGQodGVtcGxhdGVDb250ZW50KTsgICAgCiAgfQp9CgpjdXN0b21FbGVtZW50cy5kZWZpbmUoJ215LWVsZW1lbnQnLCBNeUVsZW1lbnQpOw==)
+
 ```js
 const template = document.createElement('template');
 template.innerHTML = `
-  <style>
   <h1>Hello, World!</h1>
-
 `;
 
 class MyElement extends HTMLElement {
-  constructor() {
-    super();
-    const shadowRoot = this.attachShadow({ mode: 'open' });
-    shadowRoot.appendChild(template.content.cloneNode(true));
+  connectedCallback() {
+    const templateContent = document.importNode(template.content, true);
+    this.appendChild(templateContent);
   }
 }
 
