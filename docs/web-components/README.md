@@ -1,15 +1,20 @@
+---
+lang: es-ES
+title: WEB COMPONENTS
+description: Introducción a los WEB COMPONENTS
+---
 # WEB COMPONENTS
 
 "Los Componentes Web son un paquete de diferentes tecnologías que te permiten crear elementos personalizados reutilizables — con su funcionalidad encapsulada apartada del resto del código — y utilizarlos en las aplicaciones web."
 [mdn web docs](https://developer.mozilla.org/es/docs/Web/Web_Components)
 
-Los componentes se han hecho famosos gracias a frameworks como React, Angular, Vue y Svelte aunque los components ya existían de antes. Podemos pensar con los web components como legos, como piezas que a medida que se van juntando se construye tú página web. Los web components son una tecnología que nos permite crear componentes reutilizables y encapsular su funcionalidad.
+Los componentes se han hecho famosos gracias a frameworks como React, Angular, Vue y Svelte aunque los componentes ya existían de antes. Podemos pensar en los web components como legos, como piezas que a medida que se van juntando se construye tu página web. Son una tecnología que nos permite crear componentes reutilizables y encapsular su funcionalidad.
 
 Los web components no están a la última, por lo que si quisiéramos utilizar, por ejemplo, la hidratación parcial, no los podríamos usar, por otro lado, tienen una base sólida y son usados en muchas compañías top, como GitHub, google, amazon, photoshop ...
 
 #### En resumen
 
-Los componentes web son pequeños paquetes de HTML, CSS y JavaScript. Los componentes web son un conjunto de estándares web. Está la plantilla de cuatro estándares web, `template`, Custom Elements, Shadow DOM e ES modules.
+Los componentes web son pequeños paquetes de HTML, CSS y JavaScript, que a la vez son un conjunto de estándares web. Está la plantilla de cuatro estándares web, `template`, Custom Elements, Shadow DOM e ES modules.
 
 Como resultado, los Componentes Web:
 
