@@ -15,7 +15,12 @@ Las animaciones pueden ayudar a cumplir estos dos propósitos:
 
 **Duración**: Duración de la animación o transición. Tenemos que hacer una diferencia con la duración infinita, en este punto no nos interesa si se ejecuta de forma infinita. Nos intersa el tiempo de la iteración de esa animación. Ejemplo, un spinner, puede estar de forma infinita, pero aqui contamos los segundos que tarda a dar una vuelta.
 
+- **animation-duration**: Duración de la animación.
+- **animation-itertion-count**: Número de veces que se ejecuta la animación. Si es infinito, se pone `infinite`.
+
 **Delay**: Es el tiempo que transcurre antes de que comience una animación o una transición. Cuando hace clic en algo que inicie una animación, puede haber un retraso antes de que comience la animación. **El retraso solo sucede una vez! no se repite.**
+
+- **animation-delay**: Tiempo de espera antes de que comience la animación. Si se establece en 0s, la animación comienza inmediatamente. Si se establece en 2s, la animación comienza 2 segundos después de que se cargue la página.
 
 **Timing function/aceleración de la animación**: Cómo se acelera y desacelera con el tiempo. Entonces, si una animación dura un segundo y tiene una aceleración lineal, que mostraremos en un minuto, entonces tendrá la misma velocidad constante de principio a fin. Sin embargo, las animaciones podemos hacer que no sean lineales, con `cubic-bezier(x1,y1,x2,y2)`.
 
@@ -111,3 +116,73 @@ También acepta múltiples propiedades separadas por comas, entonces le podemos 
 transition-property: background-color, transform;
 transition-duration: 1s, 2s;
 ```
+
+## Keyframes
+
+Las keyframes son un conjunto de reglas que definen el estado de un elemento en un momento determinado. Por ejemplo, en el 0% el elemento tiene un color rojo, en el 50% el color es azul, y en el 100% el color es verde.
+
+```css
+@keyframes my-animation {
+  0% {
+    background-color: red;
+  }
+  50% {
+    background-color: blue;
+  }
+  100% {
+    background-color: green;
+  }
+}
+```
+
+Se tienen que hacer las animaciones lo más naturales posibles, por ejemplo, en el caso de la posición seguramente sea buena idea que vuelva a su posición inicial. También no solo podemos utilizar valores de tanto por ciento, sino también `from` y `to`.
+
+```html
+<div class="circle"></div>
+```
+
+```css
+.circle {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 50%;
+  animation-name: move-like-a-square, red-to-blue;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes move-like-a-square {
+  from,
+  to {
+    /* 0%, 100% */
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(50px, 0);
+  }
+
+  50% {
+    transform: translate(50px, 50px);
+  }
+
+  75% {
+    transform: translate(0, 50px);
+  }
+}
+
+@keyframes red-to-blue {
+  from {
+    background-color: red;
+    /* we can NOT add a tranform, conlfict with the other animation */
+  }
+
+  to {
+    background-color: blue;
+  }
+}
+```
+
+[link al ejemplo](https://codi.link/PGRpdiBjbGFzcz0iY2lyY2xlIj4KPC9kaXY+|LmNpcmNsZSB7CiAgICB3aWR0aDogNTBweDsKICAgIGhlaWdodDogNTBweDsKICAgIGJhY2tncm91bmQtY29sb3I6IHJlZDsKICAgIGJvcmRlci1yYWRpdXM6IDUwJTsKICAgIGFuaW1hdGlvbi1uYW1lOiBtb3ZlLWxpa2UtYS1zcXVhcmUsIHJlZC10by1ibHVlOwogICAgYW5pbWF0aW9uLWR1cmF0aW9uOiAyczsKICAgIGFuaW1hdGlvbi1pdGVyYXRpb24tY291bnQ6IGluZmluaXRlOwp9CgpAa2V5ZnJhbWVzIG1vdmUtbGlrZS1hLXNxdWFyZSB7CgogICAgZnJvbSwKICAgIHRvIHsgLyogMCUsIDEwMCUgKi8gICAgICAgIAogICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKDAsIDApOwogICAgfQoKICAgIDI1JSB7CiAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoNTBweCwgMCk7CiAgICB9CgogICAgNTAlIHsKICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSg1MHB4LCA1MHB4KTsKICAgIH0KCiAgICA3NSUgewogICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKDAsIDUwcHgpOwogICAgfQp9CgpAa2V5ZnJhbWVzIHJlZC10by1ibHVlIHsKICAgIGZyb20gewogICAgICAgIGJhY2tncm91bmQtY29sb3I6IHJlZDsKICAgIH0KCiAgICB0byB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogYmx1ZTsKICAgIH0KfQ==|)
+<css-keyframes />
