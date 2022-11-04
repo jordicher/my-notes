@@ -16,6 +16,8 @@ export default defineUserConfig({
         CssVariables: path.resolve(__dirname, 'components/css-animations-and-transitions/CssVariables.vue'),
         CssTransitions: path.resolve(__dirname, 'components/css-animations-and-transitions/CssTransitions.vue'),
         CssKeyframes: path.resolve(__dirname, 'components/css-animations-and-transitions/CssKeyframes.vue'),
+        CssSimpleChoreography: path.resolve(__dirname, 'components/css-animations-and-transitions/CssSimpleChoreography.vue'),
+        CssComplexChoreography: path.resolve(__dirname, 'components/css-animations-and-transitions/CssComplexChoreography.vue'),
       },
       componentsDir: path.resolve(__dirname, './components'),
     }),

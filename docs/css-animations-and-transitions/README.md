@@ -186,3 +186,86 @@ Se tienen que hacer las animaciones lo más naturales posibles, por ejemplo, en 
 
 [link al ejemplo](https://codi.link/PGRpdiBjbGFzcz0iY2lyY2xlIj4KPC9kaXY+|LmNpcmNsZSB7CiAgICB3aWR0aDogNTBweDsKICAgIGhlaWdodDogNTBweDsKICAgIGJhY2tncm91bmQtY29sb3I6IHJlZDsKICAgIGJvcmRlci1yYWRpdXM6IDUwJTsKICAgIGFuaW1hdGlvbi1uYW1lOiBtb3ZlLWxpa2UtYS1zcXVhcmUsIHJlZC10by1ibHVlOwogICAgYW5pbWF0aW9uLWR1cmF0aW9uOiAyczsKICAgIGFuaW1hdGlvbi1pdGVyYXRpb24tY291bnQ6IGluZmluaXRlOwp9CgpAa2V5ZnJhbWVzIG1vdmUtbGlrZS1hLXNxdWFyZSB7CgogICAgZnJvbSwKICAgIHRvIHsgLyogMCUsIDEwMCUgKi8gICAgICAgIAogICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKDAsIDApOwogICAgfQoKICAgIDI1JSB7CiAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoNTBweCwgMCk7CiAgICB9CgogICAgNTAlIHsKICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSg1MHB4LCA1MHB4KTsKICAgIH0KCiAgICA3NSUgewogICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKDAsIDUwcHgpOwogICAgfQp9CgpAa2V5ZnJhbWVzIHJlZC10by1ibHVlIHsKICAgIGZyb20gewogICAgICAgIGJhY2tncm91bmQtY29sb3I6IHJlZDsKICAgIH0KCiAgICB0byB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogYmx1ZTsKICAgIH0KfQ==|)
 <css-keyframes />
+
+## Choreography
+
+Siempre hemos tratado a las animaciones de manera individual, pero podemos hacer que se ejecuten en un orden determinado. 
+Asi que coreography es para coordinar diferentes animaciones entre si, para convertirla en una sola animación.
+
+Se puede hacer de manera simple, con la propiedad `animation-delay` que nos permite dar un retraso a la animación.
+
+```html
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+```
+
+```css
+.circle {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 50%;
+  animation: red-to-blue 0.5s both;
+}
+
+.circle:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.circle:nth-child(3) {
+  animation-delay: 2s;
+}
+
+@keyframes red-to-blue {
+  from {
+    background-color: red;
+  }
+
+  to {
+    background-color: blue;
+  }
+}
+```
+
+[Link al ejemplo](https://codi.link/PGRpdiBjbGFzcz0iY2lyY2xlIj48L2Rpdj4KPGRpdiBjbGFzcz0iY2lyY2xlIj48L2Rpdj4KPGRpdiBjbGFzcz0iY2lyY2xlIj48L2Rpdj4KPGJ1dHRvbj4gUmVzdGFydCBhbmltYXRpb24gPC9idXR0b24+|LmNpcmNsZSB7CiAgd2lkdGg6IDUwcHg7CiAgaGVpZ2h0OiA1MHB4OwogIGJhY2tncm91bmQtY29sb3I6IHJlZDsKICBib3JkZXItcmFkaXVzOiA1MCU7CiAgYW5pbWF0aW9uOiByZWQtdG8tYmx1ZSAwLjVzIGJvdGg7Cn0KCi5jaXJjbGU6bnRoLWNoaWxkKDIpIHsKICBhbmltYXRpb24tZGVsYXk6IDFzOwp9CgouY2lyY2xlOm50aC1jaGlsZCgzKSB7CiAgYW5pbWF0aW9uLWRlbGF5OiAyczsKfQoKQGtleWZyYW1lcyByZWQtdG8tYmx1ZSB7CiAgZnJvbSB7CiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7CiAgfQoKICB0byB7CiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBibHVlOwogIH0KfQo=|Y29uc3QgYnV0dG9uID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcignYnV0dG9uJyk7CmJ1dHRvbi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsICgpID0+IHsKICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCcuY2lyY2xlJykuZm9yRWFjaCgoY2lyY2xlKSA9PiB7ICAgIAoKICAgIGNpcmNsZS5zdHlsZS5hbmltYXRpb24gPSAnbm9uZSc7CiAgICAgY2lyY2xlLm9mZnNldFdpZHRoOyAgIAogICAgIGNpcmNsZS5zdHlsZS5hbmltYXRpb24gPSBudWxsOwogIAogIH0pOwp9KTs=)
+
+<css-simple-choreography />
+
+### Complex Choreography
+
+Para poder de manera más escalable, se pueden utilizar variables CSS para poder controlar el orden de las animaciones. 
+Y utilizar stagger animations, para evitar sobrepongan las animaciones, de igual manera, añadir una variable a cada elemento para poder controlar el orden de las animaciones.
+
+```html
+<div class="circle" style="--i: 0"></div>
+<div class="circle" style="--i: 1"></div>
+<div class="circle" style="--i: 2"></div>
+```
+
+```css
+.circle {
+  --duration: 1s;
+  --stagger: 0.5s;
+  --interval: calc(var(--duration) - var(--stagger)); 
+
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 50%;
+  animation: red-to-blue var(--duration) calc(var(--interval) * var(--i)) both; /* calc(var(--interval) * var(--i)) it's the delay */
+}
+
+@keyframes red-to-blue {
+  from {
+    background-color: red;
+  }
+
+  to {
+    background-color: blue;
+  }
+}
+```
+[link al ejemplo](https://codi.link/PGRpdiBjbGFzcz0iY2lyY2xlIiBzdHlsZT0iLS1pOiAwIj48L2Rpdj4KPGRpdiBjbGFzcz0iY2lyY2xlIiBzdHlsZT0iLS1pOiAxIj48L2Rpdj4KPGRpdiBjbGFzcz0iY2lyY2xlIiBzdHlsZT0iLS1pOiAyIj48L2Rpdj4=|LmNpcmNsZSB7CiAgLS1kdXJhdGlvbjogMXM7CiAgLS1zdGFnZ2VyOiAwLjVzOwogIC0taW50ZXJ2YWw6IGNhbGModmFyKC0tZHVyYXRpb24pIC0gdmFyKC0tc3RhZ2dlcikpOwoKICB3aWR0aDogNTBweDsKICBoZWlnaHQ6IDUwcHg7CiAgYmFja2dyb3VuZC1jb2xvcjogcmVkOwogIGJvcmRlci1yYWRpdXM6IDUwJTsKICBhbmltYXRpb246IHJlZC10by1ibHVlIHZhcigtLWR1cmF0aW9uKSBjYWxjKHZhcigtLWludGVydmFsKSAqIHZhcigtLWkpKSBib3RoOwp9CgpAa2V5ZnJhbWVzIHJlZC10by1ibHVlIHsKICBmcm9tIHsKICAgIGJhY2tncm91bmQtY29sb3I6IHJlZDsKICB9CgogIHRvIHsKICAgIGJhY2tncm91bmQtY29sb3I6IGJsdWU7CiAgfQp9|)
+
+<css-complex-choreography />
