@@ -4,8 +4,7 @@ It is a repository to put my new notes, and in this way have control over my not
 
 [Link to the notes](https://my-notes.cherto.es/)
 
-Currently I have uploaded my notes from
-
+## [CSS Animations and Transitions](https://my-notes.cherto.es/css-animations-and-transitions/)
 ## [Web Components](https://my-notes.cherto.es/web-components/)
 
 ## [TDD: Test-Driven Development](https://my-notes.cherto.es/test-driven-development/)
