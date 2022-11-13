@@ -26,21 +26,21 @@ Para eso vamos a utilizar la libreria [`vue-test-utils`](https://v1.test-utils.v
 
 ```js
 // HelloWorld.spec.js
-import { mount } from '@vue/test-utils';
+import { mount } from "@vue/test-utils";
 
 const MessageComponent = {
-  template: '<p>{{ msg }}</p>',
-  props: ['msg'],
+  template: "<p>{{ msg }}</p>",
+  props: ["msg"],
 };
 
-test('renders props.msg when passed', () => {
+test("renders props.msg when passed", () => {
   const wrapper = mount(MessageComponent, {
     propsData: {
-      msg: 'Hello world',
+      msg: "Hello world",
     },
   });
 
-  expect(wrapper.text()).toContain('Hello world');
+  expect(wrapper.text()).toContain("Hello world");
 });
 ```
 
@@ -52,16 +52,16 @@ Un ejemplo de test básico de un componente sin dependencias en el que evaluamos
 
 ```js
 // HelloWorld.spec.js
-import { shallowMount } from '@vue/test-utils';
-import HelloWorld from '@/components/HelloWorld.vue';
+import { shallowMount } from "@vue/test-utils";
+import HelloWorld from "@/components/HelloWorld.vue";
 
-describe('HelloWorld.vue', () => {
-  test('render the component', () => {
+describe("HelloWorld.vue", () => {
+  test("render the component", () => {
     const wrapper = shallowMount(HelloWorld);
 
-    const component = wrapper.find('.hello');
+    const component = wrapper.find(".hello");
 
-    expect(component.classes()).toContain('hello');
+    expect(component.classes()).toContain("hello");
   });
 });
 ```
@@ -71,13 +71,13 @@ describe('HelloWorld.vue', () => {
 En muchos casos nuestros componentes tienen dependencias. Por ejemplo, una store en vuex, un router, un servicio, etc. En estos casos, tenemos que mockear las dependencias para poder testear el componente.
 
 ```js
-createApp(App).use(router).use(store).mount('#app');
+createApp(App).use(router).use(store).mount("#app");
 ```
 
 ```js
-import { createStore } from 'vuex';
+import { createStore } from "vuex";
 
-test('mounting a component with store', () => {
+test("mounting a component with store", () => {
   const store = createStore({
     state: {
       count: 0,
@@ -90,9 +90,9 @@ test('mounting a component with store', () => {
     },
   });
 
-  const component = wrapper.find('#counter');
+  const component = wrapper.find("#counter");
 
-  expect(component.text()).toEqual('0');
+  expect(component.text()).toEqual("0");
 });
 ```
 
@@ -110,14 +110,14 @@ Un ejemplo muy simple de un contador.
 
 ```js
 // Counter.spec.js
-import { shallowMount } from '@vue/test-utils';
-import Counter from '@/components/Counter.vue';
+import { shallowMount } from "@vue/test-utils";
+import Counter from "@/components/Counter.vue";
 
-describe('Counter.vue', () => {
-  test('increment the counter', () => {
+describe("Counter.vue", () => {
+  test("increment the counter", () => {
     const wrapper = shallowMount(Counter);
 
-    const button = wrapper.find('button');
+    const button = wrapper.find("button");
 
     expect(wrapper.vm.count).toEqual(0);
     wrapper.vm.increment();
@@ -158,18 +158,18 @@ Podemos mockear componentes, directivas, filtros, etc. para poder testear nuestr
 
 ```js
 // Counter.spec.js
-import { shallowMount } from '@vue/test-utils';
-import Counter from '@/components/Counter.vue';
+import { shallowMount } from "@vue/test-utils";
+import Counter from "@/components/Counter.vue";
 
-test('increment the counter', async () => {
-  const spy = jest.spyOn(Counter.methods, 'increment');
+test("increment the counter", async () => {
+  const spy = jest.spyOn(Counter.methods, "increment");
 
   const wrapper = shallowMount(Counter);
 
-  const button = wrapper.find('button');
+  const button = wrapper.find("button");
 
   expect(wrapper.vm.count).toEqual(0);
-  await button.trigger('click');
+  await button.trigger("click");
   expect(wrapper.vm.count).toEqual(1);
   expect(spy).toHaveBeenCalled();
 });
@@ -181,10 +181,10 @@ En el caso que queramos mockear un método de un componente, podemos utilizar `j
 
 ```js
 // Counter.spec.js
-import { shallowMount } from '@vue/test-utils';
-import Counter from '@/components/Counter.vue';
+import { shallowMount } from "@vue/test-utils";
+import Counter from "@/components/Counter.vue";
 
-test('increment the counter', async () => {
+test("increment the counter", async () => {
   const initialCounter = 10;
   const mockIncrement = jest.fn();
 
@@ -199,10 +199,10 @@ test('increment the counter', async () => {
     },
   });
 
-  const button = wrapper.find('button');
+  const button = wrapper.find("button");
 
   expect(wrapper.vm.counter).toEqual(initialCounter);
-  await button.trigger('click');
+  await button.trigger("click");
   expect(wrapper.vm.counter).toEqual(initialCounter);
   expect(mockIncrement).toHaveBeenCalled();
 });
@@ -214,15 +214,15 @@ En el caso que queramos testear un componente que tiene varios componentes hijos
 
 ```js
 // Counter.spec.js
-import { shallowMount } from '@vue/test-utils';
-import Counter from '@/components/Counter.vue';
+import { shallowMount } from "@vue/test-utils";
+import Counter from "@/components/Counter.vue";
 
-describe('Counter.vue', () => {
-  test('increment the counter', async () => {
+describe("Counter.vue", () => {
+  test("increment the counter", async () => {
     const wrapper = shallowMount(Counter);
 
-    const button = wrapper.find('button');
-    const counter = wrapper.findComponent({ name: 'Counter' });
+    const button = wrapper.find("button");
+    const counter = wrapper.findComponent({ name: "Counter" });
 
     expect(counter.vm.count).toEqual(0);
     await wrapper.vm.increment();
@@ -238,17 +238,17 @@ Para testear la UI, podemos utilizar `attributes` y `classes` del wrapper.
 ```js
 // Counter.spec.js
 
-import { shallowMount } from '@vue/test-utils';
-import Counter from '@/components/Counter.vue';
+import { shallowMount } from "@vue/test-utils";
+import Counter from "@/components/Counter.vue";
 
-describe('Counter.vue', () => {
-  test('the button must not be disabled', async () => {
+describe("Counter.vue", () => {
+  test("the button must not be disabled", async () => {
     const wrapper = shallowMount(Counter);
 
-    const button = wrapper.find('button');
+    const button = wrapper.find("button");
 
-    expect(button.attributes('disabled')).toBeUndefined();
-    expect(button.classes()).not.toContain('disabled');
+    expect(button.attributes("disabled")).toBeUndefined();
+    expect(button.classes()).not.toContain("disabled");
   });
 });
 ```

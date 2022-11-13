@@ -53,9 +53,9 @@ Se recomiend que los valores y1 = 0 y y2 = 1. `cubic-bezier(0.5, 0, 0.5, 1)` La 
 También se pueden añadir variables css con js. O asignar un valor a una clase en concreto
 
 ```js
-const box = document.querySelector('.box');
-box.style.setProperty('--custom-red', 'red');
-box.style.setProperty('--height-size', '100px');
+const box = document.querySelector(".box");
+box.style.setProperty("--custom-red", "red");
+box.style.setProperty("--height-size", "100px");
 ```
 
 <css-variables />
@@ -189,7 +189,7 @@ Se tienen que hacer las animaciones lo más naturales posibles, por ejemplo, en 
 
 ## Choreography
 
-Siempre hemos tratado a las animaciones de manera individual, pero podemos hacer que se ejecuten en un orden determinado. 
+Siempre hemos tratado a las animaciones de manera individual, pero podemos hacer que se ejecuten en un orden determinado.
 Asi que coreography es para coordinar diferentes animaciones entre si, para convertirla en una sola animación.
 
 Se puede hacer de manera simple, con la propiedad `animation-delay` que nos permite dar un retraso a la animación.
@@ -234,7 +234,7 @@ Se puede hacer de manera simple, con la propiedad `animation-delay` que nos perm
 
 ### Complex Choreography
 
-Para poder de manera más escalable, se pueden utilizar variables CSS para poder controlar el orden de las animaciones. 
+Para poder de manera más escalable, se pueden utilizar variables CSS para poder controlar el orden de las animaciones.
 Y utilizar stagger animations, para evitar sobrepongan las animaciones, de igual manera, añadir una variable a cada elemento para poder controlar el orden de las animaciones.
 
 ```html
@@ -247,7 +247,7 @@ Y utilizar stagger animations, para evitar sobrepongan las animaciones, de igual
 .circle {
   --duration: 1s;
   --stagger: 0.5s;
-  --interval: calc(var(--duration) - var(--stagger)); 
+  --interval: calc(var(--duration) - var(--stagger));
 
   width: 50px;
   height: 50px;
@@ -266,6 +266,7 @@ Y utilizar stagger animations, para evitar sobrepongan las animaciones, de igual
   }
 }
 ```
+
 [link al ejemplo](https://codi.link/PGRpdiBjbGFzcz0iY2lyY2xlIiBzdHlsZT0iLS1pOiAwIj48L2Rpdj4KPGRpdiBjbGFzcz0iY2lyY2xlIiBzdHlsZT0iLS1pOiAxIj48L2Rpdj4KPGRpdiBjbGFzcz0iY2lyY2xlIiBzdHlsZT0iLS1pOiAyIj48L2Rpdj4=|LmNpcmNsZSB7CiAgLS1kdXJhdGlvbjogMXM7CiAgLS1zdGFnZ2VyOiAwLjVzOwogIC0taW50ZXJ2YWw6IGNhbGModmFyKC0tZHVyYXRpb24pIC0gdmFyKC0tc3RhZ2dlcikpOwoKICB3aWR0aDogNTBweDsKICBoZWlnaHQ6IDUwcHg7CiAgYmFja2dyb3VuZC1jb2xvcjogcmVkOwogIGJvcmRlci1yYWRpdXM6IDUwJTsKICBhbmltYXRpb246IHJlZC10by1ibHVlIHZhcigtLWR1cmF0aW9uKSBjYWxjKHZhcigtLWludGVydmFsKSAqIHZhcigtLWkpKSBib3RoOwp9CgpAa2V5ZnJhbWVzIHJlZC10by1ibHVlIHsKICBmcm9tIHsKICAgIGJhY2tncm91bmQtY29sb3I6IHJlZDsKICB9CgogIHRvIHsKICAgIGJhY2tncm91bmQtY29sb3I6IGJsdWU7CiAgfQp9|)
 
 <css-complex-choreography />

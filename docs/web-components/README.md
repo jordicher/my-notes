@@ -3,6 +3,7 @@ lang: es-ES
 title: WEB COMPONENTS
 description: Introducción a los WEB COMPONENTS
 ---
+
 # WEB COMPONENTS
 
 "Los Componentes Web son un paquete de diferentes tecnologías que te permiten crear elementos personalizados reutilizables — con su funcionalidad encapsulada apartada del resto del código — y utilizarlos en las aplicaciones web."
@@ -89,11 +90,11 @@ Ejemplo, [link al ejemplo](https://codi.link/PG15LWVsZW1lbnQ+PC9teS1lbGVtZW50Pg=
 class MyElement extends HTMLElement {
   constructor() {
     super();
-    this.innerHTML = 'Hello World';
+    this.innerHTML = "Hello World";
   }
 }
 
-customElements.define('my-element', MyElement); // Aqui registramos el elemento
+customElements.define("my-element", MyElement); // Aqui registramos el elemento
 ```
 
 ### Atributos
@@ -110,11 +111,11 @@ Ejemplo, [link al ejemplo](https://codi.link/PG15LWVsZW1lbnQgbmFtZT0iSm9yZGkiPjw
 class MyElement extends HTMLElement {
   constructor() {
     super();
-    this.innerHTML = `Hello ${this.getAttribute('name')}`;
+    this.innerHTML = `Hello ${this.getAttribute("name")}`;
   }
 }
 
-customElements.define('my-element', MyElement);
+customElements.define("my-element", MyElement);
 ```
 
 ### Shadow DOM
@@ -156,14 +157,14 @@ Código de ejemplo, extraido de [cybmeta](https://cybmeta.com/que-es-el-shadow-d
 </blockquote>
 <div class="shadow-host"></div>
 <script>
-  const myElement = document.querySelector('.shadow-host');
-  const shadow = myElement.attachShadow({ mode: 'open' });
+  const myElement = document.querySelector(".shadow-host");
+  const shadow = myElement.attachShadow({ mode: "open" });
 
-  const quoteEl = document.createElement('blockquote');
-  quoteEl.innerText = 'Haz el amor y no la guerra (John Lennon)';
+  const quoteEl = document.createElement("blockquote");
+  quoteEl.innerText = "Haz el amor y no la guerra (John Lennon)";
   shadow.appendChild(quoteEl);
 
-  const styles = document.createElement('style');
+  const styles = document.createElement("style");
   styles.textContent = `
         blockquote {
             color: white;
@@ -189,11 +190,11 @@ Los HTML imports ya no se usan.
 Los ES Modules para importar y exportar las variables.... lo que sea.
 
 ```js
-import { MyElement } from './my-element.js';
+import { MyElement } from "./my-element.js";
 
 export class MyElement extends HTMLElement {
   static get observedAttributes() {
-    return ['theme'];
+    return ["theme"];
   }
 
   constructor() {
@@ -234,7 +235,7 @@ Ejemplo, [link al ejemplo](https://codi.link/PG15LWVsZW1lbnQ+CiAgICA8cD5QYXJhZ3J
 ```
 
 ```js
-const template = document.createElement('template');
+const template = document.createElement("template");
 template.innerHTML = `
 <slot></slot>
 <p>Paragraph Shadow DOM</p>
@@ -243,12 +244,12 @@ template.innerHTML = `
 class MyElement extends HTMLElement {
   constructor() {
     super();
-    this._shadowRoot = this.attachShadow({ mode: 'open' });
+    this._shadowRoot = this.attachShadow({ mode: "open" });
     this._shadowRoot.appendChild(template.content.cloneNode(true));
   }
 }
 
-customElements.define('my-element', MyElement);
+customElements.define("my-element", MyElement);
 ```
 
 ```css
@@ -285,7 +286,7 @@ body {
 ```
 
 ```js
-const template = document.createElement('template');
+const template = document.createElement("template");
 template.innerHTML = `
 <style>
     p {
@@ -300,12 +301,12 @@ template.innerHTML = `
 class MyElement extends HTMLElement {
   constructor() {
     super();
-    this._shadowRoot = this.attachShadow({ mode: 'open' });
+    this._shadowRoot = this.attachShadow({ mode: "open" });
     this._shadowRoot.appendChild(template.content.cloneNode(true));
   }
 }
 
-customElements.define('my-element', MyElement);
+customElements.define("my-element", MyElement);
 ```
 
 ##### Themes
@@ -315,7 +316,7 @@ Podemos crear un web Component que reciba atributos, un ejemplo de atributo, por
 [Link al ejemplo](https://codi.link/PG15LWVsZW1lbnQgdGhlbWU9ImRhcmsiPgogICAgPHA+UGFyYWdyYXBoIExpZ2h0IERPTTwvcD4KPC9teS1lbGVtZW50Pg==||Y29uc3QgdGVtcGxhdGUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCJ0ZW1wbGF0ZSIpOwogIHRlbXBsYXRlLmlubmVySFRNTCA9IGAKICA8c3R5bGU+PC9zdHlsZT4KICA8cD4gUGFyYWdyYXBoIFNoYWRvdyBEb20gPC9wPgogIDxzbG90Pjwvc2xvdD4KICBgOwoKICBjbGFzcyBNeUVsZW1lbnQgZXh0ZW5kcyBIVE1MRWxlbWVudCB7CiAgICAgIGNvbnN0cnVjdG9yKCkgewogICAgICAgICAgICBzdXBlcigpOwogICAgICAgICAgICB0aGlzLl9zaGFkb3dSb290ID0gdGhpcy5hdHRhY2hTaGFkb3coeyBtb2RlOiAib3BlbiIgfSk7CiAgICAgICAgICAgIHRoaXMuX3NoYWRvd1Jvb3QuYXBwZW5kQ2hpbGQodGVtcGxhdGUuY29udGVudC5jbG9uZU5vZGUodHJ1ZSkpOwogICAgICAgIH0KCiAgICAgICAgc3RhdGljIGdldCBvYnNlcnZlZEF0dHJpYnV0ZXMoKSB7CiAgICAgICAgICAgIHJldHVybiBbInRoZW1lIl07CiAgICAgICAgfQoKICAgICAgICBhdHRyaWJ1dGVDaGFuZ2VkQ2FsbGJhY2sobmFtZSwgb2xkVmFsdWUsIG5ld1ZhbHVlKSB7CiAgICAgICAgICAgIGlmIChuYW1lID09PSAidGhlbWUiKSB7CiAgICAgICAgICAgICAgICBpZiAobmV3VmFsdWUgPT09ICJkYXJrIikgewogICAgICAgICAgICAgICAgICAgIHRoaXMuX3NoYWRvd1Jvb3QucXVlcnlTZWxlY3Rvcigic3R5bGUiKS5pbm5lckhUTUwgPSBgCiAgICAgICAgICAgICAgICAgICAgOmhvc3QgeyAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICBjb2xvcjogYmx1ZTsKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgIDpob3N0IHAgewogICAgICAgICAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7ICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgYDsKICAgICAgICAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICAgICAgICAgdGhpcy5fc2hhZG93Um9vdC5xdWVyeVNlbGVjdG9yKCJzdHlsZSIpLmlubmVySFRNTCA9IGAKICAgICAgICAgICAgICAgICAgICA6aG9zdCB7CiAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yOiBncmVlbjsKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgYDsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgIH0KICAgIH0KCiAgICBjdXN0b21FbGVtZW50cy5kZWZpbmUoIm15LWVsZW1lbnQiLCBNeUVsZW1lbnQpOw==)
 
 ```js
-const template = document.createElement('template');
+const template = document.createElement("template");
 template.innerHTML = `
   <style></style>
   <p> Paragraph Shadow Dom </p>
@@ -325,18 +326,18 @@ template.innerHTML = `
 class MyElement extends HTMLElement {
   constructor() {
     super();
-    this._shadowRoot = this.attachShadow({ mode: 'open' });
+    this._shadowRoot = this.attachShadow({ mode: "open" });
     this._shadowRoot.appendChild(template.content.cloneNode(true));
   }
 
   static get observedAttributes() {
-    return ['theme'];
+    return ["theme"];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    if (name === 'theme') {
-      if (newValue === 'dark') {
-        this._shadowRoot.querySelector('style').innerHTML = `
+    if (name === "theme") {
+      if (newValue === "dark") {
+        this._shadowRoot.querySelector("style").innerHTML = `
                     :host {                        
                         color: blue;
                     }
@@ -345,7 +346,7 @@ class MyElement extends HTMLElement {
                     }
                     `;
       } else {
-        this._shadowRoot.querySelector('style').innerHTML = `
+        this._shadowRoot.querySelector("style").innerHTML = `
                     :host {                 
                         color: green;
                     }
@@ -355,7 +356,7 @@ class MyElement extends HTMLElement {
   }
 }
 
-customElements.define('my-element', MyElement);
+customElements.define("my-element", MyElement);
 ```
 
 ```html
@@ -391,7 +392,7 @@ Esta soportado en todos los [navegadores relevantes](https://caniuse.com/?search
 ```
 
 ```js
-const template = document.createElement('template');
+const template = document.createElement("template");
 template.innerHTML = `
 <style>
 :host p {
@@ -405,12 +406,12 @@ template.innerHTML = `
 class MyElement extends HTMLElement {
   constructor() {
     super();
-    const shadowRoot = this.attachShadow({ mode: 'open' });
+    const shadowRoot = this.attachShadow({ mode: "open" });
     shadowRoot.appendChild(template.content.cloneNode(true));
   }
 }
 
-customElements.define('my-element', MyElement);
+customElements.define("my-element", MyElement);
 ```
 
 ##### `:host-context()`
@@ -439,7 +440,7 @@ Representa cualquier elemento que se haya colocado en un `<slot>` de una plantil
 ```
 
 ```js
-const template = document.createElement('template');
+const template = document.createElement("template");
 template.innerHTML = `
 <style>
 ::slotted(p) {
@@ -453,12 +454,12 @@ template.innerHTML = `
 class MyElement extends HTMLElement {
   constructor() {
     super();
-    const shadowRoot = this.attachShadow({ mode: 'open' });
+    const shadowRoot = this.attachShadow({ mode: "open" });
     shadowRoot.appendChild(template.content.cloneNode(true));
   }
 }
 
-customElements.define('my-element', MyElement);
+customElements.define("my-element", MyElement);
 ```
 
 Se pintará el párrafo del Light DOM con el color naranja, aunque está en segunda posición en el DOM. Porque es el `<slot>`.
@@ -471,28 +472,28 @@ Al momento de hacer un Web Component, tenemos que tener en cuenta diferentes pun
 class MyElement extends HTMLElement {
   constructor() {
     super();
-    this._name = this.getAttribute('name');
+    this._name = this.getAttribute("name");
   }
 
   connectedCallback() {
-    console.log('connectedCallback');
+    console.log("connectedCallback");
   }
 
   disconnectedCallback() {
-    console.log('disconnectedCallback');
+    console.log("disconnectedCallback");
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    console.log('attributeChangedCallback', name, oldValue, newValue);
+    console.log("attributeChangedCallback", name, oldValue, newValue);
     this._name = newValue;
   }
 
   static get observedAttributes() {
-    return ['name'];
+    return ["name"];
   }
 }
 
-customElements.define('my-element', MyElement);
+customElements.define("my-element", MyElement);
 ```
 
 ### Component Lifecycle
@@ -539,7 +540,7 @@ attributeChangedCallback(attrName, oldValue, newValue) {
   console.log('attributeChangedCallback', attrName, oldValue, newValue);
   if (attrName === "label") {
     this._label = newValue;
-  }  
+  }
 }
 ```
 
@@ -550,7 +551,7 @@ Para crear un Shadow DOM, tenemos que crear una `template`, y usarla como su con
 [Link al ejemplo](https://codi.link/PG15LWVsZW1lbnQ+PC9teS1lbGVtZW50Pg==||Y29uc3QgdGVtcGxhdGUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCd0ZW1wbGF0ZScpOwp0ZW1wbGF0ZS5pbm5lckhUTUwgPSBgCiAgPGgxPkhlbGxvLCBXb3JsZCE8L2gxPgpgOwoKY2xhc3MgTXlFbGVtZW50IGV4dGVuZHMgSFRNTEVsZW1lbnQgewogIGNvbm5lY3RlZENhbGxiYWNrKCkgewogICAgY29uc3QgdGVtcGxhdGVDb250ZW50ID0gZG9jdW1lbnQuaW1wb3J0Tm9kZSh0ZW1wbGF0ZS5jb250ZW50LCB0cnVlKTsKICAgIHRoaXMuYXBwZW5kQ2hpbGQodGVtcGxhdGVDb250ZW50KTsgICAgCiAgfQp9CgpjdXN0b21FbGVtZW50cy5kZWZpbmUoJ215LWVsZW1lbnQnLCBNeUVsZW1lbnQpOw==)
 
 ```js
-const template = document.createElement('template');
+const template = document.createElement("template");
 template.innerHTML = `
   <h1>Hello, World!</h1>
 `;
@@ -562,7 +563,7 @@ class MyElement extends HTMLElement {
   }
 }
 
-customElements.define('my-element', MyElement);
+customElements.define("my-element", MyElement);
 ```
 
 ## Ejemplos
@@ -576,7 +577,7 @@ customElements.define('my-element', MyElement);
 ```
 
 ```js
-const template = document.createElement('template');
+const template = document.createElement("template");
 template.innerHTML = `
   <style>
     :host {
@@ -610,25 +611,25 @@ class Counter extends HTMLElement {
   constructor() {
     super();
     this._count = 0;
-    this._shadowRoot = this.attachShadow({ mode: 'open' });
+    this._shadowRoot = this.attachShadow({ mode: "open" });
     this._shadowRoot.appendChild(template.content.cloneNode(true));
-    this.$count = this._shadowRoot.querySelector('#count');
-    this.$increment = this._shadowRoot.querySelector('#increment');
-    this.$decrement = this._shadowRoot.querySelector('#decrement');
-    this.$reset = this._shadowRoot.querySelector('#reset');
+    this.$count = this._shadowRoot.querySelector("#count");
+    this.$increment = this._shadowRoot.querySelector("#increment");
+    this.$decrement = this._shadowRoot.querySelector("#decrement");
+    this.$reset = this._shadowRoot.querySelector("#reset");
   }
 
   connectedCallback() {
-    this.$increment.addEventListener('click', this._increment.bind(this));
-    this.$decrement.addEventListener('click', this._decrement.bind(this));
-    this.$reset.addEventListener('click', this._reset.bind(this));
+    this.$increment.addEventListener("click", this._increment.bind(this));
+    this.$decrement.addEventListener("click", this._decrement.bind(this));
+    this.$reset.addEventListener("click", this._reset.bind(this));
     this._render();
   }
 
   disconnectedCallback() {
-    this.$increment.removeEventListener('click', this._increment.bind(this));
-    this.$decrement.removeEventListener('click', this._decrement.bind(this));
-    this.$reset.removeEventListener('click', this._reset.bind(this));
+    this.$increment.removeEventListener("click", this._increment.bind(this));
+    this.$decrement.removeEventListener("click", this._decrement.bind(this));
+    this.$reset.removeEventListener("click", this._reset.bind(this));
   }
 
   _increment() {
@@ -651,5 +652,5 @@ class Counter extends HTMLElement {
   }
 }
 
-customElements.define('my-counter', Counter);
+customElements.define("my-counter", Counter);
 ```
