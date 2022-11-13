@@ -65,3 +65,211 @@ En resumen, primero hacemos el test, luego hacemos que funcione sin importar com
 Al principio cuando estás empezando a desarrollar, obviamente puede ser que vas más lento, vas más seguro pero más lento.
 
 Usualmente, pensamos que el desarrollo es una línea recta, que va de A a B, y es obvio que el TDD cuando empiezas en el punto A, es un poco más lento que si lo hicieras de otra forma, pero hay que tener en cuenta que el desarrollo nunca termina, seguimos trabajando en empresas y ese código va a quedarse ahí para siempre y lo que te cuesta un poquito al principio te sirve tanto como para mantener como añadir nuevas features y eso te lo acelera.
+
+## Ejemplo función suma
+
+#### Paso 1 ❌
+
+El primer test, validamos que sea una función.
+Dado que no hemos creado la función, el test va a fallar.
+
+```js
+it("should be a function", () => {
+  expect(typeof sum).toBe("function");
+});
+```
+
+Siempre tenemos que estar en rojo antes que en verde. Si hacemos los tests finales, no estamos haciendo TDD.
+
+#### Paso 2 ✅
+
+Creamos la función sum, y hacemos que el test pase.
+
+```js
+function sum() {}
+
+it("should be a function", () => {
+  expect(typeof sum).toBe("function");
+});
+```
+
+#### Paso 3 ❌
+
+Un test para validar que de error si no estamos pasando parámetros, no debemos borrar los tests anteriores, sino que añadir nuevos.
+
+```js
+function sum() {}
+
+// ... the previous test
+it("should throw an error if 2 number params are not provided", () => {
+  expect(() => sum()).toThrow();
+});
+```
+
+#### Paso 4 ✅
+
+```js
+function sum(a, b) {
+  if (typeof a !== "number" || typeof b !== "number") {
+    throw new Error(); // No hace falta que añadamos un mensaje, con esto ya pasamos el test. Porque si no ya estaria haciendo codigo de más
+  }
+}
+
+// ... the previous test
+it("should throw an error if 2 number params are not provided", () => {
+  expect(() => sum()).toThrow();
+});
+```
+
+#### Paso 5 ❌
+
+```js
+function sum(a, b) {
+  if (typeof a !== "number" || typeof b !== "number") {
+    throw new Error();
+  }
+}
+
+// ... the previous test
+it("should throw an especific error messsage if 2 number params are not provided", () => {
+  expect(() => sum()).toThrow("2 numbers are required");
+});
+```
+
+#### Paso 6 ✅
+
+```js
+function sum(a, b) {
+  if (typeof a !== "number" || typeof b !== "number") {
+    throw new Error("2 numbers are required");
+  }
+}
+
+// ... the previous test
+it("should throw an especific error messsage if 2 number params are not provided", () => {
+  expect(() => sum()).toThrow("2 numbers are required");
+});
+```
+
+#### Paso 7 ❌
+
+El typeof de NaN es number, por lo que tenemos que añadir un test para validar que no sea NaN.
+
+```js
+function sum(a, b) {
+  if (typeof a !== "number" || typeof b !== "number") {
+    throw new Error("2 numbers are required");
+  }
+}
+
+// ... the previous test
+it("should throw a specific error message if some of the arguments isNan", () => {
+  expect(() => sum(NaN, NaN)).toThrow("isNan is not a valid number");
+});
+```
+
+#### Paso 8 ✅
+
+```js
+function sum(a, b) {
+  if (typeof a !== "number" || typeof b !== "number") {
+    throw new Error("2 numbers are required");
+  }
+  if (Number.isNaN(a) || Number.isNaN(b)) {
+    throw new Error("isNan is not a valid number");
+  }
+}
+
+// ... the previous test
+it("should throw a specific error message if some of the arguments isNan", () => {
+  expect(() => sum(NaN, NaN)).toThrow("isNan is not a valid number");
+});
+```
+
+#### Paso 9 ❌
+
+```js
+function sum(a, b) {
+  if (typeof a !== "number" || typeof b !== "number") {
+    throw new Error("2 numbers are required");
+  }
+  if (Number.isNaN(a) || Number.isNaN(b)) {
+    throw new Error("isNan is not a valid number");
+  }
+}
+
+// ... the previous test
+it("should return the sum of 2 numbers", () => {
+  expect(sum(1, 2)).toBe(3);
+});
+```
+
+#### Paso 10 ✅
+
+```js
+function sum(a, b) {
+  if (typeof a !== "number" || typeof b !== "number") {
+    throw new Error("2 numbers are required");
+  }
+  if (Number.isNaN(a) || Number.isNaN(b)) {
+    throw new Error("isNan is not a valid number");
+  }
+  return 3; // Hacemos el minimo para que de verde
+}
+
+// ... the previous test
+it("should return the sum of 2 numbers returns 3", () => {
+  expect(sum(1, 2)).toBe(3);
+});
+```
+
+#### Paso 11 ❌
+
+```js
+function sum(a, b) {
+  if (typeof a !== "number" || typeof b !== "number") {
+    throw new Error("2 numbers are required");
+  }
+  if (Number.isNaN(a) || Number.isNaN(b)) {
+    throw new Error("isNan is not a valid number");
+  }
+  return 3;
+}
+
+// ... the previous test
+it("should return the sum of 2 numbers", () => {
+  // Añadimos más casos de prueba
+  expect(sum(1, 3)).toBe(4);
+  expect(sum(1, 4)).toBe(5);
+});
+```
+
+#### Paso 12 ✅
+
+```js
+function sum(a, b) {
+  if (typeof a !== "number" || typeof b !== "number") {
+    throw new Error("2 numbers are required");
+  }
+  if (Number.isNaN(a) || Number.isNaN(b)) {
+    throw new Error("isNan is not a valid number");
+  }
+  return a + b; // Ahora que el test, nos ha dado un patrón, podemos modificar la función.
+}
+
+// ... the previous test
+it("should return the sum of 2 numbers", () => {
+  expect(sum(1, 3)).toBe(4);
+  expect(sum(1, 4)).toBe(5);
+});
+```
+
+#### Refactor
+
+Ahora tocaría refactorizar el código, podemos estar tranquilos en los refactors, porque está testeado. Con el refactor el código debe ser más legible. Una forma simple, en el caso de la suma, sería exportar la función a un archivo, y luego importarla en el test.
+
+### A tener en cuenta
+
+Por muy sencillo que era el caso, los tests nos han estando guiando para que no nos olvidemos de nada, y vayamos hacia la solución.
+
+**Los tests se puden borrar**, los casos redundantes los podemos borrar/editar. Ejemplo el test que testea que la función es una función. O que el resultado sea 3 se puede añadir en el test "should return the sum of 2 numbers"
