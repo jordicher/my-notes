@@ -1,3 +1,9 @@
+---
+lang: es-ES
+title: Vue Unit Testing
+description: Introducción a Vue Unit Testing
+---
+
 # Vue Unit Testing
 
 Dentro del testing de Vue, hay dos tipos de pruebas:

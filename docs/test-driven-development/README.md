@@ -1,3 +1,9 @@
+---
+lang: es-ES
+title: TDD Test-Driven Development
+description: Introducción a TDD Test-Driven Development
+---
+
 # TDD: Test-Driven Development
 
 El TDD va más allá de los tests, **no es una técnica para hacer tests**, es una técnica para desarrollar software a partir de tests, lo dice el propio nombre, Test-Driven Development.
