@@ -85,7 +85,7 @@ Siempre tenemos que estar en rojo antes que en verde. Si hacemos los tests final
 
 Creamos la función sum, y hacemos que el test pase.
 
-```js
+```js{1}
 function sum() {}
 
 it("should be a function", () => {
@@ -97,7 +97,7 @@ it("should be a function", () => {
 
 Un test para validar que de error si no estamos pasando parámetros, no debemos borrar los tests anteriores, sino que añadir nuevos.
 
-```js
+```js{4-6}
 function sum() {}
 
 // ... the previous test
@@ -108,7 +108,7 @@ it("should throw an error if 2 number params are not provided", () => {
 
 #### Paso 4 ✅
 
-```js
+```js{2-4}
 function sum(a, b) {
   if (typeof a !== "number" || typeof b !== "number") {
     throw new Error(); // No hace falta que añadamos un mensaje, con esto ya pasamos el test. Porque si no ya estaria haciendo codigo de más
@@ -123,7 +123,7 @@ it("should throw an error if 2 number params are not provided", () => {
 
 #### Paso 5 ❌
 
-```js
+```js{8-10}
 function sum(a, b) {
   if (typeof a !== "number" || typeof b !== "number") {
     throw new Error();
@@ -138,7 +138,7 @@ it("should throw an especific error messsage if 2 number params are not provided
 
 #### Paso 6 ✅
 
-```js
+```js{3}
 function sum(a, b) {
   if (typeof a !== "number" || typeof b !== "number") {
     throw new Error("2 numbers are required");
@@ -155,7 +155,7 @@ it("should throw an especific error messsage if 2 number params are not provided
 
 El typeof de NaN es number, por lo que tenemos que añadir un test para validar que no sea NaN.
 
-```js
+```js{8-10}
 function sum(a, b) {
   if (typeof a !== "number" || typeof b !== "number") {
     throw new Error("2 numbers are required");
@@ -170,7 +170,7 @@ it("should throw a specific error message if some of the arguments isNan", () =>
 
 #### Paso 8 ✅
 
-```js
+```js{5-7}
 function sum(a, b) {
   if (typeof a !== "number" || typeof b !== "number") {
     throw new Error("2 numbers are required");
@@ -188,7 +188,7 @@ it("should throw a specific error message if some of the arguments isNan", () =>
 
 #### Paso 9 ❌
 
-```js
+```js{11-13}
 function sum(a, b) {
   if (typeof a !== "number" || typeof b !== "number") {
     throw new Error("2 numbers are required");
@@ -206,7 +206,7 @@ it("should return the sum of 2 numbers", () => {
 
 #### Paso 10 ✅
 
-```js
+```js{8}
 function sum(a, b) {
   if (typeof a !== "number" || typeof b !== "number") {
     throw new Error("2 numbers are required");
@@ -225,7 +225,7 @@ it("should return the sum of 2 numbers returns 3", () => {
 
 #### Paso 11 ❌
 
-```js
+```js{12-14}
 function sum(a, b) {
   if (typeof a !== "number" || typeof b !== "number") {
     throw new Error("2 numbers are required");
@@ -238,7 +238,6 @@ function sum(a, b) {
 
 // ... the previous test
 it("should return the sum of 2 numbers", () => {
-  // Añadimos más casos de prueba
   expect(sum(1, 3)).toBe(4);
   expect(sum(1, 4)).toBe(5);
 });
@@ -246,7 +245,7 @@ it("should return the sum of 2 numbers", () => {
 
 #### Paso 12 ✅
 
-```js
+```js{8}
 function sum(a, b) {
   if (typeof a !== "number" || typeof b !== "number") {
     throw new Error("2 numbers are required");
