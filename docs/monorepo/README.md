@@ -136,3 +136,68 @@ Al tener diferentes paquetes, puede ser que usemos dos dependencias iguales, una
 ```
 
 En este caso, npm/yarn instalará la versión 26.4.5 en el paquete types, y la versión 27.4.5 en el directorio raiz. Es decir, de esta manera habrá una version local en el paquete types. Y otra version global en el directorio raiz.
+
+## Lerna
+
+Lerna nos soluciona un montón de problemas que tenemos al trabajar con workspaces. Por ejemplo, la instalación de dependencias, la ejecución de scripts, la publicación de paquetes, etc. Por ejemplo, un caso que se nos estaba dando en los puntos previos es que teniamos que ejecutar cada script en su paquete, por ejemplo `yarn lint` en el paquete types.
+Con lerna podemos ejecutarlo en el directorio raiz, y lerna se encargará de ejecutarlo **en todos los paquetes**
+
+### Instalación
+
+Para instalar lerna, debemos ejecutar el siguiente comando:
+
+```bash
+yarn add -DW lerna
+    or
+volta install lerna
+  or
+npx lerna init
+```
+
+En la configuración de lerna, podemos configurar el directorio de los paquetes, por defecto es `packages/*`. Seria como el workspaces de npm.
+
+```json
+// lerna.json
+{
+  "packages": ["packages/*"]
+}
+```
+
+npmClient: Por defecto es npm, pero podemos configurarlo para que use yarn.
+
+```json
+// lerna.json
+{
+  "npmClient": "yarn"
+}
+```
+
+version: Por defecto es independent, que permite incrementar las versiones del paquete de forma independiente entre sí.
+Pero podemos configurarlo para que todas las versiones sean iguales, si queremo unir automáticamente todas las versiones del paquete. Un problema con este enfoque es que un cambio importante en cualquier paquete dará como resultado que todos los paquetes tengan una nueva versión principal.
+
+```json
+// lerna.json
+{
+  "version": "0.0.1" || "independent"
+}
+```
+
+useWorkspaces: Por defecto es true, que permite que lerna use el workspaces de npm. Si lo configuramos a false, lerna no usará el workspaces de npm, y tendremos que configurar lerna para que use el directorio de los paquetes.
+
+```json
+// lerna.json
+{
+  "useWorkspaces": true
+}
+```
+
+### Comandos
+
+Lerna nos permite ejecutar comandos, los más comunes son:
+
+- lerna link - Conecta los paquetes entre sí, para que puedan importar entre sí. Por ejemplo, si tenemos un paquete types, y otro paquete utils, que importa types, lerna link nos permite que utils pueda importar types.
+- lerna bootstrap - Instala las dependencias de todos los paquetes, y hace como un yarn link.
+- lerna run `test` - Ejecuta un script `test` en todos los paquetes. Es como un forloop.
+  - lerna run `build` --concurrency 2 --stream Ejecutará 2 simultaneamente, y mostrará el output en tiempo real. Porque hay paquetes que no tienen relación entre sí, y que no dependen de otros paquetes.
+- lerna exec `test` - Ejecuta un script `test` en todos los paquetes. Es como el caso anterior, pero permite comandos arbitrarios, como crear una carpeta, ls, etc.
+- lerna add `dependency` - Como yarn add, pero añade la dependencia a todos los paquetes.
