@@ -201,3 +201,49 @@ Lerna nos permite ejecutar comandos, los más comunes son:
   - lerna run `build` --concurrency 2 --stream Ejecutará 2 simultaneamente, y mostrará el output en tiempo real. Porque hay paquetes que no tienen relación entre sí, y que no dependen de otros paquetes.
 - lerna exec `test` - Ejecuta un script `test` en todos los paquetes. Es como el caso anterior, pero permite comandos arbitrarios, como crear una carpeta, ls, etc.
 - lerna add `dependency` - Como yarn add, pero añade la dependencia a todos los paquetes.
+
+## Scripty
+
+No es requerido, pero es una herramienta que nos permite ejecutar scripts. Nos ayuda a la gestión del monorepo, y en caso de querer modificar un script, no tenemos que modificarlo en todos los paquetes.
+
+Instalación:
+
+```bash
+yarn add -DW scripty
+    or
+volta install scripty
+```
+
+Todos los script quedarían:
+
+```json{4}
+// package.json
+{
+  "scripts": {
+    "test": "scripty"
+  },
+}
+```
+
+Se debe añadir el directorio de donde están los scripts, además podemos tener múltiples directorios, por ejemplo, un directorio para el workspace y otro para los paquetes.
+
+```json{7}
+// package.json
+{
+  "scripts": {
+    "test": "scripty"
+  },
+  "scripty": {
+    "path": "./scripts/workspace"
+  }
+}
+```
+
+Crear carpeta scripts en el directorio raíz, y crear un archivo por cada script que queramos ejecutar. Por ejemplo, test.js
+
+```sh
+// scripts/workspace/test.sh
+
+#!/usr/bin/env bash
+yarn lerna run test --stream
+```
