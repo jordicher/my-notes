@@ -69,7 +69,7 @@ typescript@^4.0.3:
 
 Al package.json de raiz, solo tenemos que instalar las dependencias a nivel global que sirvan para la experiencia de desarollo, no debemos intalar dependencias que aporten funcionalidad.
 
-Es muy frequente que los paquetes tengan por ejemplo eslint. Para evitar tener que instalarlo en cada paquete, podemos instalarlo de forma global. Para ello, debemos configurar el archivo `package.json` de la siguiente forma:
+Es muy frequente que los paquetes tengan por ejemplo eslint/babel/jest... Para evitar tener que instalarlo en cada paquete, podemos instalarlo de forma global. Para ello, debemos configurar el archivo `package.json` de la siguiente forma:
 
 ```json{10}
 // package.json
@@ -95,13 +95,44 @@ Ahora bien, dentro de cada paquete puede tener sus propias reglas o no. En el ca
 }
 ```
 
-Al momento de querer interactuar con lint, en cada paquete, debemos añadir un comando, por ejemplo:
+Al momento de querer interactuar con lint/jest... en cada paquete, debemos añadir un comando, por ejemplo:
 
-```json{3}
+```json{4}
 // packages/types/package.json
 {
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "jest"
   }
 }
 ```
+
+Esto nos permite ejecutar el comando `yarn lint` o `yarn jest` en cada paquete. Incluso lo podemos ejecutar en el directorio raiz, `yarn jest` y ejecutará todos los tests... de todos los paquetes. ¿Entonces porque lo tengo que añadir en cada paquete?, por convención, porque quizás dentro de un paquete la configuración o como se tienen que hacer los tests serán diferentes. Ejemplo, componentes con css, que tome capturas de pantalla, etc.
+
+### Conflictos de dependencias
+
+Al tener diferentes paquetes, puede ser que usemos dos dependencias iguales, una en la raiz, y otra en el paquete. Ejemplo jest.
+
+```json{7}
+// package.json
+{
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "jest": "^27.4.5"
+  }
+}
+```
+
+```json{5}
+// packages/types/package.json
+{
+  "name": "@awesome/types",
+  "devDependencies": {
+    "jest": "^26.4.5"
+  }
+}
+```
+
+En este caso, npm/yarn instalará la versión 26.4.5 en el paquete types, y la versión 27.4.5 en el directorio raiz. Es decir, de esta manera habrá una version local en el paquete types. Y otra version global en el directorio raiz.
