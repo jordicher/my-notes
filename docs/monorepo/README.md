@@ -12,7 +12,7 @@ Monorepo = Un repositorio.
 
 Al gestionar los paquetes desde un solo repositiorio, podemos dividirlos y tratarlo como capas independientes, lo que aumenta la **encapsulación**. Por lo que dentro de un repositorio tenemos diferentes bibliotecas|componentes|paquetes|modulos|etc.
 
-Además, al tener un solo repositorio, podemos tener un solo flujo de trabajo por lo que al hacer un commit, puede modificar varios paquetes, y el commit mantiene un **unico historial de cambios**. Esto nos permite tener un control de versiones mucho más sencillo.
+Además, al tener un solo repositorio, podemos tener un solo flujo de trabajo por lo que al hacer un commit, puede modificar varios paquetes, y el commit mantiene un **unico historial de cambios**. Esto nos permite tener un control de versiones mucho más sencillo, y hacer un seguimiento más simple de los errores.
 
 ## Workspaces
 
@@ -328,4 +328,47 @@ También para descargar de ahí se le puede añadir el registry en el comando: n
 
 También nos sirve como como un caché de sus paquetes NPM que funcionan sin conexión, ya que todo se ejecuta en localhost.
 
-####
+## Documentación
+
+### API Extractor
+
+[API Extractor](https://api-extractor.com/) es una herramienta que nos permite generar documentación de nuestros paquetes. Nos permite generar un fichero .d.ts, que es un fichero de definición de tipos, y un fichero .api.json, que es un fichero con la documentación de los tipos.
+
+Instalación:
+
+```bash
+yarn add -DW @microsoft/api-extractor
+```
+
+Crea fichero api-extractor-base.json en la raiz del proyecto, con la configuración base. Del cual los otros paquetes extenderán. **Se puede mover a packages**, para evitar tenerlo en la raíz.
+
+```bash
+yarn api-extractor init
+```
+
+Dentro del archivo, api-extractor-base.json, estos campos són relevantes:
+dtsRollup: genera un fichero .d.ts con todos los tipos de los paquetes.
+publicTrimmedFilePath: genera un fichero .api.md con la documentación de los tipos.
+
+Añadir un archivo api-extractor.json en cada paquete, que extienda de api-extractor-base.json. Ejemplo:
+
+```json
+// api-extractor.json
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
+  "extends": "../api-extractor-base.json",
+  "mainEntryPointFilePath": "<projectFolder>/dist/index.js"
+}
+```
+
+Si es la primera vez, debemos asegurarnos que en cada paquete exista una carpeta etc
+
+```bash
+lerna exec 'mkdir etc'
+```
+
+Para generar los ficheros, ejecutar:
+
+```bash
+yarn api-extractor run --local
+```
