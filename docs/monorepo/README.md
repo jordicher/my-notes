@@ -202,6 +202,13 @@ Lerna nos permite ejecutar comandos, los más comunes son:
 - lerna exec `test` - Ejecuta un script `test` en todos los paquetes. Es como el caso anterior, pero permite comandos arbitrarios, como crear una carpeta, ls, etc.
 - lerna add `dependency` - Como yarn add, pero añade la dependencia a todos los paquetes.
 
+#### Comandos para las versiones
+
+- lerna changed - Muestra los paquetes que han cambiado.
+- lerna list - Muestra los paquetes.
+- lerna version - interface para incrementar las versiones de los paquetes.
+  - lerna version --conventional-commits: no te pregunta, directamente hace lo que cree gracias a los commit conventions.
+
 ## Scripty
 
 No es requerido, pero es una herramienta que nos permite ejecutar scripts. Nos ayuda a la gestión del monorepo, y en caso de querer modificar un script, no tenemos que modificarlo en todos los paquetes.
@@ -247,3 +254,74 @@ Crear carpeta scripts en el directorio raíz, y crear un archivo por cada script
 #!/usr/bin/env bash
 yarn lerna run test --stream
 ```
+
+## Commits CommitLint
+
+### Conventional Changelog
+
+[Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog) Genera un changelog basado en los commits. Es decir, si tenemos un commit que diga `feat: add new feature`, generará un changelog con la sección feat, y el mensaje `add new feature`.
+
+Instalación:
+
+```bash
+yarn add -WD @commitlint/cli @commitlint/config-conventional @commitlint/config-lerna-scopes commitlint husky lerna-changelog
+```
+
+#### husky
+
+Husky nos permite ejecutar scripts antes de hacer un commit, por ejemplo, ejecutar el linter, o el test. En este caso, ejecutaremos el commitlint, para que nos muestre un error si el commit no cumple con las reglas.
+
+```json
+// package.json
+{
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
+```
+
+#### commitlint
+
+Commitlint nos permite configurar las reglas de los commits. En este caso, usaremos las reglas de conventional-changelog y lerna-scopes.
+
+```js
+// commitlint.config.js
+module.exports = {
+  extends: [
+    "@commitlint/config-conventional",
+    "@commitlint/config-lerna-scopes",
+  ],
+};
+```
+
+Los scopes son los paquetes, por ejemplo, si tenemos un paquete utils, y queremos hacer un commit, el scope sería utils.
+
+```sh
+git commit -m "feat(utils): add new feature"
+```
+
+#### Verdaccio
+
+[Verdaccio](https://verdaccio.org/) es un servidor de paquetes privados. Nos permite publicar paquetes en un servidor local, y que otros desarrolladores puedan instalarlos.
+
+Esto nos sirve sobretodo al principio, por no estar publicando paquetes en npm cuando estamos trasteando con los monorepos.
+
+Instalación:
+
+```bash
+volta install verdaccio
+yarn global add verdaccio
+```
+
+.npmrc para que npm use verdaccio:
+
+```sh
+# .npmrc
+registry=http://localhost:4873/
+```
+
+También para descargar de ahí se le puede añadir el registry en el comando: npm i --registry http://localhost:4873 myPackage
+
+También nos sirve como como un caché de sus paquetes NPM que funcionan sin conexión, ya que todo se ejecuta en localhost.
