@@ -198,9 +198,11 @@ Lerna nos permite ejecutar comandos, los más comunes son:
 - lerna link - Conecta los paquetes entre sí, para que puedan importar entre sí. Por ejemplo, si tenemos un paquete types, y otro paquete utils, que importa types, lerna link nos permite que utils pueda importar types.
 - lerna bootstrap - Instala las dependencias de todos los paquetes, y hace como un yarn link.
 - lerna run `test` - Ejecuta un script `test` en todos los paquetes. Es como un forloop.
-  - lerna run `build` --concurrency 2 --stream Ejecutará 2 simultaneamente, y mostrará el output en tiempo real. Porque hay paquetes que no tienen relación entre sí, y que no dependen de otros paquetes.
+  - lerna run `build` --concurrency 2 --stream Ejecutará 2 simultaneamente, y mostrará el output en tiempo real. Porque hay paquetes que no tienen relación entre sí, y que no dependen de otros paquetes. Puede ser bastante útil para aligerar pipelines, lint, test...
+  - lerna run `dev` --scope @awesome/ui --stream Ejecutará el script dev en el paquete ui. Es como un yarn workspace @awesome/ui dev. Además, mostrará el output (logs) en tiempo real.
 - lerna exec `test` - Ejecuta un script `test` en todos los paquetes. Es como el caso anterior, pero permite comandos arbitrarios, como crear una carpeta, ls, etc.
 - lerna add `dependency` - Como yarn add, pero añade la dependencia a todos los paquetes.
+  - lerna add `@awesome/types` --scope `package` - Añade la dependencia solo al paquete especificado.
 
 #### Comandos para las versiones
 
@@ -325,3 +327,5 @@ registry=http://localhost:4873/
 También para descargar de ahí se le puede añadir el registry en el comando: npm i --registry http://localhost:4873 myPackage
 
 También nos sirve como como un caché de sus paquetes NPM que funcionan sin conexión, ya que todo se ejecuta en localhost.
+
+####
