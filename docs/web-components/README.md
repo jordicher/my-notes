@@ -6,16 +6,28 @@ description: Introducción a los WEB COMPONENTS
 
 # WEB COMPONENTS
 
-"Los Componentes Web son un paquete de diferentes tecnologías que te permiten crear elementos personalizados reutilizables — con su funcionalidad encapsulada apartada del resto del código — y utilizarlos en las aplicaciones web."
+Actualmente, las personas se están centrando en saber programar un framework, saber programar react o angular... no se centran en aprender la plataforma. Otro ejemplo, nos centramos a aprender la libreria axios pero no fetch... Y en sí la plataforma es la base del desarrollo y es lo que nos permite saltar entre librerias o frameworks de manera fácil.
+
+"Los Componentes Web son un paquete de **diferentes tecnologías** que te permiten crear elementos personalizados reutilizables — con su funcionalidad encapsulada apartada del resto del código — y utilizarlos en las aplicaciones web."
 [mdn web docs](https://developer.mozilla.org/es/docs/Web/Web_Components)
 
-Los componentes se han hecho famosos gracias a frameworks como React, Angular, Vue y Svelte aunque los componentes ya existían de antes. Podemos pensar en los web components como legos, como piezas que a medida que se van juntando se construye tu página web. Son una tecnología que nos permite crear componentes reutilizables y encapsular su funcionalidad.
+Los componentes se han hecho famosos gracias a frameworks como React, Angular, Vue y Svelte aunque los componentes ya existían de antes. Pero estos frameworks no utilizan los web components.
+
+Podemos pensar en los web components como legos, como piezas que a medida que se van juntando se construye tu página web. Nos permiten crear componentes reutilizables y encapsular su funcionalidad.
 
 Los web components no están a la última, por lo que si quisiéramos utilizar, por ejemplo, la hidratación parcial, no los podríamos usar, por otro lado, tienen una base sólida y son usados en muchas compañías top, como GitHub, google, amazon, photoshop ...
 
 #### En resumen
 
-Los componentes web son pequeños paquetes de HTML, CSS y JavaScript, que a la vez son un conjunto de estándares web. Está la plantilla de cuatro estándares web, `template`, Custom Elements, Shadow DOM e ES modules.
+Los componentes web son pequeños paquetes de HTML, CSS y JavaScript, que a la vez son un conjunto de estándares web.
+
+Estándares web:
+
+- HTML templates
+- Custom Elements
+- Shadow DOM
+- JSON, CSS, HTML Modules
+- CSS changes
 
 Como resultado, los Componentes Web:
 
@@ -70,15 +82,37 @@ console.log(event.target.assignedNodes());
 
 ### Custom Elements
 
-Si intentamos crear un elemento personalizado como `<my-element></my-element>` el navegador, nos dará un error o no hara nada.
+Los custom elements son elementos HTML personalizados. Nos permiten crear nuestros propios elementos HTML. Simplemente para crear un custom element, tenemos que añadir una etiqueta a nuestro HTML.
 
 ```html
-<body>
-  <my-element></my-element>
-</body>
+<my-element></my-element>
 ```
 
-Con los customElements podemos hacer este codigo valido, podemos crear un elemento personalizado.`<my-element>`. Pues tenemos la habilidad de crear tu propio interfaz de HTML. A tener en cuenta que la única diferencia al nombrarlos es el `-` en el nombre del elemento. Ya que reservaremos el uso del `_` para los componentes nativos.
+Esta etiqueta por defecto se va a comportar como un elemento en linea. Y se va a comportar de forma normal, la podemos estilar de forma normal, añadirle atributos... No hace falta que tenga javascript para que funcione.
+
+Ejemplo, [link al ejemplo](https://codi.link/PG15LWVsZW1lbnQgY2xhc3M9Im15LWVsZW1lbnQiPgogIDxoMT5UaXR1bG88L2gxPgogIDxwPlBhcnJhZm88L3A+CjwvbXktZWxlbWVudD4=|Lm15LWVsZW1lbnQgewogIGJhY2tncm91bmQtY29sb3I6IHJlZDsKICB3aWR0aDogMjUwcHg7CiAgaGVpZ2h0OiAyNTBweDsKICBkaXNwbGF5OiBibG9jazsKfQ==|)
+
+```html
+<my-element class="my-element">
+  <h1>Titulo</h1>
+  <p>Parrafo</p>
+</my-element>
+```
+
+```css
+.my-element {
+  background-color: red;
+  width: 250px;
+  height: 250px;
+  display: block; /* ya que es un elemento en linea */
+}
+```
+
+Si intentamos crear un elemento personalizado tenemos que tener en cuenta que los nombres tienen que tener un guión. A tener en cuenta que la única diferencia al nombrarlos es el `-` en el nombre del elemento. Ya que reservaremos el uso del `_` para los componentes nativos, igual que los de una sola palabra.
+
+### Usar custom element en web components
+
+Un custom element no tiene funcionalidad, no tiene lógica, no tiene nada. Es simplemente un elemento HTML. Para añadirle funcionalidad, tenemos que crear un custom element que extienda de HTMLElement. Ahora bien, si que podríamos darle funcionalidad a partir de un document.querySelector, pero no es la mejor forma de hacerlo, ya que no estaría encapsulado.
 
 Ejemplo, [link al ejemplo](https://codi.link/PG15LWVsZW1lbnQ+PC9teS1lbGVtZW50Pg==||Y2xhc3MgTXlFbGVtZW50IGV4dGVuZHMgSFRNTEVsZW1lbnQgewogIGNvbnN0cnVjdG9yKCkgewogICAgc3VwZXIoKTsgCiAgICB0aGlzLmlubmVySFRNTCA9ICJIZWxsbyBXb3JsZCIKICB9Cn0KCmN1c3RvbUVsZW1lbnRzLmRlZmluZSgibXktZWxlbWVudCIsIE15RWxlbWVudCk7)
 
@@ -89,7 +123,7 @@ Ejemplo, [link al ejemplo](https://codi.link/PG15LWVsZW1lbnQ+PC9teS1lbGVtZW50Pg=
 ```js
 class MyElement extends HTMLElement {
   constructor() {
-    super();
+    super(); // Llamamos al constructor de HTMLElement
     this.innerHTML = "Hello World";
   }
 }
