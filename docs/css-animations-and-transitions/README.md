@@ -270,3 +270,41 @@ Y utilizar stagger animations, para evitar sobrepongan las animaciones, de igual
 [link al ejemplo](https://codi.link/PGRpdiBjbGFzcz0iY2lyY2xlIiBzdHlsZT0iLS1pOiAwIj48L2Rpdj4KPGRpdiBjbGFzcz0iY2lyY2xlIiBzdHlsZT0iLS1pOiAxIj48L2Rpdj4KPGRpdiBjbGFzcz0iY2lyY2xlIiBzdHlsZT0iLS1pOiAyIj48L2Rpdj4=|LmNpcmNsZSB7CiAgLS1kdXJhdGlvbjogMXM7CiAgLS1zdGFnZ2VyOiAwLjVzOwogIC0taW50ZXJ2YWw6IGNhbGModmFyKC0tZHVyYXRpb24pIC0gdmFyKC0tc3RhZ2dlcikpOwoKICB3aWR0aDogNTBweDsKICBoZWlnaHQ6IDUwcHg7CiAgYmFja2dyb3VuZC1jb2xvcjogcmVkOwogIGJvcmRlci1yYWRpdXM6IDUwJTsKICBhbmltYXRpb246IHJlZC10by1ibHVlIHZhcigtLWR1cmF0aW9uKSBjYWxjKHZhcigtLWludGVydmFsKSAqIHZhcigtLWkpKSBib3RoOwp9CgpAa2V5ZnJhbWVzIHJlZC10by1ibHVlIHsKICBmcm9tIHsKICAgIGJhY2tncm91bmQtY29sb3I6IHJlZDsKICB9CgogIHRvIHsKICAgIGJhY2tncm91bmQtY29sb3I6IGJsdWU7CiAgfQp9|)
 
 <css-complex-choreography />
+
+## Estados
+
+Al momento de hacer animaciones, es importante tener en cuenta los estados de los elementos.
+
+Por ejemplo en un boton, puede tener hover, focus, active, disabled. Y algunos de ellos pueden ser simultaneos, por ejemplo, un boton puede tener hover y active al mismo tiempo.
+
+Para la gestion de un estado, nos puede servir crear atributos personalizados.
+
+```html
+<button data-state="loading">Click</button>
+```
+
+Usualmente modificamos el estado de un elemento con javascript, por ejemplo, cuando se hace click en el boton, se cambia el estado a loading.
+
+```js
+const button = document.querySelector("button");
+button.addEventListener("click", () => {
+  button.setAttribute("data-state", "success");
+});
+```
+
+Ahora bien, es un poco verboso y podemos hacerlo de una manera más sencilla.
+
+```js
+const button = document.querySelector("button");
+button.addEventListener("click", () => {
+  button.dataset.state = "success";
+});
+```
+
+A nivel de CSS, podemos utilizar el atributo personalizado para poder aplicar estilos.
+
+```css
+button[data-state="loading"] {
+  background-color: blue;
+}
+```
