@@ -1,0 +1,13 @@
+# Mis apuntes
+
+#### [Link al repositorio <img src="./assets/github.svg" alt="github" width="16"/>](https://github.com/jordicher/my-notes-vuepress)
+
+## [Animaciones y transiciones CSS](./css-animations-and-transitions/)
+
+## [Monorepo](./monorepo/)
+
+## [TDD: Test-Driven Development](./test-driven-development/)
+
+## [Vue Unit Testing](./vue-unit-testing/)
+
+## [Web Components](./web-components/)
