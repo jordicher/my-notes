@@ -4,6 +4,24 @@ title: Animaciones y transiciones CSS
 description: Introducción a animaciones y transiciones CSS
 ---
 
+<script>
+  import CssComplexChoreography from './components/CssComplexChoreography.vue';
+  import CssKeyframes from './components/CssKeyframes.vue';
+  import CssTransitions from './components/CssTransitions.vue';
+  import CssSimpleChoreography from './components/CssSimpleChoreography.vue'; 
+  import CssVariables from './components/CssVariables.vue';
+
+  export default {
+    components: {
+      CssComplexChoreography,
+      CssKeyframes,
+      CssTransitions,
+      CssSimpleChoreography,
+      CssVariables
+    }
+  }
+</script>
+
 # Animaciones y transiciones CSS
 
 Las animaciones pueden ayudar a cumplir estos dos propósitos:
