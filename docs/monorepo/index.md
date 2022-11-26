@@ -324,7 +324,7 @@ yarn global add verdaccio
 registry=http://localhost:4873/
 ```
 
-También para descargar de ahí se le puede añadir el registry en el comando: npm i --registry http://localhost:4873 myPackage
+También para descargar de ahí se le puede añadir el registry en el comando: npm i --registry `http://localhost:4873` myPackage
 
 También nos sirve como como un caché de sus paquetes NPM que funcionan sin conexión, ya que todo se ejecuta en localhost.
 

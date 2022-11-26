@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Animaciones y transiciones CSS | Mis apuntes</title>
+    <meta
+      name="description"
+      content="Introducción a animaciones y transiciones CSS"
+    />
+    <link rel="stylesheet" href="/assets/style.6909697c.css" />
+    <link rel="modulepreload" href="/assets/app.1fad655d.js" />
+    <link
+      rel="modulepreload"
+      href="/assets/css-animations-and-transitions_index.md.e4a3a124.lean.js"
+    />
+
+    <script id="check-dark-light">
+      (() => {
+        const e = localStorage.getItem("vitepress-theme-appearance") || "",
+          a = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        (!e || e === "auto" ? a : e === "dark") &&
+          document.documentElement.classList.add("dark");
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="Layout" data-v-f44a984a>
+        <!--[--><!--]--><!--[--><span tabindex="-1" data-v-151f2593></span
+        ><a
+          href="#VPContent"
+          class="VPSkipLink visually-hidden"
+          data-v-151f2593
+        >
+          Skip to content </a
+        ><!--]--><!---->
+        <header class="VPNav no-sidebar" data-v-f44a984a data-v-a50780ff>
+          <div class="VPNavBar" data-v-a50780ff data-v-6f1d18b5>
+            <div class="container" data-v-6f1d18b5>
+              <div class="VPNavBarTitle" data-v-6f1d18b5 data-v-d5925166>
+                <a class="title" href="/" data-v-d5925166
+                  ><!--[--><!--]--><!----><!--[-->Mis apuntes<!--]--><!--[--><!--]--></a
+                >
+              </div>
+              <div class="content" data-v-6f1d18b5>
+                <!--[--><!--]--><!----><!----><!---->
+                <div
+                  class="VPNavBarAppearance appearance"
+                  data-v-6f1d18b5
+                  data-v-a3e7452b
+                >
+                  <button
+                    class="VPSwitch VPSwitchAppearance"
+                    type="button"
+                    role="switch"
+                    aria-label="toggle dark mode"
+                    aria-checked="false"
+                    data-v-a3e7452b
+                    data-v-481098f9
+                    data-v-eba7420e
+                  >
+                    <span class="check" data-v-eba7420e
+                      ><span class="icon" data-v-eba7420e
+                        ><!--[--><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                          focusable="false"
+                          viewbox="0 0 24 24"
+                          class="sun"
+                          data-v-481098f9
+                        >
+                          <path
+                            d="M12,18c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S15.3,18,12,18zM12,8c-2.2,0-4,1.8-4,4c0,2.2,1.8,4,4,4c2.2,0,4-1.8,4-4C16,9.8,14.2,8,12,8z"
+                          ></path>
+                          <path
+                            d="M12,4c-0.6,0-1-0.4-1-1V1c0-0.6,0.4-1,1-1s1,0.4,1,1v2C13,3.6,12.6,4,12,4z"
+                          ></path>
+                          <path
+                            d="M12,24c-0.6,0-1-0.4-1-1v-2c0-0.6,0.4-1,1-1s1,0.4,1,1v2C13,23.6,12.6,24,12,24z"
+                          ></path>
+                          <path
+                            d="M5.6,6.6c-0.3,0-0.5-0.1-0.7-0.3L3.5,4.9c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l1.4,1.4c0.4,0.4,0.4,1,0,1.4C6.2,6.5,5.9,6.6,5.6,6.6z"
+                          ></path>
+                          <path
+                            d="M19.8,20.8c-0.3,0-0.5-0.1-0.7-0.3l-1.4-1.4c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l1.4,1.4c0.4,0.4,0.4,1,0,1.4C20.3,20.7,20,20.8,19.8,20.8z"
+                          ></path>
+                          <path
+                            d="M3,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h2c0.6,0,1,0.4,1,1S3.6,13,3,13z"
+                          ></path>
+                          <path
+                            d="M23,13h-2c-0.6,0-1-0.4-1-1s0.4-1,1-1h2c0.6,0,1,0.4,1,1S23.6,13,23,13z"
+                          ></path>
+                          <path
+                            d="M4.2,20.8c-0.3,0-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4l1.4-1.4c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-1.4,1.4C4.7,20.7,4.5,20.8,4.2,20.8z"
+                          ></path>
+                          <path
+                            d="M18.4,6.6c-0.3,0-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4l1.4-1.4c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-1.4,1.4C18.9,6.5,18.6,6.6,18.4,6.6z"
+                          ></path></svg
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                          focusable="false"
+                          viewbox="0 0 24 24"
+                          class="moon"
+                          data-v-481098f9
+                        >
+                          <path
+                            d="M12.1,22c-0.3,0-0.6,0-0.9,0c-5.5-0.5-9.5-5.4-9-10.9c0.4-4.8,4.2-8.6,9-9c0.4,0,0.8,0.2,1,0.5c0.2,0.3,0.2,0.8-0.1,1.1c-2,2.7-1.4,6.4,1.3,8.4c2.1,1.6,5,1.6,7.1,0c0.3-0.2,0.7-0.3,1.1-0.1c0.3,0.2,0.5,0.6,0.5,1c-0.2,2.7-1.5,5.1-3.6,6.8C16.6,21.2,14.4,22,12.1,22zM9.3,4.4c-2.9,1-5,3.6-5.2,6.8c-0.4,4.4,2.8,8.3,7.2,8.7c2.1,0.2,4.2-0.4,5.8-1.8c1.1-0.9,1.9-2.1,2.4-3.4c-2.5,0.9-5.3,0.5-7.5-1.1C9.2,11.4,8.1,7.7,9.3,4.4z"
+                          ></path></svg
+                        ><!--]--></span
+                      ></span
+                    >
+                  </button>
+                </div>
+                <!---->
+                <div
+                  class="VPFlyout VPNavBarExtra extra"
+                  data-v-6f1d18b5
+                  data-v-e4361c82
+                  data-v-6ffb57d3
+                >
+                  <button
+                    type="button"
+                    class="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-label="extra navigation"
+                    data-v-6ffb57d3
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      focusable="false"
+                      viewbox="0 0 24 24"
+                      class="icon"
+                      data-v-6ffb57d3
+                    >
+                      <circle cx="12" cy="12" r="2"></circle>
+                      <circle cx="19" cy="12" r="2"></circle>
+                      <circle cx="5" cy="12" r="2"></circle>
+                    </svg>
+                  </button>
+                  <div class="menu" data-v-6ffb57d3>
+                    <div class="VPMenu" data-v-6ffb57d3 data-v-1c5d0cfc>
+                      <!----><!--[--><!--[--><!---->
+                      <div class="group" data-v-e4361c82>
+                        <div class="item appearance" data-v-e4361c82>
+                          <p class="label" data-v-e4361c82>Appearance</p>
+                          <div class="appearance-action" data-v-e4361c82>
+                            <button
+                              class="VPSwitch VPSwitchAppearance"
+                              type="button"
+                              role="switch"
+                              aria-label="toggle dark mode"
+                              aria-checked="false"
+                              data-v-e4361c82
+                              data-v-481098f9
+                              data-v-eba7420e
+                            >
+                              <span class="check" data-v-eba7420e
+                                ><span class="icon" data-v-eba7420e
+                                  ><!--[--><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    viewbox="0 0 24 24"
+                                    class="sun"
+                                    data-v-481098f9
+                                  >
+                                    <path
+                                      d="M12,18c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S15.3,18,12,18zM12,8c-2.2,0-4,1.8-4,4c0,2.2,1.8,4,4,4c2.2,0,4-1.8,4-4C16,9.8,14.2,8,12,8z"
+                                    ></path>
+                                    <path
+                                      d="M12,4c-0.6,0-1-0.4-1-1V1c0-0.6,0.4-1,1-1s1,0.4,1,1v2C13,3.6,12.6,4,12,4z"
+                                    ></path>
+                                    <path
+                                      d="M12,24c-0.6,0-1-0.4-1-1v-2c0-0.6,0.4-1,1-1s1,0.4,1,1v2C13,23.6,12.6,24,12,24z"
+                                    ></path>
+                                    <path
+                                      d="M5.6,6.6c-0.3,0-0.5-0.1-0.7-0.3L3.5,4.9c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l1.4,1.4c0.4,0.4,0.4,1,0,1.4C6.2,6.5,5.9,6.6,5.6,6.6z"
+                                    ></path>
+                                    <path
+                                      d="M19.8,20.8c-0.3,0-0.5-0.1-0.7-0.3l-1.4-1.4c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l1.4,1.4c0.4,0.4,0.4,1,0,1.4C20.3,20.7,20,20.8,19.8,20.8z"
+                                    ></path>
+                                    <path
+                                      d="M3,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h2c0.6,0,1,0.4,1,1S3.6,13,3,13z"
+                                    ></path>
+                                    <path
+                                      d="M23,13h-2c-0.6,0-1-0.4-1-1s0.4-1,1-1h2c0.6,0,1,0.4,1,1S23.6,13,23,13z"
+                                    ></path>
+                                    <path
+                                      d="M4.2,20.8c-0.3,0-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4l1.4-1.4c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-1.4,1.4C4.7,20.7,4.5,20.8,4.2,20.8z"
+                                    ></path>
+                                    <path
+                                      d="M18.4,6.6c-0.3,0-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4l1.4-1.4c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-1.4,1.4C18.9,6.5,18.6,6.6,18.4,6.6z"
+                                    ></path></svg
+                                  ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    viewbox="0 0 24 24"
+                                    class="moon"
+                                    data-v-481098f9
+                                  >
+                                    <path
+                                      d="M12.1,22c-0.3,0-0.6,0-0.9,0c-5.5-0.5-9.5-5.4-9-10.9c0.4-4.8,4.2-8.6,9-9c0.4,0,0.8,0.2,1,0.5c0.2,0.3,0.2,0.8-0.1,1.1c-2,2.7-1.4,6.4,1.3,8.4c2.1,1.6,5,1.6,7.1,0c0.3-0.2,0.7-0.3,1.1-0.1c0.3,0.2,0.5,0.6,0.5,1c-0.2,2.7-1.5,5.1-3.6,6.8C16.6,21.2,14.4,22,12.1,22zM9.3,4.4c-2.9,1-5,3.6-5.2,6.8c-0.4,4.4,2.8,8.3,7.2,8.7c2.1,0.2,4.2-0.4,5.8-1.8c1.1-0.9,1.9-2.1,2.4-3.4c-2.5,0.9-5.3,0.5-7.5-1.1C9.2,11.4,8.1,7.7,9.3,4.4z"
+                                    ></path></svg
+                                  ><!--]--></span
+                                ></span
+                              >
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <!----><!--]--><!--]-->
+                    </div>
+                  </div>
+                </div>
+                <!--[--><!--]--><button
+                  type="button"
+                  class="VPNavBarHamburger hamburger"
+                  aria-label="mobile navigation"
+                  aria-expanded="false"
+                  aria-controls="VPNavScreen"
+                  data-v-6f1d18b5
+                  data-v-e5dd9c1c
+                >
+                  <span class="container" data-v-e5dd9c1c
+                    ><span class="top" data-v-e5dd9c1c></span
+                    ><span class="middle" data-v-e5dd9c1c></span
+                    ><span class="bottom" data-v-e5dd9c1c></span
+                  ></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!---->
+        </header>
+        <!----><!---->
+        <div class="VPContent" id="VPContent" data-v-f44a984a data-v-d981fe29>
+          <div class="VPDoc has-aside" data-v-d981fe29 data-v-cfb513e0>
+            <div class="container" data-v-cfb513e0>
+              <div class="aside" data-v-cfb513e0>
+                <div class="aside-curtain" data-v-cfb513e0></div>
+                <div class="aside-container" data-v-cfb513e0>
+                  <div class="aside-content" data-v-cfb513e0>
+                    <div class="VPDocAside" data-v-cfb513e0 data-v-afc4c1a1>
+                      <!--[--><!--]--><!--[--><!--]-->
+                      <div
+                        class="VPDocAsideOutline"
+                        data-v-afc4c1a1
+                        data-v-2865c0b0
+                      >
+                        <div class="content" data-v-2865c0b0>
+                          <div class="outline-marker" data-v-2865c0b0></div>
+                          <div class="outline-title" data-v-2865c0b0>
+                            En esta página
+                          </div>
+                          <nav
+                            aria-labelledby="doc-outline-aria-label"
+                            data-v-2865c0b0
+                          >
+                            <span
+                              class="visually-hidden"
+                              id="doc-outline-aria-label"
+                              data-v-2865c0b0
+                            >
+                              Table of Contents for current page
+                            </span>
+                            <ul class="root" data-v-2865c0b0 data-v-1188541a>
+                              <!--[--><!--]-->
+                            </ul>
+                          </nav>
+                        </div>
+                      </div>
+                      <!--[--><!--]-->
+                      <div class="spacer" data-v-afc4c1a1></div>
+                      <!--[--><!--]--><!----><!--[--><!--]--><!--[--><!--]-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="content" data-v-cfb513e0>
+                <div class="content-container" data-v-cfb513e0>
+                  <!--[--><!--]-->
+                  <main class="main" data-v-cfb513e0>
+                    <div
+                      style="position: relative"
+                      class="vp-doc _css-animations-and-transitions_index"
+                      data-v-cfb513e0
+                    >
+                      <div>
+                        <h1 id="animaciones-y-transiciones-css" tabindex="-1">
+                          Animaciones y transiciones CSS
+                          <a
+                            class="header-anchor"
+                            href="#animaciones-y-transiciones-css"
+                            aria-hidden="true"
+                            >#</a
+                          >
+                        </h1>
+                        <p>
+                          Las animaciones pueden ayudar a cumplir estos dos
+                          propósitos:
+                        </p>
+                        <ul>
+                          <li>
+                            Guía y clarificación: Queremos guiar al usuario a
+                            hacer cosas, y queremos que sepa qué puede hacerlas
+                            y cuál es el resultado.
+                          </li>
+                          <li>
+                            Estilo y marca: Al igual que su sitio web, puede una
+                            paleta de colores o una fuente personalizada, que se
+                            vincule a la marca. Se puede hacer lo mismo con las
+                            animaciones y transiciones.
+                          </li>
+                        </ul>
+                        <h2 id="fundamentos" tabindex="-1">
+                          Fundamentos
+                          <a
+                            class="header-anchor"
+                            href="#fundamentos"
+                            aria-hidden="true"
+                            >#</a
+                          >
+                        </h2>
+                        <p>
+                          <strong>Duración</strong>: Duración de la animación o
+                          transición. Tenemos que hacer una diferencia con la
+                          duración infinita, en este punto no nos interesa si se
+                          ejecuta de forma infinita. Nos intersa el tiempo de la
+                          iteración de esa animación. Ejemplo, un spinner, puede
+                          estar de forma infinita, pero aqui contamos los
+                          segundos que tarda a dar una vuelta.
+                        </p>
+                        <ul>
+                          <li>
+                            <strong>animation-duration</strong>: Duración de la
+                            animación.
+                          </li>
+                          <li>
+                            <strong>animation-itertion-count</strong>: Número de
+                            veces que se ejecuta la animación. Si es infinito,
+                            se pone <code>infinite</code>.
+                          </li>
+                        </ul>
+                        <p>
+                          <strong>Delay</strong>: Es el tiempo que transcurre
+                          antes de que comience una animación o una transición.
+                          Cuando hace clic en algo que inicie una animación,
+                          puede haber un retraso antes de que comience la
+                          animación.
+                          <strong
+                            >El retraso solo sucede una vez! no se
+                            repite.</strong
+                          >
+                        </p>
+                        <ul>
+                          <li>
+                            <strong>animation-delay</strong>: Tiempo de espera
+                            antes de que comience la animación. Si se establece
+                            en 0s, la animación comienza inmediatamente. Si se
+                            establece en 2s, la animación comienza 2 segundos
+                            después de que se cargue la página.
+                          </li>
+                        </ul>
+                        <p>
+                          <strong
+                            >Timing function/aceleración de la animación</strong
+                          >: Cómo se acelera y desacelera con el tiempo.
+                          Entonces, si una animación dura un segundo y tiene una
+                          aceleración lineal, que mostraremos en un minuto,
+                          entonces tendrá la misma velocidad constante de
+                          principio a fin. Sin embargo, las animaciones podemos
+                          hacer que no sean lineales, con
+                          <code>cubic-bezier(x1,y1,x2,y2)</code>.
+                        </p>
+                        <div class="language-css">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">css</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#FFCB6B;">animation-timing-function</span><span style="color:#A6ACCD;">: cubic-bezier(0</span><span style="color:#89DDFF;">.</span><span style="color:#FFCB6B;">5</span><span style="color:#89DDFF;">,</span><span style="color:#A6ACCD;"> 0</span><span style="color:#89DDFF;">,</span><span style="color:#A6ACCD;"> 0</span><span style="color:#89DDFF;">.</span><span style="color:#FFCB6B;">5</span><span style="color:#89DDFF;">,</span><span style="color:#A6ACCD;"> 1);</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                        <p>
+                          Se recomiend que los valores y1 = 0 y y2 = 1.
+                          <code>cubic-bezier(0.5, 0, 0.5, 1)</code> La razón es
+                          porque se vuelve mucho menos confuso averiguar los
+                          otros dos números. Porque cuando haces eso, los otros
+                          dos números simplemente se convierten en algo que
+                          puedes ajustar, y podrías describir la mayoría de las
+                          curvas así. Y también porque se parece más al mundo
+                          real. Cuando algo comienza a moverse, comenzará a una
+                          velocidad de cero.
+                        </p>
+                        <p>
+                          <strong>Variables</strong>: Las animaciones y
+                          transiciones CSS pueden usar variables CSS. Esto
+                          significa que podemos usar valores dinámicos en
+                          nuestras animaciones y transiciones. Por convención,
+                          las variables CSS se nombran en root.
+                        </p>
+                        <div class="language-html">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">html</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#F07178;">div</span><span style="color:#89DDFF;"> </span><span style="color:#C792EA;">class</span><span style="color:#89DDFF;">=</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">box</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">&gt;&lt;/</span><span style="color:#F07178;">div</span><span style="color:#89DDFF;">&gt;</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                        <div class="language-css">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">css</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#89DDFF;">:</span><span style="color:#C792EA;">root</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">  --border-size</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">2px</span><span style="color:#89DDFF;">;</span><span style="color:#A6ACCD;"> </span><span style="color:#676E95;">/* -- indica que es una variable custom */</span></span>
+<span class="line"><span style="color:#A6ACCD;">  --height-size</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">500px</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#89DDFF;">.</span><span style="color:#FFCB6B;">box</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">width</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">100px</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">height</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#82AAFF;">var</span><span style="color:#89DDFF;">(</span><span style="color:#A6ACCD;">--height-size</span><span style="color:#89DDFF;">);</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">background-color</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#82AAFF;">var</span><span style="color:#89DDFF;">(</span><span style="color:#A6ACCD;">--custom-red</span><span style="color:#89DDFF;">);</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">border</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#82AAFF;">var</span><span style="color:#89DDFF;">(</span><span style="color:#A6ACCD;">--border-size</span><span style="color:#89DDFF;">)</span><span style="color:#A6ACCD;"> solid black</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                        <p>
+                          También se pueden añadir variables css con js. O
+                          asignar un valor a una clase en concreto
+                        </p>
+                        <div class="language-js">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">js</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#C792EA;">const</span><span style="color:#A6ACCD;"> box </span><span style="color:#89DDFF;">=</span><span style="color:#A6ACCD;"> document</span><span style="color:#89DDFF;">.</span><span style="color:#82AAFF;">querySelector</span><span style="color:#A6ACCD;">(</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">.box</span><span style="color:#89DDFF;">&quot;</span><span style="color:#A6ACCD;">)</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">box</span><span style="color:#89DDFF;">.</span><span style="color:#A6ACCD;">style</span><span style="color:#89DDFF;">.</span><span style="color:#82AAFF;">setProperty</span><span style="color:#A6ACCD;">(</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">--custom-red</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">,</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">red</span><span style="color:#89DDFF;">&quot;</span><span style="color:#A6ACCD;">)</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">box</span><span style="color:#89DDFF;">.</span><span style="color:#A6ACCD;">style</span><span style="color:#89DDFF;">.</span><span style="color:#82AAFF;">setProperty</span><span style="color:#A6ACCD;">(</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">--height-size</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">,</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">100px</span><span style="color:#89DDFF;">&quot;</span><span style="color:#A6ACCD;">)</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                        <section data-v-35710de3>
+                          <div class="box" data-v-35710de3></div>
+                        </section>
+                        <p>
+                          <a
+                            href="https://codi.link/PGRpdiBjbGFzcz0iYm94Ij4KCjwvZGl2PgoK%7COnJvb3R7CiAgLS1ib3JkZXItc2l6ZTogMnB4OwogIC0taGVpZ2h0LXNpemU6IDUwMHB4Owp9CgouYm94IHsKICB3aWR0aDogMzAwcHg7CiAgaGVpZ2h0OiB2YXIoLS1oZWlnaHQtc2l6ZSkgOwogIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWN1c3RvbS1yZWQpIDsKICBib3JkZXI6IHZhcigtLWJvcmRlci1zaXplKSBzb2xpZCBibGFjazsKfQ==%7CY29uc3QgYm94ID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcignLmJveCcpOwpib3guc3R5bGUuc2V0UHJvcGVydHkoJy0tY3VzdG9tLXJlZCcsICdyZWQnKTsKYm94LnN0eWxlLnNldFByb3BlcnR5KCctLWhlaWdodC1zaXplJywgJzEwMHB4Jyk7"
+                            target="_blank"
+                            rel="noreferrer"
+                            >link al ejemplo</a
+                          >
+                        </p>
+                        <h2 id="¿que-animar" tabindex="-1">
+                          ¿Qué animar?
+                          <a
+                            class="header-anchor"
+                            href="#¿que-animar"
+                            aria-hidden="true"
+                            >#</a
+                          >
+                        </h2>
+                        <p>
+                          Al poner animaciones podemos afectar al rendimiento de
+                          la página. Por lo que hay que tener cuidado con lo que
+                          animamos. Por ejemplo, no animar el tamaño de un
+                          elemento, porque eso puede afectar al layout de la
+                          página, y suponen un montón de renderizaciones y
+                          cambios de posición. Lo que si podemos animar es el
+                          color, la opacidad, etc.
+                        </p>
+                        <p>
+                          Estos afectos de la performance los tiene en cuenta
+                          google, por lo que afecta al SEO de tu página
+                        </p>
+                        <h2 id="transiciones" tabindex="-1">
+                          Transiciones
+                          <a
+                            class="header-anchor"
+                            href="#transiciones"
+                            aria-hidden="true"
+                            >#</a
+                          >
+                        </h2>
+                        <p>
+                          Las transiciones son animaciones que se ejecutan
+                          cuando un estado cambia. Por ejemplo, cuando un
+                          elemento cambia de color, o cuando se hace un hover
+                          sobre un elemento.
+                        </p>
+                        <div class="language-css">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">css</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#89DDFF;">.</span><span style="color:#FFCB6B;">box</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">background-color</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> red</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">transition</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> background-color </span><span style="color:#F78C6C;">1s</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#89DDFF;">.</span><span style="color:#FFCB6B;">box</span><span style="color:#89DDFF;">:</span><span style="color:#C792EA;">hover</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">background-color</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> blue</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                        <p>
+                          transition-property: Propiedad que queremos animar. Si
+                          no se especifica, se anima todas las propiedades. Si
+                          se especifica, se anima solo la propiedad indicada.
+                        </p>
+                        <p>
+                          En este ejemplo, la animación se ejecuta unicamente en
+                          el background-color, y el cambio de la scale, sera
+                          instantaneo.
+                        </p>
+                        <div class="language-html">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">html</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#F07178;">div</span><span style="color:#89DDFF;"> </span><span style="color:#C792EA;">class</span><span style="color:#89DDFF;">=</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">box</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">&gt;&lt;/</span><span style="color:#F07178;">div</span><span style="color:#89DDFF;">&gt;</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                        <div class="language-css">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">css</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#89DDFF;">.</span><span style="color:#FFCB6B;">box</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">width</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">100px</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">height</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">100px</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">background-color</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> red</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">transition-property</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> background-color</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">transition-duration</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">1s</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#89DDFF;">.</span><span style="color:#FFCB6B;">box</span><span style="color:#89DDFF;">:</span><span style="color:#C792EA;">hover</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">background-color</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> blue</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">transform</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#82AAFF;">scale</span><span style="color:#89DDFF;">(</span><span style="color:#F78C6C;">2</span><span style="color:#89DDFF;">);</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                        <p>
+                          <a
+                            href="https://codi.link/PGRpdiBjbGFzcz0iYm94Ij4KCjwvZGl2PgoK%7CLmJveCB7CiAgd2lkdGg6IDMwMHB4OwogIGhlaWdodDogMzAwcHg7CiAgYmFja2dyb3VuZC1jb2xvcjogcmVkOyAKICB0cmFuc2l0aW9uLXByb3BlcnR5OiBiYWNrZ3JvdW5kLWNvbG9yOwogICB0cmFuc2l0aW9uLWR1cmF0aW9uOiAxczsKCn0KCi5ib3g6aG92ZXIgewogIGJhY2tncm91bmQtY29sb3I6IGJsdWU7CiAgdHJhbnNmb3JtOiBzY2FsZSgyKTsKfQ==%7C"
+                            target="_blank"
+                            rel="noreferrer"
+                            >link al ejemplo</a
+                          >
+                        </p>
+                        <section data-v-baade949>
+                          <div class="box" data-v-baade949>
+                            <div class="action" data-v-baade949>hover</div>
+                          </div>
+                        </section>
+                        <p>
+                          También acepta múltiples propiedades separadas por
+                          comas, entonces le podemos dar a cada transición una
+                          duración diferente.
+                        </p>
+                        <div class="language-css">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">css</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#FFCB6B;">transition-property</span><span style="color:#A6ACCD;">: </span><span style="color:#FFCB6B;">background-color</span><span style="color:#89DDFF;">,</span><span style="color:#A6ACCD;"> transform;</span></span>
+<span class="line"><span style="color:#FFCB6B;">transition-duration</span><span style="color:#A6ACCD;">: 1s</span><span style="color:#89DDFF;">,</span><span style="color:#A6ACCD;"> 2s;</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                        <h2 id="keyframes" tabindex="-1">
+                          Keyframes
+                          <a
+                            class="header-anchor"
+                            href="#keyframes"
+                            aria-hidden="true"
+                            >#</a
+                          >
+                        </h2>
+                        <p>
+                          Las keyframes son un conjunto de reglas que definen el
+                          estado de un elemento en un momento determinado. Por
+                          ejemplo, en el 0% el elemento tiene un color rojo, en
+                          el 50% el color es azul, y en el 100% el color es
+                          verde.
+                        </p>
+                        <div class="language-css">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">css</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#89DDFF;">@keyframes</span><span style="color:#A6ACCD;"> </span><span style="color:#A6ACCD;">my-animation</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#FFCB6B;">0%</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#B2CCD6;">background-color</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> red</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#FFCB6B;">50%</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#B2CCD6;">background-color</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> blue</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#FFCB6B;">100%</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#B2CCD6;">background-color</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> green</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                        <p>
+                          Se tienen que hacer las animaciones lo más naturales
+                          posibles, por ejemplo, en el caso de la posición
+                          seguramente sea buena idea que vuelva a su posición
+                          inicial. También no solo podemos utilizar valores de
+                          tanto por ciento, sino también <code>from</code> y
+                          <code>to</code>.
+                        </p>
+                        <div class="language-html">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">html</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#F07178;">div</span><span style="color:#89DDFF;"> </span><span style="color:#C792EA;">class</span><span style="color:#89DDFF;">=</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">circle</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">&gt;&lt;/</span><span style="color:#F07178;">div</span><span style="color:#89DDFF;">&gt;</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                        <div class="language-css">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">css</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#89DDFF;">.</span><span style="color:#FFCB6B;">circle</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">width</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">50px</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">height</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">50px</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">background-color</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> red</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">border-radius</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">50%</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">animation-name</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> move-like-a-square</span><span style="color:#89DDFF;">,</span><span style="color:#A6ACCD;"> red-to-blue</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">animation-duration</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">2s</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">animation-iteration-count</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> infinite</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#89DDFF;">@keyframes</span><span style="color:#A6ACCD;"> </span><span style="color:#A6ACCD;">move-like-a-square</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#FFCB6B;">from</span><span style="color:#A6ACCD;">,</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#FFCB6B;">to</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#676E95;">/* 0%, 100% */</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#B2CCD6;">transform</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#82AAFF;">translate</span><span style="color:#89DDFF;">(</span><span style="color:#F78C6C;">0</span><span style="color:#89DDFF;">,</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">0</span><span style="color:#89DDFF;">);</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#FFCB6B;">25%</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#B2CCD6;">transform</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#82AAFF;">translate</span><span style="color:#89DDFF;">(</span><span style="color:#F78C6C;">50px</span><span style="color:#89DDFF;">,</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">0</span><span style="color:#89DDFF;">);</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#FFCB6B;">50%</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#B2CCD6;">transform</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#82AAFF;">translate</span><span style="color:#89DDFF;">(</span><span style="color:#F78C6C;">50px</span><span style="color:#89DDFF;">,</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">50px</span><span style="color:#89DDFF;">);</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#FFCB6B;">75%</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#B2CCD6;">transform</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#82AAFF;">translate</span><span style="color:#89DDFF;">(</span><span style="color:#F78C6C;">0</span><span style="color:#89DDFF;">,</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">50px</span><span style="color:#89DDFF;">);</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#89DDFF;">@keyframes</span><span style="color:#A6ACCD;"> </span><span style="color:#A6ACCD;">red-to-blue</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#FFCB6B;">from</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#B2CCD6;">background-color</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> red</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#676E95;">/* we can NOT add a tranform, conlfict with the other animation */</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#FFCB6B;">to</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#B2CCD6;">background-color</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> blue</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                        <p>
+                          <a
+                            href="https://codi.link/PGRpdiBjbGFzcz0iY2lyY2xlIj4KPC9kaXY+%7CLmNpcmNsZSB7CiAgICB3aWR0aDogNTBweDsKICAgIGhlaWdodDogNTBweDsKICAgIGJhY2tncm91bmQtY29sb3I6IHJlZDsKICAgIGJvcmRlci1yYWRpdXM6IDUwJTsKICAgIGFuaW1hdGlvbi1uYW1lOiBtb3ZlLWxpa2UtYS1zcXVhcmUsIHJlZC10by1ibHVlOwogICAgYW5pbWF0aW9uLWR1cmF0aW9uOiAyczsKICAgIGFuaW1hdGlvbi1pdGVyYXRpb24tY291bnQ6IGluZmluaXRlOwp9CgpAa2V5ZnJhbWVzIG1vdmUtbGlrZS1hLXNxdWFyZSB7CgogICAgZnJvbSwKICAgIHRvIHsgLyogMCUsIDEwMCUgKi8gICAgICAgIAogICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKDAsIDApOwogICAgfQoKICAgIDI1JSB7CiAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoNTBweCwgMCk7CiAgICB9CgogICAgNTAlIHsKICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSg1MHB4LCA1MHB4KTsKICAgIH0KCiAgICA3NSUgewogICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKDAsIDUwcHgpOwogICAgfQp9CgpAa2V5ZnJhbWVzIHJlZC10by1ibHVlIHsKICAgIGZyb20gewogICAgICAgIGJhY2tncm91bmQtY29sb3I6IHJlZDsKICAgIH0KCiAgICB0byB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogYmx1ZTsKICAgIH0KfQ==%7C"
+                            target="_blank"
+                            rel="noreferrer"
+                            >link al ejemplo</a
+                          >
+                        </p>
+                        <section data-v-08a6250e>
+                          <div class="circle" data-v-08a6250e></div>
+                        </section>
+                        <h2 id="choreography" tabindex="-1">
+                          Choreography
+                          <a
+                            class="header-anchor"
+                            href="#choreography"
+                            aria-hidden="true"
+                            >#</a
+                          >
+                        </h2>
+                        <p>
+                          Siempre hemos tratado a las animaciones de manera
+                          individual, pero podemos hacer que se ejecuten en un
+                          orden determinado. Asi que coreography es para
+                          coordinar diferentes animaciones entre si, para
+                          convertirla en una sola animación.
+                        </p>
+                        <p>
+                          Se puede hacer de manera simple, con la propiedad
+                          <code>animation-delay</code> que nos permite dar un
+                          retraso a la animación.
+                        </p>
+                        <div class="language-html">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">html</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#F07178;">div</span><span style="color:#89DDFF;"> </span><span style="color:#C792EA;">class</span><span style="color:#89DDFF;">=</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">circle</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">&gt;&lt;/</span><span style="color:#F07178;">div</span><span style="color:#89DDFF;">&gt;</span></span>
+<span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#F07178;">div</span><span style="color:#89DDFF;"> </span><span style="color:#C792EA;">class</span><span style="color:#89DDFF;">=</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">circle</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">&gt;&lt;/</span><span style="color:#F07178;">div</span><span style="color:#89DDFF;">&gt;</span></span>
+<span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#F07178;">div</span><span style="color:#89DDFF;"> </span><span style="color:#C792EA;">class</span><span style="color:#89DDFF;">=</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">circle</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">&gt;&lt;/</span><span style="color:#F07178;">div</span><span style="color:#89DDFF;">&gt;</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                        <div class="language-css">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">css</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#89DDFF;">.</span><span style="color:#FFCB6B;">circle</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">width</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">50px</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">height</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">50px</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">background-color</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> red</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">border-radius</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">50%</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">animation</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> red-to-blue </span><span style="color:#F78C6C;">0.5s</span><span style="color:#A6ACCD;"> both</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#89DDFF;">.</span><span style="color:#FFCB6B;">circle</span><span style="color:#89DDFF;">:</span><span style="color:#C792EA;">nth-child</span><span style="color:#89DDFF;">(</span><span style="color:#F78C6C;">2</span><span style="color:#89DDFF;">)</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">animation-delay</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">1s</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#89DDFF;">.</span><span style="color:#FFCB6B;">circle</span><span style="color:#89DDFF;">:</span><span style="color:#C792EA;">nth-child</span><span style="color:#89DDFF;">(</span><span style="color:#F78C6C;">3</span><span style="color:#89DDFF;">)</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">animation-delay</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">2s</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#89DDFF;">@keyframes</span><span style="color:#A6ACCD;"> </span><span style="color:#A6ACCD;">red-to-blue</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#FFCB6B;">from</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#B2CCD6;">background-color</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> red</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#FFCB6B;">to</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#B2CCD6;">background-color</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> blue</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                        <p>
+                          <a
+                            href="https://codi.link/PGRpdiBjbGFzcz0iY2lyY2xlIj48L2Rpdj4KPGRpdiBjbGFzcz0iY2lyY2xlIj48L2Rpdj4KPGRpdiBjbGFzcz0iY2lyY2xlIj48L2Rpdj4KPGJ1dHRvbj4gUmVzdGFydCBhbmltYXRpb24gPC9idXR0b24+%7CLmNpcmNsZSB7CiAgd2lkdGg6IDUwcHg7CiAgaGVpZ2h0OiA1MHB4OwogIGJhY2tncm91bmQtY29sb3I6IHJlZDsKICBib3JkZXItcmFkaXVzOiA1MCU7CiAgYW5pbWF0aW9uOiByZWQtdG8tYmx1ZSAwLjVzIGJvdGg7Cn0KCi5jaXJjbGU6bnRoLWNoaWxkKDIpIHsKICBhbmltYXRpb24tZGVsYXk6IDFzOwp9CgouY2lyY2xlOm50aC1jaGlsZCgzKSB7CiAgYW5pbWF0aW9uLWRlbGF5OiAyczsKfQoKQGtleWZyYW1lcyByZWQtdG8tYmx1ZSB7CiAgZnJvbSB7CiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7CiAgfQoKICB0byB7CiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBibHVlOwogIH0KfQo=%7CY29uc3QgYnV0dG9uID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcignYnV0dG9uJyk7CmJ1dHRvbi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsICgpID0+IHsKICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCcuY2lyY2xlJykuZm9yRWFjaCgoY2lyY2xlKSA9PiB7ICAgIAoKICAgIGNpcmNsZS5zdHlsZS5hbmltYXRpb24gPSAnbm9uZSc7CiAgICAgY2lyY2xlLm9mZnNldFdpZHRoOyAgIAogICAgIGNpcmNsZS5zdHlsZS5hbmltYXRpb24gPSBudWxsOwogIAogIH0pOwp9KTs="
+                            target="_blank"
+                            rel="noreferrer"
+                            >Link al ejemplo</a
+                          >
+                        </p>
+                        <!--[-->
+                        <section data-v-9d0b2e89>
+                          <div class="reset-circle" data-v-9d0b2e89></div>
+                          <div class="reset-circle" data-v-9d0b2e89></div>
+                          <div class="reset-circle" data-v-9d0b2e89></div>
+                        </section>
+                        <section data-v-9d0b2e89>
+                          <button id="resetCircle" data-v-9d0b2e89>
+                            Reset animation
+                          </button>
+                        </section>
+                        <!--]-->
+                        <h3 id="complex-choreography" tabindex="-1">
+                          Complex Choreography
+                          <a
+                            class="header-anchor"
+                            href="#complex-choreography"
+                            aria-hidden="true"
+                            >#</a
+                          >
+                        </h3>
+                        <p>
+                          Para poder de manera más escalable, se pueden utilizar
+                          variables CSS para poder controlar el orden de las
+                          animaciones. Y utilizar stagger animations, para
+                          evitar sobrepongan las animaciones, de igual manera,
+                          añadir una variable a cada elemento para poder
+                          controlar el orden de las animaciones.
+                        </p>
+                        <div class="language-html">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">html</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#F07178;">div</span><span style="color:#89DDFF;"> </span><span style="color:#C792EA;">class</span><span style="color:#89DDFF;">=</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">circle</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;"> </span><span style="color:#C792EA;">style</span><span style="color:#89DDFF;">=</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">--i: 0</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">&gt;&lt;/</span><span style="color:#F07178;">div</span><span style="color:#89DDFF;">&gt;</span></span>
+<span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#F07178;">div</span><span style="color:#89DDFF;"> </span><span style="color:#C792EA;">class</span><span style="color:#89DDFF;">=</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">circle</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;"> </span><span style="color:#C792EA;">style</span><span style="color:#89DDFF;">=</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">--i: 1</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">&gt;&lt;/</span><span style="color:#F07178;">div</span><span style="color:#89DDFF;">&gt;</span></span>
+<span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#F07178;">div</span><span style="color:#89DDFF;"> </span><span style="color:#C792EA;">class</span><span style="color:#89DDFF;">=</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">circle</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;"> </span><span style="color:#C792EA;">style</span><span style="color:#89DDFF;">=</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">--i: 2</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">&gt;&lt;/</span><span style="color:#F07178;">div</span><span style="color:#89DDFF;">&gt;</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                        <div class="language-css">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">css</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#89DDFF;">.</span><span style="color:#FFCB6B;">circle</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">  --duration</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">1s</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  --stagger</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">0.5s</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  --interval</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#82AAFF;">calc</span><span style="color:#89DDFF;">(</span><span style="color:#82AAFF;">var</span><span style="color:#89DDFF;">(</span><span style="color:#A6ACCD;">--duration</span><span style="color:#89DDFF;">)</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">-</span><span style="color:#A6ACCD;"> </span><span style="color:#82AAFF;">var</span><span style="color:#89DDFF;">(</span><span style="color:#A6ACCD;">--stagger</span><span style="color:#89DDFF;">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">width</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">50px</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">height</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">50px</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">background-color</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> red</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">border-radius</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> </span><span style="color:#F78C6C;">50%</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">animation</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> red-to-blue </span><span style="color:#82AAFF;">var</span><span style="color:#89DDFF;">(</span><span style="color:#A6ACCD;">--duration</span><span style="color:#89DDFF;">)</span><span style="color:#A6ACCD;"> </span><span style="color:#82AAFF;">calc</span><span style="color:#89DDFF;">(</span><span style="color:#82AAFF;">var</span><span style="color:#89DDFF;">(</span><span style="color:#A6ACCD;">--interval</span><span style="color:#89DDFF;">)</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">*</span><span style="color:#A6ACCD;"> </span><span style="color:#82AAFF;">var</span><span style="color:#89DDFF;">(</span><span style="color:#A6ACCD;">--i</span><span style="color:#89DDFF;">))</span><span style="color:#A6ACCD;"> both</span><span style="color:#89DDFF;">;</span><span style="color:#A6ACCD;"> </span><span style="color:#676E95;">/* calc(var(--interval) * var(--i)) it&#39;s the delay */</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#89DDFF;">@keyframes</span><span style="color:#A6ACCD;"> </span><span style="color:#A6ACCD;">red-to-blue</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#FFCB6B;">from</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#B2CCD6;">background-color</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> red</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#FFCB6B;">to</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#B2CCD6;">background-color</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> blue</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                        <p>
+                          <a
+                            href="https://codi.link/PGRpdiBjbGFzcz0iY2lyY2xlIiBzdHlsZT0iLS1pOiAwIj48L2Rpdj4KPGRpdiBjbGFzcz0iY2lyY2xlIiBzdHlsZT0iLS1pOiAxIj48L2Rpdj4KPGRpdiBjbGFzcz0iY2lyY2xlIiBzdHlsZT0iLS1pOiAyIj48L2Rpdj4=%7CLmNpcmNsZSB7CiAgLS1kdXJhdGlvbjogMXM7CiAgLS1zdGFnZ2VyOiAwLjVzOwogIC0taW50ZXJ2YWw6IGNhbGModmFyKC0tZHVyYXRpb24pIC0gdmFyKC0tc3RhZ2dlcikpOwoKICB3aWR0aDogNTBweDsKICBoZWlnaHQ6IDUwcHg7CiAgYmFja2dyb3VuZC1jb2xvcjogcmVkOwogIGJvcmRlci1yYWRpdXM6IDUwJTsKICBhbmltYXRpb246IHJlZC10by1ibHVlIHZhcigtLWR1cmF0aW9uKSBjYWxjKHZhcigtLWludGVydmFsKSAqIHZhcigtLWkpKSBib3RoOwp9CgpAa2V5ZnJhbWVzIHJlZC10by1ibHVlIHsKICBmcm9tIHsKICAgIGJhY2tncm91bmQtY29sb3I6IHJlZDsKICB9CgogIHRvIHsKICAgIGJhY2tncm91bmQtY29sb3I6IGJsdWU7CiAgfQp9%7C"
+                            target="_blank"
+                            rel="noreferrer"
+                            >link al ejemplo</a
+                          >
+                        </p>
+                        <!--[-->
+                        <section data-v-71b63bff>
+                          <div
+                            class="reset-complex-circle"
+                            style="--i: 0"
+                            data-v-71b63bff
+                          ></div>
+                          <div
+                            class="reset-complex-circle"
+                            style="--i: 1"
+                            data-v-71b63bff
+                          ></div>
+                          <div
+                            class="reset-complex-circle"
+                            style="--i: 2"
+                            data-v-71b63bff
+                          ></div>
+                        </section>
+                        <section data-v-71b63bff>
+                          <button id="resetComplexCircle" data-v-71b63bff>
+                            Reset animation
+                          </button>
+                        </section>
+                        <!--]-->
+                        <h2 id="estados" tabindex="-1">
+                          Estados
+                          <a
+                            class="header-anchor"
+                            href="#estados"
+                            aria-hidden="true"
+                            >#</a
+                          >
+                        </h2>
+                        <p>
+                          Al momento de hacer animaciones, es importante tener
+                          en cuenta los estados de los elementos.
+                        </p>
+                        <p>
+                          Por ejemplo en un boton, puede tener hover, focus,
+                          active, disabled. Y algunos de ellos pueden ser
+                          simultaneos, por ejemplo, un boton puede tener hover y
+                          active al mismo tiempo.
+                        </p>
+                        <p>
+                          Para la gestion de un estado, nos puede servir crear
+                          atributos personalizados.
+                        </p>
+                        <div class="language-html">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">html</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#F07178;">button</span><span style="color:#89DDFF;"> </span><span style="color:#C792EA;">data-state</span><span style="color:#89DDFF;">=</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">loading</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">&gt;</span><span style="color:#A6ACCD;">Click</span><span style="color:#89DDFF;">&lt;/</span><span style="color:#F07178;">button</span><span style="color:#89DDFF;">&gt;</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                        <p>
+                          Usualmente modificamos el estado de un elemento con
+                          javascript, por ejemplo, cuando se hace click en el
+                          boton, se cambia el estado a loading.
+                        </p>
+                        <div class="language-js">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">js</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#C792EA;">const</span><span style="color:#A6ACCD;"> button </span><span style="color:#89DDFF;">=</span><span style="color:#A6ACCD;"> document</span><span style="color:#89DDFF;">.</span><span style="color:#82AAFF;">querySelector</span><span style="color:#A6ACCD;">(</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">button</span><span style="color:#89DDFF;">&quot;</span><span style="color:#A6ACCD;">)</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">button</span><span style="color:#89DDFF;">.</span><span style="color:#82AAFF;">addEventListener</span><span style="color:#A6ACCD;">(</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">click</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">,</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">()</span><span style="color:#A6ACCD;"> </span><span style="color:#C792EA;">=&gt;</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#F07178;">  </span><span style="color:#A6ACCD;">button</span><span style="color:#89DDFF;">.</span><span style="color:#82AAFF;">setAttribute</span><span style="color:#F07178;">(</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">data-state</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">,</span><span style="color:#F07178;"> </span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">success</span><span style="color:#89DDFF;">&quot;</span><span style="color:#F07178;">)</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span><span style="color:#A6ACCD;">)</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                        <p>
+                          Ahora bien, es un poco verboso y podemos hacerlo de
+                          una manera más sencilla.
+                        </p>
+                        <div class="language-js">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">js</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#C792EA;">const</span><span style="color:#A6ACCD;"> button </span><span style="color:#89DDFF;">=</span><span style="color:#A6ACCD;"> document</span><span style="color:#89DDFF;">.</span><span style="color:#82AAFF;">querySelector</span><span style="color:#A6ACCD;">(</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">button</span><span style="color:#89DDFF;">&quot;</span><span style="color:#A6ACCD;">)</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">button</span><span style="color:#89DDFF;">.</span><span style="color:#82AAFF;">addEventListener</span><span style="color:#A6ACCD;">(</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">click</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">,</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">()</span><span style="color:#A6ACCD;"> </span><span style="color:#C792EA;">=&gt;</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#F07178;">  </span><span style="color:#A6ACCD;">button</span><span style="color:#89DDFF;">.</span><span style="color:#A6ACCD;">dataset</span><span style="color:#89DDFF;">.</span><span style="color:#A6ACCD;">state</span><span style="color:#F07178;"> </span><span style="color:#89DDFF;">=</span><span style="color:#F07178;"> </span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">success</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span><span style="color:#A6ACCD;">)</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                        <p>
+                          A nivel de CSS, podemos utilizar el atributo
+                          personalizado para poder aplicar estilos.
+                        </p>
+                        <div class="language-css">
+                          <button title="Copy Code" class="copy"></button
+                          ><span class="lang">css</span>
+                          <pre
+                            class="shiki"
+                          ><code><span class="line"><span style="color:#FFCB6B;">button</span><span style="color:#89DDFF;">[</span><span style="color:#C792EA;">data-state</span><span style="color:#89DDFF;">=</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">loading</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">  </span><span style="color:#B2CCD6;">background-color</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;"> blue</span><span style="color:#89DDFF;">;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span></code></pre>
+                        </div>
+                      </div>
+                    </div>
+                  </main>
+                  <!--[--><!--]--><!----><!--[--><!--]-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!----><!--[--><!--]-->
+      </div>
+    </div>
+    <script>
+      __VP_HASH_MAP__ = JSON.parse(
+        '{"css-animations-and-transitions_index.md":"e4a3a124","index.md":"d40fed68","monorepo_index.md":"25127b35","test-driven-development_index.md":"89653df0","vue-unit-testing_index.md":"bf296506","web-components_index.md":"b8a65763"}'
+      );
+    </script>
+    <script type="module" async src="/assets/app.1fad655d.js"></script>
+  </body>
+</html>
