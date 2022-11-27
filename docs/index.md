@@ -1,13 +1,26 @@
-# Mis apuntes
+---
+layout: home
 
-#### [Link al repositorio <img src="./assets/github.svg" alt="github" width="16"/>](https://github.com/jordicher/my-notes-vuepress)
+title: Apuntes jordicher
+titleTemplate: Resumenes de diferentes temas
 
-## [Animaciones y transiciones CSS](./css-animations-and-transitions/)
+hero:
+  name: Apuntes jordicher
+  tagline: Resumenes de diferentes temas obtenidos de cursos, libros, documentación...
+  actions:
+    - theme: alt
+      text: View on GitHub
+      link: https://github.com/jordicher/my-notes
 
-## [Monorepo](./monorepo/)
-
-## [TDD: Test-Driven Development](./test-driven-development/)
-
-## [Vue Unit Testing](./vue-unit-testing/)
-
-## [Web Components](./web-components/)
+features:
+  - title: "Monorepo ✅"
+    link: "./monorepo/"
+  - title: "Vue Unit Testing ✅"
+    link: "./vue-unit-testing/"
+  - title: "Web Components 🚧"
+    link: "./web-components/"
+  - title: "Animaciones y transiciones CSS 🚧"
+    link: "./css-animations-and-transitions/"
+  - title: "TDD: Test-Driven Development 🚧"
+    link: "./test-driven-development/"
+---

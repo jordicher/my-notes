@@ -1,4 +1,4 @@
-# my-notes-vuepress
+# my-notes
 
 It is a repository to put my new notes, and in this way have control over my notes and stop using google drive.
 
