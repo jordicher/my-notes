@@ -9,7 +9,7 @@ hero:
   tagline: Resumenes de diferentes temas obtenidos de cursos, libros, documentación...
   actions:
     - theme: alt
-      text: View on GitHub
+      text: Ver en GitHub
       link: https://github.com/jordicher/my-notes
 
 features:
