@@ -19,6 +19,8 @@ features:
     link: "./vue-unit-testing/"
   - title: "Web Components 🚧"
     link: "./web-components/"
+  - title: "JavaScript Performance 🚧"
+    link: "./javascript-performance/"
   - title: "Animaciones y transiciones CSS 🚧"
     link: "./css-animations-and-transitions/"
   - title: "TDD: Test-Driven Development 🚧"
