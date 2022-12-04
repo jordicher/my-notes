@@ -6,6 +6,10 @@ description: Introducción a Vue Unit Testing
 
 # Vue Unit Testing
 
+Estos apuntes están basados en el curso de [Unit Testing en Vue.js 3](https://platzi.com/cursos/vue-unit-testing/) - Maria Camila Lenis
+
+## Introducción
+
 Dentro del testing de Vue, hay dos tipos de pruebas:
 
 - **Pruebas funcionales**: validan las funcionalidades de nuestra aplicación.

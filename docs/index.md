@@ -18,10 +18,13 @@ hero:
 features:
   - title: "Monorepo ✅"
     link: "./monorepo/"
+    details: Introducción al monorepo, gestión de dependencias y Lerna.
   - title: "Vue Unit Testing ✅"
     link: "./vue-unit-testing/"
+    details: Introducción a los tests unitarios en Vue.
   - title: "Web Components 🚧"
     link: "./web-components/"
+    details: Como crear Web Components propios, DOM, su relación con css y js y múltiples ejemplos.
   - title: "JavaScript Performance 🚧"
     link: "./javascript-performance/"
   - title: "Animaciones y transiciones CSS 🚧"

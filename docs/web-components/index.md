@@ -6,6 +6,13 @@ description: Introducción a los WEB COMPONENTS
 
 # WEB COMPONENTS
 
+Estos apuntes están basados:
+
+- Curso de [Web Components](https://frontendmasters.com/courses/web-components/) - Dave Rupert
+- Directos de [Miguel Ángel Durán](https://www.twitch.tv/midudev)
+
+## Introducción
+
 Actualmente, las personas se están centrando en saber programar un framework, saber programar react o angular... no se centran en aprender la plataforma. Otro ejemplo, nos centramos a aprender la libreria axios pero no fetch... Y en sí la plataforma es la base del desarrollo y es lo que nos permite saltar entre librerias o frameworks de manera fácil.
 
 "Los Componentes Web son un paquete de **diferentes tecnologías** que te permiten crear elementos personalizados reutilizables — con su funcionalidad encapsulada apartada del resto del código — y utilizarlos en las aplicaciones web."

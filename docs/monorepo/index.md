@@ -6,6 +6,10 @@ description: Introducción a Monorepo
 
 # Monorepo
 
+Estos apuntes están basados en el curso [JavaScript and TypeScript Monorepos](https://frontendmasters.com/courses/monorepos/) - Mike North
+
+## Introducción
+
 Monorepo = Un repositorio.
 
 **Multiples paquetes que tienen interdependencias entre ellos, por lo que estan entrelazados, y que se gestionan desde un solo repositorio.**

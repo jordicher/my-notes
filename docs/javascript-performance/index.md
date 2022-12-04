@@ -66,3 +66,7 @@ Por ejemplo, podemos tener miles de peticiones a nuestra homepage, pero nadie va
 
 No podemos analizar la performance siempre con el mismo dispositivo o con el último mobil/ordenador que ha salido al mercado.
 Lo mismo con el internet, no podemos medir la performance con una conexión de 1 Gb/s, ya que no es lo que la mayoría de los usuarios tienen.
+
+## JavaScript Performance
+
+Podemos pagar para tener el servidor más rapido... pero si nuestra aplicación es client side, y el usuario tiene un móvil de hace 5 años, no vamos a poder hacer nada... No vamos a comprarle un móvil nuevo a cada usuario😅.
