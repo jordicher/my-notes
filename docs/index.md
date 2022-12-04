@@ -11,6 +11,9 @@ hero:
     - theme: alt
       text: Ver en GitHub
       link: https://github.com/jordicher/my-notes
+    - theme: brand
+      text: Mi linkedin
+      link: https://www.linkedin.com/in/cherto/
 
 features:
   - title: "Monorepo ✅"
