@@ -61,6 +61,8 @@ Las templates se ven así. Algo básico.
 </template>
 ```
 
+### `<slot>`
+
 Los slots sirven para pasar contenido a una template. Nosotros podemos tener múltiples slots y para diferenciarlos utilizar los names.
 
 ```html
@@ -86,6 +88,9 @@ slotChange(event) {
 console.log(event.target.assignedNodes());
 }
 ```
+
+Recursos:
+[mdn web docs](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots)
 
 ### Custom Elements
 
@@ -691,4 +696,82 @@ class Counter extends HTMLElement {
 }
 
 customElements.define("my-counter", Counter);
+```
+
+### Unavatar
+
+Es un servicio que te permite obtener el avatar de un usuario de GitHub, Twitter, Facebook, Instagram, etc.
+
+Ejemplo inspirado en un directo de Twitch, [Miguel Ángel Durán](https://twitter.com/midudev)
+
+Ejemplo, [link al ejemplo]()
+
+```html
+<un-avatar social="github" username="jordicher" size="medium"></un-avatar>
+
+<un-avatar social="github" username="jordicher" size="small"></un-avatar>
+```
+
+```js
+const SIZES = {
+  small: 32,
+  medium: 64,
+  large: 128,
+};
+
+class UnAvatar extends HTMLElement {
+  constructor() {
+    super();
+
+    const shadow = (this._shadowRoot = this.attachShadow({ mode: "open" }));
+
+    const size = this.getAttribute("size") ?? "medium";
+    const cssSize = SIZES[size] ?? SIZES.medium;
+
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          display: inline-block;
+          width: ${cssSize}px;
+          height: ${cssSize}px;
+          border-radius: 50%;
+          overflow: hidden;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      </style>
+      <img />
+    `;
+
+    this.$img = this._shadowRoot.querySelector("img");
+  }
+
+  static get observedAttributes() {
+    return ["social", "username"];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === "social" || name === "username") {
+      this._updateAvatar();
+    }
+  }
+
+  _updateAvatar() {
+    const social = this.getAttribute("social");
+    const username = this.getAttribute("username");
+
+    if (social && username) {
+      this.$img.src = `https://unavatar.io/${social}/${username}`;
+    }
+  }
+
+  connectedCallback() {
+    this._updateAvatar();
+  }
+}
+
+customElements.define("un-avatar", UnAvatar);
 ```
