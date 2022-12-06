@@ -704,12 +704,13 @@ Es un servicio que te permite obtener el avatar de un usuario de GitHub, Twitter
 
 Ejemplo inspirado en un directo de Twitch, [Miguel Ángel Durán](https://twitter.com/midudev)
 
-Ejemplo, [link al ejemplo]()
+Ejemplo, [link al ejemplo](https://codi.link/PHVuLWF2YXRhciBzb2NpYWw9ImdpdGh1YiIgdXNlcm5hbWU9ImpvcmRpY2hlciIgc2l6ZT0ibWVkaXVtIj48L3VuLWF2YXRhcj4KCjxidXR0b24gY2xhc3M9ImFkZC1zaXplIj4rPC9idXR0b24+CjxidXR0b24gY2xhc3M9InJlZHVjZS1zaXplIj4tPC9idXR0b24+||Y29uc3QgU0laRVMgPSB7CiAgc21hbGw6IDMyLAogIG1lZGl1bTogNjQsCiAgbGFyZ2U6IDEyOCwKfTsKCmNsYXNzIFVuQXZhdGFyIGV4dGVuZHMgSFRNTEVsZW1lbnQgewogIGNvbnN0cnVjdG9yKCkgewogICAgc3VwZXIoKTsKCiAgICBjb25zdCBzaGFkb3cgPSAodGhpcy5fc2hhZG93Um9vdCA9IHRoaXMuYXR0YWNoU2hhZG93KHsgbW9kZTogIm9wZW4iIH0pKTsKCiAgICBjb25zdCBzaXplID0gdGhpcy5nZXRBdHRyaWJ1dGUoInNpemUiKSA/PyAibWVkaXVtIjsKICAgIGNvbnN0IGNzc1NpemUgPSBTSVpFU1tzaXplXSA/PyBTSVpFUy5tZWRpdW07CgogICAgdGhpcy5zaGFkb3dSb290LmlubmVySFRNTCA9IGAKICAgICAgPHN0eWxlPgogICAgICAgIDpob3N0IHsKICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsKICAgICAgICAgIHdpZHRoOiAke2Nzc1NpemV9cHg7CiAgICAgICAgICBoZWlnaHQ6ICR7Y3NzU2l6ZX1weDsKICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDUwJTsKICAgICAgICAgIG92ZXJmbG93OiBoaWRkZW47CiAgICAgICAgfQogICAgICAgIGltZyB7CiAgICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICAgIGhlaWdodDogMTAwJTsKICAgICAgICAgIG9iamVjdC1maXQ6IGNvdmVyOwogICAgICAgIH0KICAgICAgPC9zdHlsZT4KICAgICAgPGltZyAvPgogICAgYDsKCiAgICB0aGlzLiRpbWcgPSB0aGlzLl9zaGFkb3dSb290LnF1ZXJ5U2VsZWN0b3IoImltZyIpOwogIH0KCiAgc3RhdGljIGdldCBvYnNlcnZlZEF0dHJpYnV0ZXMoKSB7CiAgICByZXR1cm4gWyJzb2NpYWwiLCAidXNlcm5hbWUiLCAic2l6ZSJdOwogIH0KCiAgYXR0cmlidXRlQ2hhbmdlZENhbGxiYWNrKG5hbWUsIG9sZFZhbHVlLCBuZXdWYWx1ZSkgewogICAgaWYgKG5hbWUgPT09ICJzb2NpYWwiIHx8IG5hbWUgPT09ICJ1c2VybmFtZSIpIHsKICAgICAgdGhpcy5fdXBkYXRlQXZhdGFyKCk7CiAgICB9CgogICAgaWYgKG5hbWUgPT09ICJzaXplIikgewogICAgICBjb25zdCBjc3NTaXplID0gU0laRVNbbmV3VmFsdWVdID8/IFNJWkVTLm1lZGl1bTsKICAgICAgdGhpcy5fc2hhZG93Um9vdC5ob3N0LnN0eWxlLndpZHRoID0gYCR7Y3NzU2l6ZX1weGA7CiAgICAgIHRoaXMuX3NoYWRvd1Jvb3QuaG9zdC5zdHlsZS5oZWlnaHQgPSBgJHtjc3NTaXplfXB4YDsKICAgIH0KICB9CgogIF91cGRhdGVBdmF0YXIoKSB7CiAgICBjb25zdCBzb2NpYWwgPSB0aGlzLmdldEF0dHJpYnV0ZSgic29jaWFsIik7CiAgICBjb25zdCB1c2VybmFtZSA9IHRoaXMuZ2V0QXR0cmlidXRlKCJ1c2VybmFtZSIpOwoKICAgIGlmIChzb2NpYWwgJiYgdXNlcm5hbWUpIHsKICAgICAgdGhpcy4kaW1nLnNyYyA9IGBodHRwczovL3VuYXZhdGFyLmlvLyR7c29jaWFsfS8ke3VzZXJuYW1lfWA7CiAgICB9CiAgfQoKICBjb25uZWN0ZWRDYWxsYmFjaygpIHsKICAgIHRoaXMuX3VwZGF0ZUF2YXRhcigpOwogIH0KfQoKY3VzdG9tRWxlbWVudHMuZGVmaW5lKCJ1bi1hdmF0YXIiLCBVbkF2YXRhcik7Cgpjb25zdCAkYWRkU2l6ZSA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoIi5hZGQtc2l6ZSIpOwpjb25zdCAkcmVkdWNlU2l6ZSA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoIi5yZWR1Y2Utc2l6ZSIpOwoKJGFkZFNpemUuYWRkRXZlbnRMaXN0ZW5lcigiY2xpY2siLCAoKSA9PiB7CiAgY29uc3QgJGF2YXRhciA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoInVuLWF2YXRhciIpOwogIGNvbnN0IHNpemUgPSAkYXZhdGFyLmdldEF0dHJpYnV0ZSgic2l6ZSIpOwogIGNvbnN0IGluZGV4ID0gT2JqZWN0LmtleXMoU0laRVMpLmluZGV4T2Yoc2l6ZSk7CiAgY29uc3QgbmV4dFNpemUgPSBPYmplY3Qua2V5cyhTSVpFUylbaW5kZXggKyAxXTsKICAkYXZhdGFyLnNldEF0dHJpYnV0ZSgic2l6ZSIsIG5leHRTaXplKTsKfSk7CgokcmVkdWNlU2l6ZS5hZGRFdmVudExpc3RlbmVyKCJjbGljayIsICgpID0+IHsKICBjb25zdCAkYXZhdGFyID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcigidW4tYXZhdGFyIik7CiAgY29uc3Qgc2l6ZSA9ICRhdmF0YXIuZ2V0QXR0cmlidXRlKCJzaXplIik7CiAgY29uc3QgaW5kZXggPSBPYmplY3Qua2V5cyhTSVpFUykuaW5kZXhPZihzaXplKTsKICBjb25zdCBuZXh0U2l6ZSA9IE9iamVjdC5rZXlzKFNJWkVTKVtpbmRleCAtIDFdOwogICRhdmF0YXIuc2V0QXR0cmlidXRlKCJzaXplIiwgbmV4dFNpemUpOwp9KTs=)
 
 ```html
 <un-avatar social="github" username="jordicher" size="medium"></un-avatar>
 
-<un-avatar social="github" username="jordicher" size="small"></un-avatar>
+<button class="add-size">+</button>
+<button class="reduce-size">-</button>
 ```
 
 ```js
@@ -750,12 +751,18 @@ class UnAvatar extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ["social", "username"];
+    return ["social", "username", "size"];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     if (name === "social" || name === "username") {
       this._updateAvatar();
+    }
+
+    if (name === "size") {
+      const cssSize = SIZES[newValue] ?? SIZES.medium;
+      this._shadowRoot.host.style.width = `${cssSize}px`;
+      this._shadowRoot.host.style.height = `${cssSize}px`;
     }
   }
 
@@ -774,4 +781,23 @@ class UnAvatar extends HTMLElement {
 }
 
 customElements.define("un-avatar", UnAvatar);
+
+const $addSize = document.querySelector(".add-size");
+const $reduceSize = document.querySelector(".reduce-size");
+
+$addSize.addEventListener("click", () => {
+  const $avatar = document.querySelector("un-avatar");
+  const size = $avatar.getAttribute("size");
+  const index = Object.keys(SIZES).indexOf(size);
+  const nextSize = Object.keys(SIZES)[index + 1];
+  $avatar.setAttribute("size", nextSize);
+});
+
+$reduceSize.addEventListener("click", () => {
+  const $avatar = document.querySelector("un-avatar");
+  const size = $avatar.getAttribute("size");
+  const index = Object.keys(SIZES).indexOf(size);
+  const nextSize = Object.keys(SIZES)[index - 1];
+  $avatar.setAttribute("size", nextSize);
+});
 ```
