@@ -36,7 +36,7 @@ Estándares web:
 - JSON, CSS, HTML Modules
 - CSS changes
 
-Como resultado, los Componentes Web:
+**Como resultado, los Componentes Web:**
 
 - tienen una gran reutilización
 - son faciles como html
@@ -45,7 +45,7 @@ Como resultado, los Componentes Web:
 - sin herramientas de construcción
 - encapsulado
 
-## Estandar Web
+## Estándares Web
 
 ### `<template>`
 
@@ -161,64 +161,42 @@ customElements.define("my-element", MyElement);
 
 ### Shadow DOM
 
-Podemos pensar en la encapsulación. Es una forma de encapsular el DOM y CSS dentro de un componente. Esto nos permite pensar que nuestros estilos solo se quedan en el componente y no afectan a otros componentes, lo mismo con js, podemos encapsuar js dentro de un Shadow Dom.
+Podemos pensar en la encapsulación. En una forma de encapsular el DOM y CSS dentro de un componente. Esto nos permite pensar que nuestros estilos solo se quedan en el componente y no afectan a otros componentes, lo mismo con js, podemos encapsuar js dentro de un Shadow Dom.
 
 Siempre el shadow Dom estara enclado a un elemento del DOM regular.
 
+Ejemplo, [link al ejemplo](https://codi.link/PG15LWVsZW1lbnQgdGl0bGU9IkhvbGEiPgo8L215LWVsZW1lbnQ+||Y2xhc3MgTXlFbGVtZW50IGV4dGVuZHMgSFRNTEVsZW1lbnQgewogICAgY29uc3RydWN0b3IoKSB7CiAgICAgIHN1cGVyKCk7CiAgICAgIGNvbnN0IHNoYWRvdyA9IHRoaXMuYXR0YWNoU2hhZG93KHsgbW9kZTogIm9wZW4iIH0pOyAgICAgIAoKICAgICAgc2hhZG93LmlubmVySFRNTCA9IGAKICAgICAgICA8c3R5bGU+CiAgICAgICAgICBoMSB7CiAgICAgICAgICAgIGNvbG9yOiByZWQ7CiAgICAgICAgICB9CiAgICAgICAgPC9zdHlsZT4KICAgICAgICA8aDE+JHt0aGlzLmdldEF0dHJpYnV0ZSgidGl0bGUiKX08L2gxPgogICAgICBgOwogICAgfQoKfQpjdXN0b21FbGVtZW50cy5kZWZpbmUoIm15LWVsZW1lbnQiLCBNeUVsZW1lbnQpOw==)
+
 ```html
-<my-element>
-  <p>Parrafo</p>
-  <!-- Start Shadow DOM -->
-  <slot></slot>
-  <button>Close</button>
-  <!-- End Shadow DOM -->
-</my-element>
+<my-element title="Hola"> </my-element>
 ```
 
 ```js
 class MyElement extends HTMLElement {
-    constructor() {
-        super();
-        this.attachShadow({
-            mode: 'open' | 'closed' // default: closed
-            delegatesFocus: true | false // default: false
-        });
-    }
+  constructor() {
+    super();
+    const shadow = this.attachShadow({ mode: "open" });
+
+    const title = this.getAttribute("title");
+
+    shadow.innerHTML = `
+        <style>
+          h1 {
+            color: red;
+          }
+        </style>
+        <h1>${title}</h1>
+      `;
+  }
 }
 customElements.define("my-element", MyElement);
 ```
 
-Los diferentes modos, `open` y `closed`, nos permiten acceder al shadow dom desde el js. Si es `closed`, no podemos acceder al shadow dom desde el js y nos devolvera null.
+Los diferentes modos de attachShadow, `open` y `closed`, afectan a como podemos acceder al shadow dom.
+Si es `open`, podemos acceder al shadow dom desde el js, por lo que el padre podra leer cosas que esten pasando dentro del shadow dom.
+Si es `closed`, no podemos acceder al shadow dom desde el js y nos devolvera null.
 
-Código de ejemplo, extraido de [cybmeta](https://cybmeta.com/que-es-el-shadow-dom)
-
-```html
-<blockquote>
-  Esta cita no se ve afectada por los estilos dentro del Shadow DOM.
-</blockquote>
-<div class="shadow-host"></div>
-<script>
-  const myElement = document.querySelector(".shadow-host");
-  const shadow = myElement.attachShadow({ mode: "open" });
-
-  const quoteEl = document.createElement("blockquote");
-  quoteEl.innerText = "Haz el amor y no la guerra (John Lennon)";
-  shadow.appendChild(quoteEl);
-
-  const styles = document.createElement("style");
-  styles.textContent = `
-        blockquote {
-            color: white;
-            background: #000;
-            padding: 10px;
-            display: block;
-            font-family: san-serif;
-            font-size: 2rem;
-        }
-    `;
-  shadow.appendChild(styles);
-</script>
-```
+Si es open o closed, no afecta a que podamos tener todos los estilos encapsulados.
 
 #### Recursos:
 
@@ -509,11 +487,17 @@ Se pintará el párrafo del Light DOM con el color naranja, aunque está en segu
 
 Al momento de hacer un Web Component, tenemos que tener en cuenta diferentes puntos, como por ejemplo:
 
+Fragmento de codigo para ejemplificar los puntos siguientes.
+
 ```js
 class MyElement extends HTMLElement {
   constructor() {
     super();
     this._name = this.getAttribute("name");
+  }
+
+  setOptions(options) {
+    console.log("setOptions", options);
   }
 
   connectedCallback() {
@@ -535,6 +519,19 @@ class MyElement extends HTMLElement {
 }
 
 customElements.define("my-element", MyElement);
+```
+
+#### `getAttribute()`
+
+En las etiquetas HTML no se le puede pasar ni funciones, ni objetos. Siempre tienen que ser strings. Por lo que si queremos pasar un objeto, tenemos que convertirlo a string. Aunque... podemos hacer un metodo custom. Y entonces lo podriamos hacer con js.
+
+##### Metodos custom
+
+Podemos crear metodos custom, que nos permitan pasar objetos, o funciones, o lo que queramos.
+
+```js
+const getMyElement = document.querySelector("my-element");
+getMyElement.setOptions({ name: "John", age: 30 });
 ```
 
 ### Component Lifecycle
