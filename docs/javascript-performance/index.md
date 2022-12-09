@@ -70,3 +70,25 @@ Lo mismo con el internet, no podemos medir la performance con una conexión de 1
 ## JavaScript Performance
 
 Podemos pagar para tener el servidor más rapido... pero si nuestra aplicación es client side, y el usuario tiene un móvil de hace 5 años, no vamos a poder hacer nada... No vamos a comprarle un móvil nuevo a cada usuario😅.
+
+Cada vez enviamos más javascript al navegador, y cada vez es más complejo. Esto hace que el navegador tarde más en procesar el javascript. Asi como frameworks como React, que solo por el hecho de usarlo ya estas usando un montón de javascript.
+
+Javascript es un lenguaje interpretado, pero en la práctica, los navegadores utilizan compiladores just-in-time (JIT) para convertir el código JavaScript en código máquina que pueda ejecutar la CPU. El JIT compilador analiza el código JavaScript y lo compila en código máquina en tiempo de ejecución. Esto sucede en la maquina del cliente, por lo que ellos estan pagando el coste y haciendo este trabajo por nosotros.
+
+### Engine V8 de JavaScript
+
+Cada navegador tiene su propio motor, por ejemplo Chrome tiene V8, Firefox tiene SpiderMonkey, Safari tiene Nitro, etc.
+
+Si nos centramos en V8. El ciclo de javascript en V8 es el siguiente:
+
+1. Subimos nuestro codigo a la nube.
+2. El navegador descarga el codigo.
+3. Se convierte en un arbol de sintaxis abstracta (AST), que es una estructura de datos real que representa el código.
+4. Interprete. El AST se compila en código máquina. Convierte el código JavaScript en bytes.
+   4.1 Compilador de optimización, si detecta que hay codigo que se puede optimizar, lo pasa por aqui. Y lo devuelve como código máquina optimizado.
+5. El código máquina se ejecuta en la CPU.
+
+![Steps of v8](./assets/stepsv8.jpg)
+
+Recursos para profundizar sobre el tema:
+[soymichel](https://soymichel.medium.com/entendiendo-el-engine-v8-de-javascript-7e3d11443df8)
