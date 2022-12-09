@@ -83,7 +83,7 @@ Si nos centramos en V8. El ciclo de javascript en V8 es el siguiente:
 
 1. Subimos nuestro codigo a la nube.
 2. El navegador descarga el codigo.
-3. Se convierte en un arbol de sintaxis abstracta (AST), que es una estructura de datos real que representa el código.
+3. Parsing. Se convierte en un arbol de sintaxis abstracta (AST), que es una estructura de datos real que representa el código.
 4. Interprete. El AST se compila en código máquina. Convierte el código JavaScript en bytes.
    4.1 Compilador de optimización, si detecta que hay codigo que se puede optimizar, lo pasa por aqui. Y lo devuelve como código máquina optimizado.
 5. El código máquina se ejecuta en la CPU.
@@ -91,4 +91,55 @@ Si nos centramos en V8. El ciclo de javascript en V8 es el siguiente:
 ![Steps of v8](./assets/stepsv8.jpg)
 
 Recursos para profundizar sobre el tema:
+
 [soymichel](https://soymichel.medium.com/entendiendo-el-engine-v8-de-javascript-7e3d11443df8)
+
+[khattakdev](https://dev.to/khattakdev/chrome-v8-engine-working-1lgi)
+
+#### Parsing
+
+Convertimos el codigo en un AST, que es una estructura de datos real que representa el código. En si, es un árbol de objetos. Cada nodo del árbol representa una parte del código.
+
+Ejemplo de un AST: [AST Explorer](https://astexplorer.net/)
+
+```js
+let tips = ["learn languages"];
+
+function printTips() {
+  tips.forEach((tip, i) => console.log(`Tip ${i}:` + tip));
+}
+```
+
+![AST](./assets/ast.jpg)
+
+Este parsing es muy costoso y es lento. Podemos llegar a 1mb/s en mobiles.
+
+Una forma de reducir el tiempo de parseo... es tener menos código... hacer el análisis que necesitamos a primera instancia, y luego ir añadiendo cosas. Si se puede hacer más tarde, hazlo más tarde.
+
+Entonces en el motor v8, hay dos maneras de hacer el parsing:
+
+- Eager Parsing: Se hace en el momento que se descarga el código. Es muy costoso, pero es necesario para que el código se ejecute.
+
+- Lazy Parsing: Se hace cuando se necesita. Es más barato, pero no se puede ejecutar hasta que se haya parseado.
+
+Y nosotros **no tenemos control sobre esto**... es algo que elige chrome por nosotros.
+
+En si podemos pensar que la mejor opción es Lazy Parsing... que lo hace gracias a la simplificación del código, es decir, si ve codigo que se va a ejecutar, lo parsea, pero si ve una clase, una llamada fetch... no lo parsea hasta que se necesite.
+
+Ejemplo extraido de [stevekinney](https://speakerdeck.com/stevekinney/web-performance?slide=87)
+
+```js
+// This will be eagerly parsed
+const a = 1;
+const b = 2;
+
+// This will be lazily parsed, because it's not needed to run the code
+function add(a, b) {
+  return a + b;
+}
+
+// Go back and parse add()
+add(a, b);
+```
+
+Ahora bien caemos en un problema... que es mejor, parsear todo el código una vez, o estar analizando que es lo que se necesita, para después parsearlo?
