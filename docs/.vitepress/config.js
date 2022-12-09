@@ -9,7 +9,7 @@ export default defineConfig({
   themeConfig: {
     nav: nav(),
 
-    outline: [2, 3],
+    outline: [2, 4],
     outlineTitle: "En esta página",
 
     socialLinks: [

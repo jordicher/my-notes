@@ -92,9 +92,8 @@ Si nos centramos en V8. El ciclo de javascript en V8 es el siguiente:
 
 Recursos para profundizar sobre el tema:
 
-[soymichel](https://soymichel.medium.com/entendiendo-el-engine-v8-de-javascript-7e3d11443df8)
-
-[khattakdev](https://dev.to/khattakdev/chrome-v8-engine-working-1lgi)
+- [soymichel](https://soymichel.medium.com/entendiendo-el-engine-v8-de-javascript-7e3d11443df8)
+- [khattakdev](https://dev.to/khattakdev/chrome-v8-engine-working-1lgi)
 
 #### Parsing
 

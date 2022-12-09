@@ -203,7 +203,7 @@ Si es `closed`, no podemos acceder al shadow dom desde el js y nos devolvera nul
 
 Si es open o closed, no afecta a que podamos tener todos los estilos encapsulados.
 
-#### Recursos:
+Recursos:
 
 - [cybmeta](https://cybmeta.com/que-es-el-shadow-dom)
 - [htmlwithsuperpowers](https://htmlwithsuperpowers.netlify.app/get-started/shadow-dom.html#attaching-a-shadow-root)

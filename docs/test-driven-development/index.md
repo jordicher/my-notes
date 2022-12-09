@@ -68,7 +68,7 @@ Usualmente, pensamos que el desarrollo es una línea recta, que va de A a B, y e
 
 ## Ejemplo función suma
 
-#### Paso 1 ❌
+##### Paso 1 ❌
 
 El primer test, validamos que sea una función.
 Dado que no hemos creado la función, el test va a fallar.
@@ -81,7 +81,7 @@ it("should be a function", () => {
 
 Siempre tenemos que estar en rojo antes que en verde. Si hacemos los tests finales, no estamos haciendo TDD.
 
-#### Paso 2 ✅
+##### Paso 2 ✅
 
 Creamos la función sum, y hacemos que el test pase.
 
@@ -93,7 +93,7 @@ it("should be a function", () => {
 });
 ```
 
-#### Paso 3 ❌
+##### Paso 3 ❌
 
 Un test para validar que de error si no estamos pasando parámetros, no debemos borrar los tests anteriores, sino que añadir nuevos.
 
@@ -106,7 +106,7 @@ it("should throw an error if 2 number params are not provided", () => {
 });
 ```
 
-#### Paso 4 ✅
+##### Paso 4 ✅
 
 ```js{2-4}
 function sum(a, b) {
@@ -121,7 +121,7 @@ it("should throw an error if 2 number params are not provided", () => {
 });
 ```
 
-#### Paso 5 ❌
+##### Paso 5 ❌
 
 ```js{8-10}
 function sum(a, b) {
@@ -136,7 +136,7 @@ it("should throw an especific error messsage if 2 number params are not provided
 });
 ```
 
-#### Paso 6 ✅
+##### Paso 6 ✅
 
 ```js{3}
 function sum(a, b) {
@@ -151,7 +151,7 @@ it("should throw an especific error messsage if 2 number params are not provided
 });
 ```
 
-#### Paso 7 ❌
+##### Paso 7 ❌
 
 El typeof de NaN es number, por lo que tenemos que añadir un test para validar que no sea NaN.
 
@@ -168,7 +168,7 @@ it("should throw a specific error message if some of the arguments isNan", () =>
 });
 ```
 
-#### Paso 8 ✅
+##### Paso 8 ✅
 
 ```js{5-7}
 function sum(a, b) {
@@ -186,7 +186,7 @@ it("should throw a specific error message if some of the arguments isNan", () =>
 });
 ```
 
-#### Paso 9 ❌
+##### Paso 9 ❌
 
 ```js{11-13}
 function sum(a, b) {
@@ -204,7 +204,7 @@ it("should return the sum of 2 numbers", () => {
 });
 ```
 
-#### Paso 10 ✅
+##### Paso 10 ✅
 
 ```js{8}
 function sum(a, b) {
@@ -223,7 +223,7 @@ it("should return the sum of 2 numbers returns 3", () => {
 });
 ```
 
-#### Paso 11 ❌
+##### Paso 11 ❌
 
 ```js{12-14}
 function sum(a, b) {
@@ -243,7 +243,7 @@ it("should return the sum of 2 numbers", () => {
 });
 ```
 
-#### Paso 12 ✅
+##### Paso 12 ✅
 
 ```js{8}
 function sum(a, b) {
