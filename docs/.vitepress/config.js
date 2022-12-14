@@ -18,8 +18,12 @@ export default defineConfig({
               link: "/rust/",
             },
             {
-              text: "Primeros pasos con Rust",
-              link: "/rust/first-steps-microsoft",
+              text: "Instalación",
+              link: "/rust/installation.md",
+            },
+            {
+              text: "Estructura",
+              link: "/rust/structure.md",
             },
           ],
         },

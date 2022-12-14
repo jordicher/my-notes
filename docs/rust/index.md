@@ -1,15 +1,18 @@
 # Introducción
 
-Es un lenguaje de programación compilado, de sistema, multi-paradigma y de tipado estático. Además, es un lenguaje de programación concurrente, seguro y rápido.
+Es un lenguaje de programación compilado, de sistema, multi-paradigma y de tipado estático. Además, es un lenguaje de programación concurrente, seguro, rápido y de bajo nivel.
 
 Que sea de sistema significa que tiene un control más fino sobre el hardware, y que es multi-paradigma significa que soporta programación orientada a objetos, programación funcional y programación imperativa.
-La programación concurrente es la ejecución de múltiples tareas al mismo tiempo.
 
-Un alternativo de rust seria c++. Esta pensado para hacer drivers de hardware, sistemas operativos, navegadores, etc. Eso no quiere decir que no se pueda utilizar para hacer aplicaciones web, de escritorio, etc.
+La programación concurrente es la ejecución de múltiples tareas al mismo tiempo, de bajo nivel significa que el lenguaje es más cercano al hardware, y el tipado estático significa que el compilador comprueba los tipos de datos en tiempo de compilación.
+
+Rust es capaz de aprovechar los conceptos de alto nivel, como la iteración y las interfaces, y los conceptos de bajo nivel, como el control de memoria y la concurrencia, por lo que un alternativo de rust seria C++.
 
 El creador de Rust es mozilla, y fue creado en el 2006. Rust es un lenguaje de programación de código abierto, y es mantenido por la fundación Mozilla y la comunidad.
 
 ## ¿Qué se puede hacer con Rust?
+
+Está pensado para hacer drivers de hardware, sistemas operativos, navegadores, etc. Eso no quiere decir que no se pueda utilizar para otros fines.
 
 - Comandos de línea.
 
@@ -27,7 +30,9 @@ El creador de Rust es mozilla, y fue creado en el 2006. Rust es un lenguaje de p
 
 - Tiene una gran comunidad. [Rust Community](https://www.rust-lang.org/community).
 
-- Herramientas que nos facilitaran el trabajo, como Cargo, su gestor de dependencias y el encargado de la compilación. [Cargo](https://doc.rust-lang.org/cargo/).
+- Herramientas que nos facilitaran el trabajo, al momento de compilar, probar, documentar y compartir código. Un ejemplo seria Cargo, un gestor de dependencias y el encargado de la compilación. [Cargo](https://doc.rust-lang.org/cargo/).
+
+- No está pensado para un sistema operativo en concreto, sino que es multiplataforma. Por lo que podríamos ver partes del kernel de linux escritas en rust...
 
 ### Referencias
 
