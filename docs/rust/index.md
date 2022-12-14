@@ -9,11 +9,11 @@ Un alternativo de rust seria c++. Esta pensado para hacer drivers de hardware, s
 
 El creador de Rust es mozilla, y fue creado en el 2006. Rust es un lenguaje de programación de código abierto, y es mantenido por la fundación Mozilla y la comunidad.
 
-## ¿Que se puede hacer con Rust?
+## ¿Qué se puede hacer con Rust?
 
 - Comandos de línea.
 
-- Herramientas para el desarollo web. Por ejemplo [nextjs, ha mejorado la velocidad de sus compilaciones gracias a swc, que es un compilador de javascript escrito en rust.](https://nextjs.org/blog/next-12#faster-builds-and-fast-refresh-with-rust-compiler)
+- Herramientas para el desarrollo web. Por ejemplo, [nextjs, ha mejorado la velocidad de sus compilaciones gracias a swc, que es un compilador de javascript escrito en rust.](https://nextjs.org/blog/next-12#faster-builds-and-fast-refresh-with-rust-compiler)
 
 - Networking. Hacer servicios web.
 
