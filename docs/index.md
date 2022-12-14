@@ -31,4 +31,6 @@ features:
     link: "./css-animations-and-transitions/"
   - title: "TDD: Test-Driven Development 🚧"
     link: "./test-driven-development/"
+  - title: "Rust 🚧"
+    link: "./rust/"
 ---

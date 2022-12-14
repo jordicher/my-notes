@@ -5,9 +5,26 @@ export default defineConfig({
   title: "Apuntes jordicher",
   description: "Mis resumenes de programación",
 
-  navbar: false,
   themeConfig: {
     nav: nav(),
+
+    sidebar: {
+      "/rust/": [
+        {
+          text: "Rust",
+          items: [
+            {
+              text: "Introducción",
+              link: "/rust/",
+            },
+            {
+              text: "Primeros pasos con Rust",
+              link: "/rust/first-steps-microsoft",
+            },
+          ],
+        },
+      ],
+    },
 
     outline: [2, 4],
     outlineTitle: "En esta página",
