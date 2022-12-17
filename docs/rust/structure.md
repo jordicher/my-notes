@@ -183,10 +183,141 @@ let is_active = tupla.2;
 
 Los structs son tipos de datos que se usan para agrupar valores de diferentes tipos. Los structs son tipos de datos inmutables.
 
+Para definir un struct, se usa la palabra clave `struct` seguida del nombre del struct capitalizado y los campos del struct.
+
+Tenemos tres tipos de structs:
+
+- Parecido a un objeto de js. Cada campo tiene un nombre y un tipo de dato.
+
 ```rust
 struct User {
     name: String,
     age: u32,
     is_active: bool,
+}
+```
+
+- Parecido a una tupla. Cada campo tiene un tipo de dato. Al igual que las tuplas, los structs de este tipo no tienen nombres para los campos, y se empieza por 0.
+
+```rust
+struct User(String, u32, bool);
+```
+
+- Structs de unidad. No tienen campos.
+
+```rust
+struct User;
+```
+
+Para crear un struct, se usa la palabra clave `let` seguida del nombre del struct y los valores de los campos.
+
+```rust
+struct User {
+    name: String,
+    age: u32,
+    is_active: bool,
+}
+
+let user = User {
+    name: String::from("Jordi"), // Convertir un string literal a String. Estamos creando de una cadena de texto a un String. "Se deben convertir de una referencia literal de cadena (&str) a un tipo String. Para realizar la conversión, se usa el método String::from(&str)"
+    age: 30,
+    is_active: true,
+};
+```
+
+Para acceder a los valores de un struct, se usa la notación de punto y el nombre del campo.
+
+```rust
+let name = user.name;
+```
+
+### Enum
+
+Los enums son tipos de datos que se usan para agrupar valores de diferentes tipos. Los enums son tipos de datos inmutables. Es parecido a lo que tendriamos en typescript.
+
+```rust
+enum User {
+   // Parecido a un objeto de js. Cada campo tiene un nombre y un tipo de dato.
+    Admin {
+         name: String,
+         age: u32,
+         is_active: bool,
+    },
+    // Parecido a una tupla. Cada campo tiene un tipo de dato. Al igual que las tuplas, los structs de este tipo no tienen nombres para los campos, y se empieza por 0.
+    Guest(String, u32, bool),
+    // Structs de unidad. No tienen campos.
+    Anonymous,
+}
+```
+
+Si una función espera el enum User. Debe aceptar todos los tipos de datos que tiene el enum. No puede aceptar solo uno de los tipos de datos, por ejemplo, no puede aceptar solo Admin.
+
+Para asignar un valor a un enum, se usa la palabra clave `let` seguida del nombre del enum y los valores de los campos.
+
+```rust
+let user_admin = User::Admin {
+    name: String::from("Jordi"),
+    age: 30,
+    is_active: true,
+};
+
+let user_guest = User::Guest(String::from("Jordi"), 30, true);
+
+let user_anonymous = User::Anonymous;
+```
+
+#### Definir un enum con Structs
+
+```rust
+struct Admin {
+    name: String,
+    age: u32,
+    is_active: bool,
+}
+
+struct Guest(String, u32, bool);
+
+struct Anonymous;
+
+enum User {
+    Admin(Admin),
+    Guest(Guest),
+    Anonymous(Anonymous),
+}
+```
+
+#### Ejemplo
+
+```rust
+#[derive(Debug)] // Para poder imprimir el struct con el println. En el println se usa el {:#?}
+struct Guest(String, u32, bool);
+
+#[derive(Debug)]
+struct Admin {
+    name: String,
+    age: u32,
+    is_active: bool,
+}
+
+#[derive(Debug)]
+enum User {
+    UsGuest(Guest),
+    UsAdmin(Admin),
+    UsAnonymous(bool)
+}
+
+
+fn main() {
+    let user_guest = User::UsGuest(Guest(String::from("Jordi"), 30, true));
+    let user_admin = User::UsAdmin(Admin {
+        name: String::from("Jordi"),
+        age: 30,
+        is_active: true,
+    });
+    let user_anonymous = User::UsAnonymous(true);
+
+    println!("{:#?}", user_guest);
+    println!("{:#?}", user_admin);
+    println!("{:#?}", user_anonymous);
 }
 ```
