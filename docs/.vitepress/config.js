@@ -69,6 +69,11 @@ function nav() {
           link: "/web-components/index.md",
           activeMatch: "/web-components/",
         },
+        {
+          text: "Rust",
+          link: "/rust/",
+          activeMatch: "/rust/",
+        },
       ],
     },
   ];
