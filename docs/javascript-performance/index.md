@@ -142,3 +142,30 @@ add(a, b);
 ```
 
 Ahora bien caemos en un problema... que es mejor, parsear todo el código una vez, o estar analizando que es lo que se necesita, para después parsearlo?
+
+#### Compilador de optimización
+
+Este compilador en principio.
+
+- Optimización especulativa
+  - Usamos un interprete porque el optimizador del código es lento de empezar Y el interprete es rápido. Pero no sabe nada sobre nuestro código, por lo que no es tan rápido como lo es Turbofan
+  - No sabe que una función add, siempre va a recibir numeros, por lo que no puede optimizarla, por lo que el interprete se encarga de obtener feedback de como se esta usando la función.
+- Clases ocultas para búsquedas dinámicas
+- Incorporación de funciones
+
+Javascript es díficil, dinámico y tiene muchas reglas, como por ejemplo, sumar strings es diferente a sumar numeros. Y el compilador de optimización en la mayoria de ocasiones no sabe que va a sumar, hasta que no se ejecuta esa parte del código.
+
+El compilador de optimización, se encarga de analizar el código y ver que partes se pueden optimizar, y que partes no. Por ejemplo, si tenemos una función que siempre recibe numeros, intentara optimizarla.
+Ahora bien, si detecta que la función no tiene un comportamiento predecible, no la optimizará. Por ejemplo, si el mismo argumento de una función recibe numeros, strings, undefinded, arrays...
+
+### Optimización en node
+
+Node nos permite encontrar código que no esta optimizado.
+
+```bash
+node --trace-opt index.js | grep myFunc
+```
+
+Recursos para profundizar sobre el tema:
+
+- [Eugene Obrezkov](https://blog.ghaiklor.com/2016/05/16/tracing-de-optimizations-in-nodejs/)
