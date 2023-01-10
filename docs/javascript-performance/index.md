@@ -169,3 +169,53 @@ node --trace-opt index.js | grep myFunc
 Recursos para profundizar sobre el tema:
 
 - [Eugene Obrezkov](https://blog.ghaiklor.com/2016/05/16/tracing-de-optimizations-in-nodejs/)
+
+## Rendering Performance
+
+Con el HTML creamos el DOM.
+Con el CSS creamos el CSSOM. Conjunto de reglas que se aplican a los elementos del DOM.
+Con el DOM y el CSSOM creamos el Render Tree. Es el DOM con las reglas de CSSOM aplicadas.
+
+Para hacer el render tree, se hace un recorrido del DOM, y se van aplicando las reglas de CSSOM. Si el elemento no tiene reglas de CSSOM, se aplica el estilo por defecto. En caso de tener un display: none, no se añade en el render tree.
+
+Hay un proceso para saber que elementos se van a renderizar, y cuales no. Se llama layout. El layout es el proceso de calcular el tamaño y la posición de los elementos en la pantalla.
+
+Paint, es el proceso de pintar los elementos en la pantalla.
+
+Al momento de plantear las clases tienen que ser lo más simples posibles. Los selectores como más simples mejores.
+
+Consejos para mejorar el CSS.
+
+- BEM. Es una metodología para nombrar clases. Block, Element, Modifier.
+- Reducir la cantidad de CSS que estamos enviando.
+- Cuando menos css tengamos, menos css que tendremos que analizar.
+- Reduce el número de estilos que afectan a un elemento.
+
+Recursos para profundizar sobre el tema:
+
+- [Jero medium](https://medium.com/weekly-webtips/understand-dom-cssom-render-tree-layout-and-painting-9f002f43d1aa)
+
+### Javascript i la pipeline de render
+
+Javascript tiene la capacidad de modificar el DOM (añadiendo o removiendo elementos), modificar una class, cambiar los estilos en linia... por lo que causa que se vuelva a iniciar el proceso de renderizanción.
+
+### Layout y reflow
+
+Reflows són muy caros en terminos de performance.
+
+- Son operaciones bloqueantes. Todo se para..
+- Consume CPU.
+
+Los navegadores implementan diferentes medidas para mejorar la performance de los reflows.
+
+Un reflow de un elemento, causa un reflow en todos los elementos, tanto de sus hijos como de sus padres.
+
+Causas de un reflow, cualquier cambio de estilos, clase, modificar el DOM...
+
+Seguido de un reflow, esta seguido de un repaint... Siempre que modificamos el layout, tenemos que repintar.
+
+Como evitar reflows:
+
+- No modificar las clases de un elemento. En caso de hacerlo modifica la class de un elemento hijo. Por ejemplo, no modificar el elemento `<body>`
+- Evitar modificar los estilos inline, además si son repetitivos, mejor crear una clase.
+- Si tenemos que modificar el DOM, mejor hacerlo en un solo bloque. Por ejemplo, si tenemos que añadir 10 elementos, mejor añadirlos todos a la vez, que uno a uno.
