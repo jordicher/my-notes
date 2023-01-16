@@ -148,7 +148,7 @@ Ahora bien caemos en un problema... que es mejor, parsear todo el código una ve
 Este compilador en principio.
 
 - Optimización especulativa
-  - Usamos un interprete porque el optimizador del código es lento de empezar Y el interprete es rápido. Pero no sabe nada sobre nuestro código, por lo que no es tan rápido como lo es Turbofan
+  - Usamos un interprete porque el optimizador del código es lento de empezar. El interprete es rápido, pero no sabe nada sobre nuestro código, por lo que no es tan rápido como lo es Turbofan.
   - No sabe que una función add, siempre va a recibir numeros, por lo que no puede optimizarla, por lo que el interprete se encarga de obtener feedback de como se esta usando la función.
 - Clases ocultas para búsquedas dinámicas
 - Incorporación de funciones
@@ -157,6 +157,55 @@ Javascript es díficil, dinámico y tiene muchas reglas, como por ejemplo, sumar
 
 El compilador de optimización, se encarga de analizar el código y ver que partes se pueden optimizar, y que partes no. Por ejemplo, si tenemos una función que siempre recibe numeros, intentara optimizarla.
 Ahora bien, si detecta que la función no tiene un comportamiento predecible, no la optimizará. Por ejemplo, si el mismo argumento de una función recibe numeros, strings, undefinded, arrays...
+
+#### Monomorfismo, Polimorfismo y Megamorfismo
+
+Los argumentos no tienen porque ser siempre objetos
+
+- Monomorfismo: Ejemplo: una función que recibe un objeto con la misma estructura, objeto con propiedad "x" con valor numérico.
+
+**El interprete entiende que la función siempre va a recibir un objeto con la misma estructura, por lo que puede optimizarla y cachearla**.
+En resumen, esto es todo lo que sé, he visto este tipo de objeto un millón de veces. Estoy listo, sé qué hacer, esto es lo mío
+
+```js
+fn({ x: 1 });
+fn({ x: 2 });
+fn({ x: 2 });
+fn({ x: 1 });
+```
+
+- Polimorfismo: Ejemplo: una función que recibe un objeto con diferentes estructuras, pero siguen un patrón.
+
+**Importante**, no pueden recibir más de 4 tipos diferentes de patrones v8 (megamorfismo)
+
+**El interprete entiende que la función siempre va a recibir un objeto con poca variación en su composición, por lo que puede optimizarla y cachearla**
+En resumen, he visto esto antes, dejame chequear a ver si lo puedo hacer más rápido.
+
+```js
+fn({ x: 1, a: 1 });
+fn({ x: 2, b: 2 });
+fn({ x: 2, c: 2 });
+```
+
+- Megamorfismo: Ejemplo, una función que recibe un objeto con diferentes estructuras. En el caso del motor v8 considera megamorfismo a funciones que reciben más de 4 tipos de patrones.
+
+**El interprete entiende que la función siempre va a recibir un objeto con mucha variación en su composición, por lo que no puede optimizarla y cachearla**. Este estado existe para evitar estar cacheando de manera descontrolada los polimorfismos.
+En resumen, no tengo idea de lo que va a pasar, no puedo optimizar esto.
+
+```js
+fn({ x: 1, a: 1 }); // Polimorfismo
+fn({ x: 2, b: 2 }); // Polimorfismo
+fn({ x: 2, c: 2 }); // Polimorfismo
+fn({ x: 2, d: 2 }); // Megamorfismo
+```
+
+**El mono, poli y megamorfismo, no son solo para objetos**, en términos generales, cuanto más consistente es el material, más optimizaciones especulativas se pueden hacer, más rápido es el código.
+
+Como los browsers saben que estas siguiendo un patrón... Utilizan funciones, clases ocultas...
+
+Recursos para profundizar sobre el tema:
+
+- [Slava Egorov](https://mrale.ph/blog/2015/01/11/whats-up-with-monomorphism.html)
 
 ### Optimización en node
 
