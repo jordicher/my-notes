@@ -268,3 +268,118 @@ Como evitar reflows:
 - No modificar las clases de un elemento. En caso de hacerlo modifica la class de un elemento hijo. Por ejemplo, no modificar el elemento `<body>`
 - Evitar modificar los estilos inline, además si son repetitivos, mejor crear una clase.
 - Si tenemos que modificar el DOM, mejor hacerlo en un solo bloque. Por ejemplo, si tenemos que añadir 10 elementos, mejor añadirlos todos a la vez, que uno a uno.
+- [Debounce](https://css-tricks.com/debouncing-throttling-explained-examples/). Si tenemos que hacer un reflow, mejor hacerlo en un intervalo de tiempo.
+
+#### Como probar el performance
+
+Podemos usar la herramienta de performance de chrome, para ver cuando se esta haciendo un paint, o calculando el layout.
+
+### Layout thrashing
+
+Otra forma de nombrarlo es, "Forced Synchronous Layouts".
+
+El layout thrashing es cuando el javascript esta leyendo y escribiendo en el DOM por lo que el browser está constantemente haciendo reflows y repintando.
+
+Ejemplo de layout thrashing:
+![Layout thrashing](./assets/layout-thrashing.png)
+
+El browser se va deteniendo intentando calcular y pintar los elementos... y esto dentro de js, puede suceder por muchos motivos, por lo que tenemos que procurar seguir buenas prácticas.
+
+Por ejemplo, **separar las consultas de escritura, y lectura**. Si tenemos que hacer un toggle de diferentes elementos y después obtener el tamaño, mejor hacerlo en un bloque. Primero hacer el toggle(escritura) y después obtener el tamaño(lectura).
+
+El motivo es que en el cambio de escritura a lectura, va a parar tu js, para obtener la respuesta.
+
+Mala practica.
+
+```js
+firstElement.classList.toggle("active"); // escritura
+const firstElementWidth = firstElement.offsetWidth; // lectura
+secondElement.classList.toggle("active"); // escritura
+const secondElementWidth = secondElement.offsetWidth; // lectura
+```
+
+Buena practica.
+Al estar agrupados, el navegador no tiene que cambiar entre modo escritura y lectura.
+
+```js
+firstElement.classList.toggle("active"); // escritura
+secondElement.classList.toggle("active"); // escritura
+const firstElementWidth = firstElement.offsetWidth; // lectura
+const secondElementWidth = secondElement.offsetWidth; // lectura
+```
+
+#### Ejemplos con posibles mejoras
+
+El código que se muestra a continuación se ha extraido de [stevekinney](https://github.com/stevekinney/web-performance/tree/master/rendering/moving-boxes)
+
+En el caso por ejemplo de una animación esto va a tener un performance terrible, ya que estara todo el rato haciendo reflows.
+
+```js
+resgister((timestamp) => {
+  elements.forEach((element) => {
+    const top = element.offsetTop; // lectura
+    const nextPosition = top + 1;
+    element.style.transform = `translateY(${nextPosition}px)`; // escritura
+  });
+});
+```
+
+![Bad code](./assets/layout-thrashing-examples/bad-code.png)
+
+##### Mejora 1. Agrupamos las lecturas y escrituras.
+
+```js
+resgister((timestamp) => {
+  const nextPositions = elements.map((element) => {
+    const top = element.offsetTop; // lectura
+    const nextPosition = top + 1;
+    return nextPosition;
+  });
+
+  elements.forEach((element, index) => {
+    const nextPosition = nextPositions[index];
+    element.style.transform = `translateY(${nextPosition}px)`; // escritura
+  });
+});
+```
+
+![separate reading and writing](./assets/layout-thrashing-examples/two-step.png)
+
+##### Mejora 2. RequestAnimationFrame.
+
+El requestAnimationFrame, es una función que se ejecuta en el siguiente ciclo de animación. Esto nos permite hacer que el browser sepa que estamos haciendo una animación, y no bloqueamos el hilo, pues aprovecharemos el siguiente repaint para hacer el cambio.
+
+```js
+resgister((timestamp) => {
+  elements.forEach((element) => {
+    const top = element.offsetTop;
+    const nextPosition = top + 1;
+    requestAnimationFrame(() => {
+      element.style.transform = `translateY(${nextPosition}px)`;
+    });
+  });
+});
+```
+
+![requestAnimationFrame](./assets/layout-thrashing-examples/raf.png)
+
+##### Mejora 3. Fastdom
+
+Fastdom es una [librería](https://github1s.com/wilsonpage/fastdom) que nos ayuda de gestionar el layout thrashing.
+Cuadro de animación de solicitud para gobernarlos a todos, añaden todas las peticiones de lectura y escritura en una cola, y las ejecutan en el siguiente ciclo de animación. fastdom tiene algunos métodos, pero solo hay dos que te interesan, measure y mutate.
+
+```js
+registerNextClick((timestamp) => {
+  elements.forEach((element) => {
+    fastdom.measure(() => {
+      const top = element.offsetTop;
+      const nextPosition = Math.sin(top + 1);
+      fastdom.mutate(() => {
+        element.style.transform = `translateY(${nextPosition}px)`;
+      });
+    });
+  });
+});
+```
+
+![fastdom](./assets/layout-thrashing-examples/fastdom.png)
