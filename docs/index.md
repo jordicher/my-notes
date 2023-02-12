@@ -25,12 +25,13 @@ features:
   - title: "Web Components ✅"
     link: "./web-components/"
     details: Como crear Web Components propios, DOM, su relación con css y js y múltiples ejemplos.
+  - title: "Primeros pasos con Rust ✅"
+    link: "./rust/"
   - title: "JavaScript Performance 🚧"
     link: "./javascript-performance/"
   - title: "Animaciones y transiciones CSS 🚧"
     link: "./css-animations-and-transitions/"
   - title: "TDD: Test-Driven Development 🚧"
     link: "./test-driven-development/"
-  - title: "Rust 🚧"
-    link: "./rust/"
+
 ---
