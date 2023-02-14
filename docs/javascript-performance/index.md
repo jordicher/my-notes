@@ -383,3 +383,106 @@ registerNextClick((timestamp) => {
 ```
 
 ![fastdom](./assets/layout-thrashing-examples/fastdom.png)
+
+### Frameworks and Layout Thrashing
+
+
+No hace falta que usemos frameworks para obtener un buen performance. Pero si usamos frameworks, tenemos que tener en cuenta que ellos toman decisiones para nosotros, y que no siempre son las mejores.
+
+#### React
+
+React tiene un sistema de reconciliación, que es el que se encarga de comparar el DOM actual con el DOM que queremos pintar, y solo va a pintar los elementos que han cambiado.
+
+Los resultados de react en modo desarollo van a ser peores que en modo producción.
+
+
+## Load Performance
+
+### Latencia y anchos de banda
+
+Tenemos que tneer en cuenta que la latencia y el ancho de banda, son dos factores que afectan a la velocidad de carga de nuestra página. 
+
+Muchas veces no pensamos en la latencia, pero es un factor muy importante, ya que si tenemos una latencia alta, el tiempo de carga de nuestra página va a ser muy alto.
+
+Ancho de banda, es la cantidad de datos que podemos descargar en un segundo.
+
+Latencia, es el tiempo que tarda en llegar un paquete de datos desde el servidor hasta el cliente.
+
+TCP, transmissión control protocol, es un protocolo que se encarga de enviar los paquetes de datos, y de asegurarse de que lleguen todos. Se centra en la reliability.
+
+TCP:
+- Los paquetes se han enviado de forma ordenada.
+- Los paquetes se han enviado de forma correcta, sin errores.
+- El cliente conoce cada paquete.
+- Las conexiones complicadas son manejadas de forma correcta.
+- No sobre carga la red.
+
+La tcp empieza enviando pequeños datos y empieza enviando más y más datos hasta que llega a un tamaño de paquete que la red puede manejar.
+
+La ventana inicial tiene 14kb. Lo que significa que si puede obtener cualquier activo de menos de 14 kilobytes. Puedes enviarlo de una sola vez. Si son 28, entonces tenemos que empezar a hacer el peticiones. Y así sucesivamente.
+Pero actualmente nuestras aplicaciones de JavaScript están creciendo...
+
+
+(CloudPing)[http://www.cloudping.info/], es una herramienta que nos permite ver la latencia de nuestra página, desde diferentes partes del mundo.
+
+Que lugar es el optimo para alojar nuestra página? En todos los sitios, alrededor del mundo. Por eso usamos CDN como Amazon o cloudflare. 
+
+Una red de entrega de contenido (CDN) es un grupo de servidores distribuidos geográficamente que aceleran la entrega de contenido web acercándolo a donde están los usuarios.
+
+Porque si tenemos un servidor en USA, y el usuario esta en España, la latencia va a ser muy alta.
+
+### Caching
+
+El caching es una técnica que nos permite almacenar datos en un lugar, para que cuando los necesitemos, no tengamos que volver a pedirlos.
+
+1997, http añade Cache-Control, que nos permite controlar el caching, en el header de las peticiones.
+El caching afecta solo a las peticiones seguras, http. GET, OPTIONS, HEAD.
+
+No soporta peticiones POST, PUT, DELETE, PATCH.
+
+Cache-controls headers:
+
+- no-store
+- no-cache
+- max-age
+- s-maxage
+- immutable
+
+Simplificamos las posibilidades.
+
+**Cache missing** no hay una copia local.
+
+**Stale**. Haz la petición. El navegador hace una copia pero si hay una versión más actualizada.
+
+**Valid**. El navegador tiene una copia local, y no hace la petición.
+
+![cache](./assets/cache.png)
+
+[web.dev, HTTP Cache](https://web.dev/http-cache)
+#### no-store
+
+El navegador haze una petición cada vez. No guarda nada en cache.
+
+#### no-cache
+
+Puedes hacer una copia, pero en cada petición, tienes que volver a validar la copia.
+Esto le indica al navegador que debe volver a validar con el servidor cada vez antes de usar una versión en caché de la URL.
+
+#### max-age
+
+Cuenta al navegador cuánto tiempo puede almacenar la copia local.
+
+#### Como hacemos saber que tiene que volver ha hacer una petición?
+
+Content-Addressable Storage
+
+Es un nombre bonito para decir que es poner un identificador al archivo js, y que lo tiene que guardar en el cache por mucho tiempo. Cuando hacemos un cambio en el archivo, tenemos que cambiar el nombre del archivo, para que el navegador lo vuelva a descargar.
+
+Podemos poner eso en nuestro archivo SMIL de estudio de índice y si actualizamos nuestra aplicación, actualizamos el archivo SMIL de estudio de índice, diríamos, está bien, aquí está la nueva versión. Así que, efectivamente, con eso obtenemos un cache-busting gratis. 
+
+#### Caching en los CDN
+
+No queremos usar esto para aferrarnos a todo para siempre porque si les enviamos una versión mala, estamos un poco perdidos. Pero, este **s-maxage** es solo para CDN porque si enviamos la CDN con una versión incorrecta, podríamos comunicarnos con esa CDN y decir, perder esa versión, borrarla de sus cachés.
+
+
+
