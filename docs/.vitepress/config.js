@@ -5,6 +5,8 @@ export default defineConfig({
   title: "Apuntes jordicher",
   description: "Mis resumenes de programación",
 
+  lastUpdated: true,
+
   themeConfig: {
     nav: nav(),
 
@@ -45,19 +47,9 @@ function nav() {
       text: "Temas",
       items: [
         {
-          text: "Css animaciones y transiciones",
-          link: "/css-animations-and-transitions/index.md",
-          activeMatch: "/css-animations-and-transitions/",
-        },
-        {
           text: "Monorepo",
           link: "/monorepo/index.md",
           activeMatch: "/monorepo/",
-        },
-        {
-          text: "Test Driven Development",
-          link: "/test-driven-development/index.md",
-          activeMatch: "/test-driven-development/",
         },
         {
           text: "Vue Unit Testing",
@@ -73,6 +65,26 @@ function nav() {
           text: "Rust",
           link: "/rust/",
           activeMatch: "/rust/",
+        },
+        {
+          text: "JavaScript Performance",
+          link: "/javascript-performance/",
+          activeMatch: "/javascript-performance/",
+        },
+        {
+          text: "Css animaciones y transiciones",
+          link: "/css-animations-and-transitions/index.md",
+          activeMatch: "/css-animations-and-transitions/",
+        },
+        {
+          text: "Test Driven Development",
+          link: "/test-driven-development/index.md",
+          activeMatch: "/test-driven-development/",
+        },
+        {
+          text: "Flutter",
+          link: "/flutter/",
+          activeMatch: "/flutter/",
         },
       ],
     },
