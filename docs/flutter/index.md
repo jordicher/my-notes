@@ -10,6 +10,10 @@ description: Introducción a Flutter
 
 Flutter es un framework, de alto rendimiento y de código abierto, creado por Google, que permite a los desarrolladores construir aplicaciones nativas para iOS y Android, así como aplicaciones web y de escritorio a partir de un único código base.
 
+Desde que tenemos sistemas operativos han aparecido formas de crear aplicaciones para ellos, como por ejemplo, Java para Android, Swift para iOS, C# para Windows, etc. Que pasa que mucha gente, quiere hacer aplicaciones para diferentes dispositivos, y aqui nacen las herramientas híbridas, como por ejemplo, React Native, Ionic, etc. Estas herramientas permiten crear aplicaciones para diferentes dispositivos, pero estas aplicaciones no son nativas, sino que son aplicaciones web que se ejecutan dentro de un contenedor, y que se comunican con el sistema operativo para acceder a las funcionalidades nativas del dispositivo.
+
+Pero en Flutter encontramos una herramienta que nos permite crear aplicaciones nativas, es decir, a nivel de compilación, se compilan las aplicaciones para cada uno de los sistemas operativos, el rendimiento es mucho mejor.
+
 Flutter utiliza el lenguaje de programación Dart. Dart fue desarrollado por Google con el objetivo de sustituir a JavaScript, pero no tuvo el éxito esperado. Sin embargo, Dart es un lenguaje de programación moderno y fácil de aprender, que se utiliza en Flutter.
 
 ### Curva de aprendizaje
@@ -197,6 +201,27 @@ También tenemos otros widgets, como Center, AppBar, Column, Text, etc. Eso nos 
 
 `setState()` es un método que nos proporciona Flutter, y que nos permite decirle a Flutter que estamos modificando el estado de la aplicación, y que una vez finalizado, tiene que volver a pintar la UI del widget, con los nuevos valores. Se va a refrescar en este caso MyHomePage, no refresca la aplicación entera.
 Yo solo llamando a `setState()` va a repintar la UI, aunque en su interior no haya cambiado nada.
+
+### Estilos
+
+Una aplicación web que se vera por ejemplo en una pantalla de escritorio, va a tener un tamaño de pantalla diferente a una aplicación web que se vera en un móvil. Por lo tanto, necesitamos que nuestra aplicación se adapte a diferentes tamaños de pantalla.
+
+Hay un componente que se llama `LayoutBuilder`, que nos permite crear un widget que se adapte a diferentes tamaños de pantalla.
+Nos ofrece un callback `builder`, que recibe como parámetro un `BuildContext`, y un `BoxConstraints`, que nos permite saber el tamaño de la pantalla.
+
+```dart
+return LayoutBuilder(
+  builder: (context, constraints) {
+    if (constraints.maxWidth > 600) {
+      return _buildDesktop(context);
+    } else {
+      return _buildMobile(context);
+    }
+  },
+);
+```
+
+Hay otros widgets como el `Column`, que tiene configuraciones para que se adapte a diferentes tamaños de pantalla.
 
 #### Shortcuts
 
