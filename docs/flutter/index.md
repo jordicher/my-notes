@@ -118,9 +118,90 @@ Nuestro home, es `MyHomePage`, que es un widget stateful, que se encarga de most
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-  final String title;
+  final String title; <!-- declaramos una variable  -->
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 ```
+
+`super.key` sobretodo para testing/performance, puedes decirle buscame en pantalla un widget con este id. Es una forma de diferenciar widgets.
+
+`@override` es un decorador que sobreescribir un método de la clase padre.
+
+Si añadimos el prefijo `_` a la clase, estamos indicando que es una clase privada, es decir, que solo se puede utilizar dentro de este archivo.
+
+```dart
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0; <!-- declaramos una variable  -->
+  var _text = 'Hola mundo'; <!-- en dart se aconseja que sea tipado, pero tambien se puede utilizar var -->
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+  ...
+```
+
+Al ser un StatefulWidget, usualmente escribiremos el código en la clase privada, `_MyHomePageState`.
+
+### build()
+
+El método `build()` es el que se encarga de construir el widget, y es el que se va a pintar en pantalla.
+
+```dart
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+```
+
+Como podemos ver el build, devuelve un `Scaffold`, que es un widget que ya existe en Flutter, y que nos permite crear una pantalla con AppBar, body, etc.
+También tenemos otros widgets, como Center, AppBar, Column, Text, etc. Eso nos permiteria crear una apliación entera sin tener que crear nuestro propios widgets.
+
+`floatingActionButton` es un widget que ya existe en Flutter, y que nos permite crear un botón flotante, que por defecto esta debajo a la derecha. Que tiene un callback `onPressed`, que se ejecuta cuando pulsamos el botón.
+
+`setState()` es un método que nos proporciona Flutter, y que nos permite decirle a Flutter que estamos modificando el estado de la aplicación, y que una vez finalizado, tiene que volver a pintar la UI del widget, con los nuevos valores. Se va a refrescar en este caso MyHomePage, no refresca la aplicación entera.
+Yo solo llamando a `setState()` va a repintar la UI, aunque en su interior no haya cambiado nada.
+
+#### Shortcuts
+
+Flutter es muy verboso, para crear siempre un widget que tenga estado tenemos que crear una clase que extienda.
+Tenemos mucho boilerplate.
+
+Para evitar esto, podemos utilizar los shortcuts de Visual Studio Code.
+Ejemplo, `st`. Esto nos permite seleccionar que tipo de widget queremos crear.
