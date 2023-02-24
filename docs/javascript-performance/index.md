@@ -512,3 +512,21 @@ import * from 'lodash'; // no hacer
 
 import { map } from 'lodash'; // hacer
 ```
+
+### HTTP/2
+
+- Actualizan el protocolo http, para que sea más rápido.
+- Envia multiples peticiones en paralelo, en vez de una a la vez.
+- Permite a los servidores enviar respuestas al cache del cliente.
+
+Se abren entre 6 y 8 conexiones, y se envian los archivos en paralelo.
+
+No separes los archivos css, por ejemplo, en 40 porque no se van a descargar en paralelo.
+
+## Tools
+
+Cuando tengamos dudas, podemos usar diferentes herramientas.
+
+PurifyCSS, es una herramienta que nos permite ver que css no se esta usando.
+
+Babel, pagar el precio de la compatibilidad,
