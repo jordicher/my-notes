@@ -52,11 +52,6 @@ function nav() {
           activeMatch: "/monorepo/",
         },
         {
-          text: "Vue Unit Testing",
-          link: "/vue-unit-testing/index.md",
-          activeMatch: "/vue-unit-testing/",
-        },
-        {
           text: "Web Components",
           link: "/web-components/index.md",
           activeMatch: "/web-components/",
@@ -67,24 +62,14 @@ function nav() {
           activeMatch: "/rust/",
         },
         {
+          text: "Vue Unit Testing",
+          link: "/vue-unit-testing/index.md",
+          activeMatch: "/vue-unit-testing/",
+        },
+        {
           text: "JavaScript Performance",
           link: "/javascript-performance/",
           activeMatch: "/javascript-performance/",
-        },
-        {
-          text: "Css animaciones y transiciones",
-          link: "/css-animations-and-transitions/index.md",
-          activeMatch: "/css-animations-and-transitions/",
-        },
-        {
-          text: "Test Driven Development",
-          link: "/test-driven-development/index.md",
-          activeMatch: "/test-driven-development/",
-        },
-        {
-          text: "Flutter",
-          link: "/flutter/",
-          activeMatch: "/flutter/",
         },
       ],
     },
