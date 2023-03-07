@@ -18,6 +18,10 @@ hero:
       link: https://www.linkedin.com/in/cherto/
 
 features:
+  - title: "JavaScript Performance"
+    link: "./javascript-performance/"
+    details: Optimización de JavaScript, v8 engine, rendering/load performance, caching, etc.
+
   - title: "Monorepo"
     link: "./monorepo/"
     details: Introducción al monorepo, gestión de dependencias y Lerna.
@@ -33,11 +37,6 @@ features:
   - title: "Vue Unit Testing"
     link: "./vue-unit-testing/"
     details: Introducción a los tests unitarios en Vue.
-
-  - icon: 🛠️
-    title: "JavaScript Performance"
-    link: "./javascript-performance/"
-    details: Optimización de JavaScript, v8 engine, rendering/load performance, caching, etc.
 
   - icon: 🛠️
     title: "Flutter"

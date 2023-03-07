@@ -52,6 +52,11 @@ function nav() {
           activeMatch: "/monorepo/",
         },
         {
+          text: "JavaScript Performance",
+          link: "/javascript-performance/",
+          activeMatch: "/javascript-performance/",
+        },
+        {
           text: "Web Components",
           link: "/web-components/index.md",
           activeMatch: "/web-components/",
@@ -65,11 +70,6 @@ function nav() {
           text: "Vue Unit Testing",
           link: "/vue-unit-testing/index.md",
           activeMatch: "/vue-unit-testing/",
-        },
-        {
-          text: "JavaScript Performance",
-          link: "/javascript-performance/",
-          activeMatch: "/javascript-performance/",
         },
       ],
     },
