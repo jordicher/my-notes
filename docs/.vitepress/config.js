@@ -30,6 +30,21 @@ export default defineConfig({
           ],
         },
       ],
+      "/flutter/": [
+        {
+          text: "Flutter",
+          items: [
+            {
+              text: "Introducción",
+              link: "/flutter/",
+            },
+            {
+              text: "Dart",
+              link: "/flutter/dart.md",
+            },
+          ],
+        },
+      ],
     },
 
     outline: [2, 4],
