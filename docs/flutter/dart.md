@@ -159,3 +159,77 @@ var message = "The name is $name and the age is $age. And a operation is ${heigh
 ```
 
 **Recordar que en Dart, todo es un objeto.** Asi que los tipos de datos core son objetos.
+
+## Colecciones y Null Safety
+
+### List
+
+Las listas son colecciones ordenadas de elementos. En Dart, las listas se representan con la palabra clave `List`.
+
+```dart
+var list = [1, 2, 3];
+List<int> list = [1, 2, 3];
+```
+
+### Set
+
+Los conjuntos son colecciones de elementos únicos, por lo que no pueden contener elementos duplicados (da un warning) y no están ordenados. En Dart, los conjuntos se representan con la palabra clave `Set`.
+
+```dart
+var set = {1, 2, 3};
+Set<int> set = {1, 2, 3};
+```
+
+### Map
+
+Los mapas son colecciones de pares clave-valor. En Dart, los mapas se representan con la palabra clave `Map`.
+
+```dart
+var map = {1: 'one', 2: 'two', 3: 'three'};
+Map<int, String> map = {1: 'one', 2: 'two', 3: 'three'};
+Map<String, Object> user = {'name': 'Bob', 'age': 42};
+```
+
+Aunque digamos que todo en Dart es un objeto, no es del todo cierto, el valor null no es un objeto.
+
+## Null Safety
+
+Null safety es opcional en Dart. En Flutter ya esta activado por defecto.
+
+No puedo hacer esto:
+
+```dart
+String name; // Error: String name; // Error: A value of type 'Null' can't be assigned to a variable of type 'String'.
+int x = null; // Error: A value of type 'Null' can't be assigned to a variable of type 'int'.
+```
+
+Pero si puedo hacer esto:
+
+```dart
+late String name; // OK
+String? name; // OK. It can be string or null.
+```
+
+`late` es una palabra clave que se usa para indicar que una variable se inicializará más tarde. Si no se inicializa, el compilador arrojará un error.
+
+```dart
+late String name;
+print(name); // Error: LateInitializationError: Field 'name' has not been initialized.
+```
+
+`?` es una palabra clave que se usa para indicar que una variable puede ser nula. Podemos hacer llamadas seguras a las variables nulas.
+
+```dart
+String? name;
+print(name); // null
+print(name.length); // Error: The getter 'length' was called on null.
+print(name?.length); // null  => Safe call
+```
+
+`!` es una palabra clave que se usa para indicar que una variable ya estamos seguros de que no es nula. Si la variable es nula, el compilador arrojará un error.
+
+```dart
+String? name;
+name = 'Bob';
+print(name!.length); // 3
+```

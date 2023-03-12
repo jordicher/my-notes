@@ -6,6 +6,11 @@ description: Introducción a Flutter
 
 # Flutter
 
+Estos apuntes están basados:
+
+- Curso de [Web Components](https://frontendmasters.com/courses/flutter) - Maximiliano Firtman
+- Directos de [Miguel Ángel Durán](https://www.twitch.tv/midudev)
+
 ## Introducción
 
 Flutter es un framework, de alto rendimiento y de código abierto, creado por Google, que permite a los desarrolladores construir aplicaciones nativas para iOS y Android, así como aplicaciones web y de escritorio a partir de un único código base.
