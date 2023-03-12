@@ -98,3 +98,64 @@ class Person {
   _Person(this.name, this.age);
 }
 ```
+
+## Variables y tipos
+
+### Mutable
+
+Inferencia de tipos es una característica de Dart que permite a los desarrolladores escribir código más conciso. El compilador puede deducir el tipo de una variable en tiempo de compilación. En ese caso utiliza la palabra clave `var` para declarar la variable.
+
+```dart
+var name = 'Bob';
+var age = 42;
+var x; <!-- type dynamic -->
+```
+
+Se puede especificar el tipo de una variable.
+
+```dart
+String name = 'Bob';
+int age = 42;
+```
+
+Si no se especifica el tipo de una variable, el compilador la considera de tipo `dynamic`. Esto significa que la variable puede contener cualquier tipo de valor. Es una mala práctica usar `dynamic`.
+
+```dart
+dynamic name = 'Bob';
+dynamic age = 42;
+dynamic x; <!-- type dynamic -->
+```
+
+### Inmutable
+
+Las variables inmutables son aquellas cuyo valor no puede ser cambiado una vez que se ha asignado. En Dart, las variables inmutables se declaran con la palabra clave `final` o `const`.
+
+```dart
+final name = 'Bob';
+final int age = 42;
+const x = 42;
+```
+
+### Tipos
+
+Tipos de datos core en Dart:
+
+- `String`: es un tipo de datos que representa una cadena de caracteres.
+- `int`: es un tipo de datos que representa un número entero.
+- `double`: es un tipo de datos que representa un número de punto flotante.
+- `bool`: es un tipo de datos que representa un valor booleano.
+- `dynamic`: es un tipo de datos que representa un valor dinámico.
+- `num`: es un tipo de datos que representa un número. Puede ser un entero o un punto flotante.
+
+```dart
+String name = 'Bob';
+int age = 42;
+double height = 1.85;
+bool isTrue = true;
+dynamic x; <!-- type dynamic -->
+num y = 42;
+
+var message = "The name is $name and the age is $age. And a operation is ${height + 10}"; <!-- String interpolation -->
+```
+
+**Recordar que en Dart, todo es un objeto.** Asi que los tipos de datos core son objetos.
