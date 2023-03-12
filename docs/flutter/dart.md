@@ -27,3 +27,74 @@ void main() {
   print('Hello, World!');
 }
 ```
+
+## Basics
+
+### Semicolons
+
+En Dart, los puntos y comas son opcionales. Siempre que no escriba un punto y coma, el compilador asumirá que el siguiente token es una nueva declaración.
+
+```dart
+void main() {
+  print('Hello, World!');
+}
+```
+
+### Var
+
+En Dart, las variables se declaran con la palabra clave `var`.
+
+```dart
+var x = 1;
+var y = 2;
+```
+
+Aunque se parezca a JavaScript, Dart es un lenguaje de programación fuertemente tipado. Esto significa que las variables tienen un tipo explícito y no se pueden cambiar. Por ejemplo, si intenta asignar un valor de cadena a una variable de tipo num, el compilador lo rechazará.
+
+```dart
+var x = 1;
+x = 'Hello'; // Error: A value of type 'String' can't be assigned to a variable of type 'num'.
+```
+
+### Conditions
+
+Los if, boolean conditions, functions etc. son iguales que en otros lenguajes de programación.
+
+```dart
+void main() {
+  var x = 1;
+  if (x == 1) {
+    print('x is 1'); <!-- sends a message to the console with a new line after -->
+  }
+  while (x < 5) {
+    print(x);
+    x++;
+  }
+  for (var i = 0; i < 5; i++) {
+    print(i);
+  }
+  for (var i in [1, 2, 3]) { <!-- it is more similar to a foreach loop -->
+    print(i);
+  }
+}
+```
+
+### Nombres
+
+Las mismas reglas que en JavaScript, no se pueden usar palabras reservadas, no se pueden usar caracteres especiales, no se pueden usar espacios, no se pueden usar números al principio, etc.
+
+Funciones y variables deben ser en camelCase.
+
+Clases deben ser en PascalCase.
+
+### Public
+
+En Dart, todo es público por defecto. Si desea que algo sea privado, debe agregar un guión bajo (\_) al principio de su nombre.
+
+```dart
+class Person {
+  String name;
+  int age;
+  _Person(this.name, this.age);
+}
+```
