@@ -233,3 +233,114 @@ String? name;
 name = 'Bob';
 print(name!.length); // 3
 ```
+
+## Funciones
+
+Las funciones son lo mismo que en JavaScript. Pero no requieren la palabra clave `function`.
+
+Las funciones son objetos de primera clase en Dart. Esto significa que las funciones pueden ser asignadas a variables, pasadas como argumentos a otras funciones y devueltas por otras funciones.
+
+```dart
+void main() {
+  var list = [1, 2, 3];
+  list.forEach(printElement);
+}
+
+printElement(int element) {
+  print(element);
+}
+```
+
+Se puede decir que es lo que va a devolver la función.
+
+```dart
+int add(int a, int b) {
+  return a + b;
+}
+```
+
+### Argumentos
+
+Se puede tipar los argumentos de una función.
+
+```dart
+int add(int a, int b) {
+  return a + b;
+}
+```
+
+Permite hacer un "destructuring" de los argumentos. Pero serán opcionales por defecto.
+
+```dart
+int add({int a, int b}) {
+  return a + b;
+}
+
+add(b: 2, a: 1);
+```
+
+Por eso podemos usar `required` para que sean obligatorios.
+
+```dart
+int add({required int a, required int b}) {
+  return a + b;
+}
+```
+
+En el caso de los posibles valores opcionales o nulos.
+
+```dart
+int add({int? a, int? b}) {
+  if (a != null && b != null) {
+    return a + b;
+  } else {
+    return 0;
+  }
+}
+```
+
+Los argumentos de una función pueden tener valores predeterminados. Si no se proporciona un argumento, se usa el valor predeterminado.
+
+```dart
+int add(int a, [int b = 1]) {
+  return a + b;
+}
+```
+
+### Lambda y Arrow
+
+Las funciones lambda son funciones anónimas que se pueden asignar a variables o pasar como argumentos a otras funciones.
+
+En js sería:
+
+```js
+const add = function (a, b) {
+  return a + b;
+};
+```
+
+En Dart sería:
+
+```dart
+Function add = (int a, int b) { <!-- Function it is a type -->
+  return a + b;
+};
+
+final add = (int a, int b) {
+  return a + b;
+};
+```
+
+Arrow function:
+
+```dart
+Function add = (int a, int b) => a + b;
+```
+
+Las arrow functions no pueden tener más de una expresión.
+
+```dart
+Function add = (int a, int b) => {
+  a + b
+}; // Error
+```
