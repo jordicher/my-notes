@@ -42,6 +42,10 @@ export default defineConfig({
               text: "Dart",
               link: "/flutter/dart.md",
             },
+            {
+              text: "Flutter",
+              link: "/flutter/flutter.md",
+            },
           ],
         },
       ],
