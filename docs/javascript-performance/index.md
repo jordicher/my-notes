@@ -6,6 +6,10 @@ description: "JavaScript Performance"
 
 # JavaScript Performance
 
+Estos apuntes están basados:
+
+- Curso de [JavaScript Performance](https://frontendmasters.com/courses/web-performance/) - Steve Kinney
+
 ## Introducción
 
 Los usuarios quieren que las aplicaciones web sean rápidas y que reaccionan de forma inmediata. Los usuarios esperan que las aplicaciones web se carguen en menos de 1
