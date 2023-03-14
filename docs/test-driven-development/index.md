@@ -111,7 +111,7 @@ it("should throw an error if 2 number params are not provided", () => {
 ```js{2-4}
 function sum(a, b) {
   if (typeof a !== "number" || typeof b !== "number") {
-    throw new Error(); // No hace falta que añadamos un mensaje, con esto ya pasamos el test. Porque si no ya estaria haciendo codigo de más
+    throw new Error(); // No hace falta que añadamos un mensaje, con esto ya pasamos el test. Porque si no ya estaria haciendo código de más
   }
 }
 

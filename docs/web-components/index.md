@@ -492,7 +492,7 @@ Se pintará el párrafo del Light DOM con el color naranja, aunque está en segu
 
 Al momento de hacer un Web Component, tenemos que tener en cuenta diferentes puntos, como por ejemplo:
 
-Fragmento de codigo para ejemplificar los puntos siguientes.
+Fragmento de código para ejemplificar los puntos siguientes.
 
 ```js
 class MyElement extends HTMLElement {

@@ -9,11 +9,11 @@ description: "JavaScript Performance"
 ## Introducción
 
 Los usuarios quieren que las aplicaciones web sean rápidas y que reaccionan de forma inmediata. Los usuarios esperan que las aplicaciones web se carguen en menos de 1
-segundo, y que las animaciones se ejecuten en menos de 100 ms. Y si ya llegamos a los 10 segundos los usuarios abandonarán la aplicación web y buscarán una alternativa.
+segundo, y que las animaciones se ejecuten en menos de 100 ms. Y si ya llegamos a los 10 segundos, los usuarios abandonarán la aplicación web y buscarán una alternativa.
 
 Hay muchas estadísticas que demuestran que las aplicaciones web lentas tienen un impacto negativo en la experiencia del usuario y en los ingresos de las empresas.
 
-Esto se aplica a la mayoria de las plataformas, como curiosidad, la carga lenta se la permitimos a Gmail o plataformas que una vez dentro tenemos que estar bastante rato, y una vez cargadas son bastante rápidas.
+Esto se aplica a la mayoría de las plataformas, como curiosidad, la carga lenta se la permitimos a Gmail o plataformas que una vez dentro tenemos que estar bastante rato, y una vez cargadas son bastante rápidas.
 Por el contrario, las webs como las de los periódicos tienen que ser extra rápidas, ya que cuando el usuario las consulta es para leer un par de titulares y salir.
 
 ### RAIL
@@ -50,42 +50,42 @@ El usuario espera que la aplicación web se cargue rápidamente. En menos de 1 s
 
 **10000 ms o más** Más allá de los 10000 milisegundos (10 segundos), los usuarios se sienten frustrados y es probable que abandonen las tareas. Puede que vuelvan o no más tarde."
 
-### Que optimizamos?
+### Qué optimizamos?
 
-No tenemos que empezar a mejorar el performance de toda nuestra web como locos, intentando rascar ms. Lo que si que tenemos que hacer es tener en cuenta el performance en las partes que más importan al usuario.
+No tenemos que empezar a mejorar el performance de toda nuestra web como locos, intentando rascar ms. Lo que sí que tenemos que hacer es tener en cuenta el performance en las partes que más importan al usuario.
 
 Por ejemplo.
 
 - Los diarios tienen que ser muy rápidos al mostrar los titulares.
 - Twitter, Facebook... les interesa antes que nada mostrarte el primer tweet....
 
-Así mismo, habra ciertas secciones de nuestra web, que no son tan importantes, por lo que podemos permitirnos que tarde un poco más en cargar.
-Por ejemplo, podemos tener miles de peticiones a nuestra homepage, pero nadie va a vistiar los terminos y condiciones.
+Así mismo, habrá ciertas secciones de nuestra web, que no son tan importantes, por lo que podemos permitirnos que tarde un poco más en cargar.
+Por ejemplo, podemos tener miles de peticiones a nuestra homepage, pero nadie va a visitar los términos y condiciones.
 
 ### Como medimos el performance?
 
-No podemos analizar la performance siempre con el mismo dispositivo o con el último mobil/ordenador que ha salido al mercado.
+No podemos analizar la performance siempre con el mismo dispositivo o con el último móvil/ordenador que ha salido al mercado.
 Lo mismo con el internet, no podemos medir la performance con una conexión de 1 Gb/s, ya que no es lo que la mayoría de los usuarios tienen.
 
 ## JavaScript Performance
 
-Podemos pagar para tener el servidor más rapido... pero si nuestra aplicación es client side, y el usuario tiene un móvil de hace 5 años, no vamos a poder hacer nada... No vamos a comprarle un móvil nuevo a cada usuario😅.
+Podemos pagar para tener el servidor más rápido... pero si nuestra aplicación es client side, y el usuario tiene un móvil de hace 5 años, no vamos a poder hacer nada... No vamos a comprarle un móvil nuevo a cada usuario😅.
 
-Cada vez enviamos más javascript al navegador, y cada vez es más complejo. Esto hace que el navegador tarde más en procesar el javascript. Asi como frameworks como React, que solo por el hecho de usarlo ya estas usando un montón de javascript.
+Cada vez enviamos más javascript al navegador, y cada vez es más complejo. Esto hace que el navegador tarde más en procesar el javascript. Así como frameworks como React, que solo por el hecho de usarlo ya estás usando un montón de javascript.
 
-Javascript es un lenguaje interpretado, pero en la práctica, los navegadores utilizan compiladores just-in-time (JIT) para convertir el código JavaScript en código máquina que pueda ejecutar la CPU. El JIT compilador analiza el código JavaScript y lo compila en código máquina en tiempo de ejecución. Esto sucede en la maquina del cliente, por lo que ellos estan pagando el coste y haciendo este trabajo por nosotros.
+Javascript es un lenguaje interpretado, pero en la práctica, los navegadores utilizan compiladores just-in-time (JIT) para convertir el código JavaScript en código máquina que pueda ejecutar la CPU. El JIT compilador analiza el código JavaScript y lo compila en código máquina en tiempo de ejecución. Esto sucede en la máquina del cliente, por lo que ellos están pagando el coste y haciendo este trabajo por nosotros.
 
 ### Engine V8 de JavaScript
 
 Cada navegador tiene su propio motor, por ejemplo Chrome tiene V8, Firefox tiene SpiderMonkey, Safari tiene Nitro, etc.
 
-Si nos centramos en V8. El ciclo de javascript en V8 es el siguiente:
+Sí nos centramos en V8. El ciclo de javascript en V8 es el siguiente:
 
-1. Subimos nuestro codigo a la nube.
-2. El navegador descarga el codigo.
-3. Parsing. Se convierte en un arbol de sintaxis abstracta (AST), que es una estructura de datos real que representa el código.
+1. Subimos nuestro código a la nube.
+2. El navegador descarga el código.
+3. Parsing. Se convierte en un árbol de sintaxis abstracta (AST), que es una estructura de datos real que representa el código.
 4. Interprete. El AST se compila en código máquina. Convierte el código JavaScript en bytes.
-   4.1 Compilador de optimización, si detecta que hay codigo que se puede optimizar, lo pasa por aqui. Y lo devuelve como código máquina optimizado.
+   4.1 Compilador de optimización, si detecta que hay código que se puede optimizar, lo pasa por aquí. Y lo devuelve como código máquina optimizado.
 5. El código máquina se ejecuta en la CPU.
 
 ![Steps of v8](./assets/stepsv8.jpg)
@@ -97,7 +97,7 @@ Recursos para profundizar sobre el tema:
 
 #### Parsing
 
-Convertimos el codigo en un AST, que es una estructura de datos real que representa el código. En si, es un árbol de objetos. Cada nodo del árbol representa una parte del código.
+Convertimos el código en un AST, que es una estructura de datos real que representa el código. En si, es un árbol de objetos. Cada nodo del árbol representa una parte del código.
 
 Ejemplo de un AST: [AST Explorer](https://astexplorer.net/)
 
@@ -123,7 +123,7 @@ Entonces en el motor v8, hay dos maneras de hacer el parsing:
 
 Y nosotros **no tenemos control sobre esto**... es algo que elige chrome por nosotros.
 
-En si podemos pensar que la mejor opción es Lazy Parsing... que lo hace gracias a la simplificación del código, es decir, si ve codigo que se va a ejecutar, lo parsea, pero si ve una clase, una llamada fetch... no lo parsea hasta que se necesite.
+En si podemos pensar que la mejor opción es Lazy Parsing... que lo hace gracias a la simplificación del código, es decir, si ve código que se va a ejecutar, lo parsea, pero si ve una clase, una llamada fetch... no lo parsea hasta que se necesite.
 
 Ejemplo extraido de [stevekinney](https://speakerdeck.com/stevekinney/web-performance?slide=87)
 
@@ -148,23 +148,23 @@ Ahora bien caemos en un problema... que es mejor, parsear todo el código una ve
 Este compilador en principio.
 
 - Optimización especulativa
-  - Usamos un interprete porque el optimizador del código es lento de empezar. El interprete es rápido, pero no sabe nada sobre nuestro código, por lo que no es tan rápido como lo es Turbofan.
-  - No sabe que una función add, siempre va a recibir numeros, por lo que no puede optimizarla, por lo que el interprete se encarga de obtener feedback de como se esta usando la función.
+  - Usamos un intérprete porque el optimizador del código es lento de empezar. El intérprete es rápido, pero no sabe nada sobre nuestro código, por lo que no es tan rápido como lo es Turbofan.
+  - No sabe que una función add, siempre va a recibir números, por lo que no puede optimizarla, por lo que el intérprete se encarga de obtener feedback de como se está usando la función.
 - Clases ocultas para búsquedas dinámicas
 - Incorporación de funciones
 
-Javascript es díficil, dinámico y tiene muchas reglas, como por ejemplo, sumar strings es diferente a sumar numeros. Y el compilador de optimización en la mayoria de ocasiones no sabe que va a sumar, hasta que no se ejecuta esa parte del código.
+Javascript es difícil, dinámico y tiene muchas reglas, como por ejemplo, sumar strings es diferente a sumar números. Y el compilador de optimización en la mayoría de ocasiones no sabe que va a sumar, hasta que no se ejecuta esa parte del código.
 
-El compilador de optimización, se encarga de analizar el código y ver que partes se pueden optimizar, y que partes no. Por ejemplo, si tenemos una función que siempre recibe numeros, intentara optimizarla.
+El compilador de optimización, se encarga de analizar el código y ver que partes se pueden optimizar, y que partes no. Por ejemplo, si tenemos una función que siempre recibe números, intentara optimizarla.
 Ahora bien, si detecta que la función no tiene un comportamiento predecible, no la optimizará. Por ejemplo, si el mismo argumento de una función recibe numeros, strings, undefinded, arrays...
 
 #### Monomorfismo, Polimorfismo y Megamorfismo
 
-Los argumentos no tienen porque ser siempre objetos
+Los argumentos no tienen por qué ser siempre objetos
 
 - Monomorfismo: Ejemplo: una función que recibe un objeto con la misma estructura, objeto con propiedad "x" con valor numérico.
 
-**El interprete entiende que la función siempre va a recibir un objeto con la misma estructura, por lo que puede optimizarla y cachearla**.
+**El intérprete entiende que la función siempre va a recibir un objeto con la misma estructura, por lo que puede optimizarla y cachearla**.
 En resumen, esto es todo lo que sé, he visto este tipo de objeto un millón de veces. Estoy listo, sé qué hacer, esto es lo mío
 
 ```js
@@ -178,8 +178,8 @@ fn({ x: 1 });
 
 **Importante**, no pueden recibir más de 4 tipos diferentes de patrones v8 (megamorfismo)
 
-**El interprete entiende que la función siempre va a recibir un objeto con poca variación en su composición, por lo que puede optimizarla y cachearla**
-En resumen, he visto esto antes, dejame chequear a ver si lo puedo hacer más rápido.
+**El intérprete entiende que la función siempre va a recibir un objeto con poca variación en su composición, por lo que puede optimizarla y cachearla**
+En resumen, he visto esto antes, déjame chequear a ver si lo puedo hacer más rápido.
 
 ```js
 fn({ x: 1, a: 1 });
@@ -189,7 +189,7 @@ fn({ x: 2, c: 2 });
 
 - Megamorfismo: Ejemplo, una función que recibe un objeto con diferentes estructuras. En el caso del motor v8 considera megamorfismo a funciones que reciben más de 4 tipos de patrones.
 
-**El interprete entiende que la función siempre va a recibir un objeto con mucha variación en su composición, por lo que no puede optimizarla y cachearla**. Este estado existe para evitar estar cacheando de manera descontrolada los polimorfismos.
+**El intérprete entiende que la función siempre va a recibir un objeto con mucha variación en su composición, por lo que no puede optimizarla y cachearla**. Este estado existe para evitar estar cacheando de manera descontrolada los polimorfismos.
 En resumen, no tengo idea de lo que va a pasar, no puedo optimizar esto.
 
 ```js
@@ -227,11 +227,11 @@ Con el DOM y el CSSOM creamos el Render Tree. Es el DOM con las reglas de CSSOM 
 
 Para hacer el render tree, se hace un recorrido del DOM, y se van aplicando las reglas de CSSOM. Si el elemento no tiene reglas de CSSOM, se aplica el estilo por defecto. En caso de tener un display: none, no se añade en el render tree.
 
-Hay un proceso para saber que elementos se van a renderizar, y cuales no. Se llama layout. El layout es el proceso de calcular el tamaño y la posición de los elementos en la pantalla.
+Hay un proceso para saber que elementos se van a renderizar, y cuáles no. Se llama layout. El layout es el proceso de calcular el tamaño y la posición de los elementos en la pantalla.
 
 Paint, es el proceso de pintar los elementos en la pantalla.
 
-Al momento de plantear las clases tienen que ser lo más simples posibles. Los selectores como más simples mejores.
+Al momento de plantear las clases tienen que ser lo más simples posible. Los selectores como más simples mejores.
 
 Consejos para mejorar el CSS.
 
@@ -246,7 +246,7 @@ Recursos para profundizar sobre el tema:
 
 ### Javascript i la pipeline de render
 
-Javascript tiene la capacidad de modificar el DOM (añadiendo o removiendo elementos), modificar una class, cambiar los estilos en linia... por lo que causa que se vuelva a iniciar el proceso de renderizanción.
+Javascript tiene la capacidad de modificar el DOM (añadiendo o removiendo elementos), modificar una class, cambiar los estilos en línea... por lo que causa que se vuelva a iniciar el proceso de renderización.
 
 ### Layout y reflow
 
@@ -261,35 +261,35 @@ Un reflow de un elemento, causa un reflow en todos los elementos, tanto de sus h
 
 Causas de un reflow, cualquier cambio de estilos, clase, modificar el DOM...
 
-Seguido de un reflow, esta seguido de un repaint... Siempre que modificamos el layout, tenemos que repintar.
+Seguido de un reflow, está seguido de un repaint... Siempre que modificamos el layout, tenemos que repintar.
 
 Como evitar reflows:
 
-- No modificar las clases de un elemento. En caso de hacerlo modifica la class de un elemento hijo. Por ejemplo, no modificar el elemento `<body>`
+- No modificar las clases de un elemento. En caso de hacerlo, modifica la class de un elemento hijo. Por ejemplo, no modificar el elemento `<body>`
 - Evitar modificar los estilos inline, además si son repetitivos, mejor crear una clase.
 - Si tenemos que modificar el DOM, mejor hacerlo en un solo bloque. Por ejemplo, si tenemos que añadir 10 elementos, mejor añadirlos todos a la vez, que uno a uno.
 - [Debounce](https://css-tricks.com/debouncing-throttling-explained-examples/). Si tenemos que hacer un reflow, mejor hacerlo en un intervalo de tiempo.
 
 #### Como probar el performance
 
-Podemos usar la herramienta de performance de chrome, para ver cuando se esta haciendo un paint, o calculando el layout.
+Podemos usar la herramienta de performance de chrome, para ver cuando se está haciendo un paint, o calculando el layout.
 
 ### Layout thrashing
 
 Otra forma de nombrarlo es, "Forced Synchronous Layouts".
 
-El layout thrashing es cuando el javascript esta leyendo y escribiendo en el DOM por lo que el browser está constantemente haciendo reflows y repintando.
+El layout thrashing es cuando el javascript está leyendo y escribiendo en el DOM por lo que el browser está constantemente haciendo reflows y repintando.
 
 Ejemplo de layout thrashing:
 ![Layout thrashing](./assets/layout-thrashing.png)
 
 El browser se va deteniendo intentando calcular y pintar los elementos... y esto dentro de js, puede suceder por muchos motivos, por lo que tenemos que procurar seguir buenas prácticas.
 
-Por ejemplo, **separar las consultas de escritura, y lectura**. Si tenemos que hacer un toggle de diferentes elementos y después obtener el tamaño, mejor hacerlo en un bloque. Primero hacer el toggle(escritura) y después obtener el tamaño(lectura).
+Por ejemplo, **separar las consultas de escritura, y lectura**. Si tenemos que hacer un toggle de diferentes elementos y después obtener el tamaño, mejor hacerlo en un bloque. Primero hacer el toggle(escritura) y más tarde obtener el tamaño(lectura).
 
 El motivo es que en el cambio de escritura a lectura, va a parar tu js, para obtener la respuesta.
 
-Mala practica.
+Mala práctica.
 
 ```js
 firstElement.classList.toggle("active"); // escritura
@@ -392,13 +392,13 @@ No hace falta que usemos frameworks para obtener un buen performance. Pero si us
 
 React tiene un sistema de reconciliación, que es el que se encarga de comparar el DOM actual con el DOM que queremos pintar, y solo va a pintar los elementos que han cambiado.
 
-Los resultados de react en modo desarollo van a ser peores que en modo producción.
+Los resultados de react en modo desarrollo van a ser peores que en modo producción.
 
 ## Load Performance
 
 ### Latencia y anchos de banda
 
-Tenemos que tneer en cuenta que la latencia y el ancho de banda, son dos factores que afectan a la velocidad de carga de nuestra página.
+Tenemos que tener en cuenta que la latencia y el ancho de banda, son dos factores que afectan a la velocidad de carga de nuestra página.
 
 Muchas veces no pensamos en la latencia, pero es un factor muy importante, ya que si tenemos una latencia alta, el tiempo de carga de nuestra página va a ser muy alto.
 
@@ -423,11 +423,11 @@ Pero actualmente nuestras aplicaciones de JavaScript están creciendo...
 
 (CloudPing)[http://www.cloudping.info/], es una herramienta que nos permite ver la latencia de nuestra página, desde diferentes partes del mundo.
 
-Que lugar es el optimo para alojar nuestra página? En todos los sitios, alrededor del mundo. Por eso usamos CDN como Amazon o cloudflare.
+Qué lugar es el óptimo para alojar nuestra página? En todos los sitios, alrededor del mundo. Por eso usamos CDN como Amazon o cloudflare.
 
 Una red de entrega de contenido (CDN) es un grupo de servidores distribuidos geográficamente que aceleran la entrega de contenido web acercándolo a donde están los usuarios.
 
-Porque si tenemos un servidor en USA, y el usuario esta en España, la latencia va a ser muy alta.
+Porque si tenemos un servidor en USA, y el usuario está en España, la latencia va a ser muy alta.
 
 ### Caching
 
@@ -460,7 +460,7 @@ Simplificamos las posibilidades.
 
 #### no-store
 
-El navegador haze una petición cada vez. No guarda nada en cache.
+El navegador hace una petición cada vez. No guarda nada en cache.
 
 #### no-cache
 
@@ -475,17 +475,17 @@ Cuenta al navegador cuánto tiempo puede almacenar la copia local.
 
 Content-Addressable Storage
 
-Es un nombre bonito para decir que es poner un identificador al archivo js, y que lo tiene que guardar en el cache por mucho tiempo. Cuando hacemos un cambio en el archivo, tenemos que cambiar el nombre del archivo, para que el navegador lo vuelva a descargar.
+Es un nombre bonito para decir que es poner un identificador al archivo js, y que lo tiene que guardar en el caché por mucho tiempo. Cuando hacemos un cambio en el archivo, tenemos que cambiar el nombre del archivo, para que el navegador lo vuelva a descargar.
 
 Podemos poner eso en nuestro archivo SMIL de estudio de índice y si actualizamos nuestra aplicación, actualizamos el archivo SMIL de estudio de índice, diríamos, está bien, aquí está la nueva versión. Así que, efectivamente, con eso obtenemos un cache-busting gratis.
 
 #### Caching en los CDN
 
-No queremos usar esto para aferrarnos a todo para siempre porque si les enviamos una versión mala, estamos un poco perdidos. Pero, este **s-maxage** es solo para CDN porque si enviamos la CDN con una versión incorrecta, podríamos comunicarnos con esa CDN y decir, perder esa versión, borrarla de sus cachés.
+No queremos usar esto para aferrarnos a todo para siempre, porque si les enviamos una versión mala, estamos un poco perdidos. Pero, este **s-maxage** es solo para CDN porque si enviamos la CDN con una versión incorrecta, podríamos comunicarnos con esa CDN y decir, perder esa versión, borrarla de sus cachés.
 
 ### Service Workers
 
-Un service worker es un script que se ejecuta en segundo plano, que incluso se ejecuta en offlie. Los service workers nos permiten interceptar las peticiones de red, y devolver datos desde el cache.
+Un service worker es un script que se ejecuta en segundo plano, que incluso se ejecuta en offline. Los service workers nos permiten interceptar las peticiones de red, y devolver datos desde el cache.
 
 Tenemos algunas cosas en cache, usamos estas, y si no tenemos nada en cache, hacemos la petición de red.
 
@@ -495,7 +495,7 @@ Lazy loading es una técnica que nos permite cargar los recursos de forma diferi
 
 Sabemos el coste de javascript y de la network.
 
-Tienen que empaquetar todo el codigo, aunque no se vaya a usar. Asi que tendriamos que enviar el codigo que se va a usar, si va a usar el codigo de la pagina de login, solo se envia el codigo de la pagina de login.
+Tienen que empaquetar todo el código, aunque no se vaya a usar. Así que tendríamos que enviar el código que se va a usar, si va a usar el código de la página de login, solo se envía el código de la página de login.
 
 Porque hacerlo más tarde es una forma de no hacerlo ahora, y no hacerlo ahora es más rápido.
 
@@ -516,10 +516,10 @@ import { map } from 'lodash'; // hacer
 ### HTTP/2
 
 - Actualizan el protocolo http, para que sea más rápido.
-- Envia multiples peticiones en paralelo, en vez de una a la vez.
+- Envía múltiples peticiones en paralelo, en vez de una a la vez.
 - Permite a los servidores enviar respuestas al cache del cliente.
 
-Se abren entre 6 y 8 conexiones, y se envian los archivos en paralelo.
+Se abren entre 6 y 8 conexiones, y se envían los archivos en paralelo.
 
 No separes los archivos css, por ejemplo, en 40 porque no se van a descargar en paralelo.
 
@@ -527,11 +527,11 @@ No separes los archivos css, por ejemplo, en 40 porque no se van a descargar en 
 
 Cuando tengamos dudas, podemos usar diferentes herramientas.
 
-**PurifyCSS**, es una herramienta que nos permite ver que css no se esta usando. Actualmente ya podemos encontrar [sites](https://purifycss.online/) que nos lo dicen.
+**PurifyCSS**, es una herramienta que nos permite ver que css no se está usando. Actualmente, ya podemos encontrar [sites](https://purifycss.online/) que nos lo dicen.
 
-**Babel**, pagar el precio de la compatibilidad. Babel nos permite usar las ultimas caracteristicas de javascript, y que se pueda usar en navegadores antiguos.
+**Babel**, pagar el precio de la compatibilidad. Babel nos permite usar las últimas características de javascript, y que se pueda usar en navegadores antiguos.
 
-Por ejemplo si hacemos un for of, y queremos que se pueda usar en navegadores antiguos, tenemos que usar babel, y nos devolvera esto:
+Por ejemplo, si hacemos un for of, y queremos que se pueda usar en navegadores antiguos, tenemos que usar babel, y nos devolverá esto:
 
 ```js
 const item = [1, 2, 3, 4];
