@@ -65,5 +65,39 @@ Compilara la aplicación y la ejecutara en el dispositivo seleccionado.
 También podemos ejecutar la aplicación desde el IDE, en este caso, desde VSC. Para ello, en el footer de la aplicación, tenemos un botón que nos permite seleccionar el dispositivo donde queremos ejecutar la aplicación.
 
 La primera vez que se ejecuta la aplicación puede tardar un poco en ejecutarse.
+En caso de detectar que no esta funcionando correctamente, podemos ejecutar el comando `flutter doctor` para comprobar que todo esta correcto y en caso contrario nos indicara que pasos debemos seguir para solucionarlo.
+
+[![Flutter doctor](./assets/flutter_doctor.png)]
 
 Flutter tiene hot reload, es decir, que cuando se modifica el código, la aplicación se recarga automáticamente, sin necesidad de volver a compilar la aplicación.
+
+### Estructura de un proyecto Flutter
+
+La estructura de un proyecto Flutter es la siguiente:
+
+![new project](./assets/new_project.png)
+
+```bash
+├── android
+├── ios
+├── lib => El código mayormente lo escribiremos en esta carpeta. Seria como la carpeta src.
+├──── main.dart => Entrada de la aplicación.
+├── linux
+├── macos
+├── test => Aquí se escriben los test unitarios.
+├── web
+├── windows
+├── .gitignore
+├── .metadata
+├── analysis_options.yaml
+├── flutter.iml
+├── pubspec.lock
+├── pubspec.yaml => Archivo de configuración de la aplicación. Que es como el package.json, donde se especifican las dependencias, el nombre de la aplicación, la versión, etc.
+├── README.md
+```
+
+Cada plataforma tiene sus propias particularidades y configuraciones, por lo que Flutter te proporciona una estructura de carpetas para cada plataforma objetivo.
+
+Las carpetas de `android`, `ios`, `linux`, `macos`, `windows` y `web` contienen los archivos necesarios para compilar la aplicación en cada sistema operativo correspondiente. Al editar estos archivos, puedes configurar la aplicación para cada plataforma. Por ejemplo, en la carpeta "android", puedes editar el archivo AndroidManifest.xml para establecer los permisos de la aplicación, incluso puedes escribir código en Kotlin si lo deseas.
+
+En resumen, estas carpetas son importantes porque te permiten compilar y personalizar tu aplicación para cada plataforma de destino, y así ofrecer una experiencia de usuario óptima para cada sistema operativo.

@@ -25,32 +25,6 @@ Flutter utiliza el lenguaje de programación Dart. Dart fue desarrollado por Goo
 
 La curva de aprendizaje de Flutter es muy corta, ya que se basa en el conocimiento de los lenguajes de programación muy populares, y si tienes conocimientos de lenguajes orientados a objetos, como Javascript, se reduce la complejidad de aprenderlo. Además, la construcción de pantallas, utilizar el framework en si, es simple, porque vamos creando instancias, hijos de otras instancias y asi vamos a crear la UI de nuestra aplicación.
 
-### Estructura de un proyecto Flutter
-
-La estructura de un proyecto Flutter es la siguiente:
-
-```bash
-├── android
-├── ios
-├── lib => El código mayormente lo escribiremos en esta carpeta.
-├──── main.dart => Entrada de la aplicación.
-├── linux
-├── macos
-├── test
-├── web
-├── windows
-├── .gitignore
-├── .metadata
-├── analysis_options.yaml
-├── flutter.iml
-├── pubspec.lock
-├── pubspec.yaml => Archivo de configuración de la aplicación. Que es como el package.json, donde se especifican las dependencias, el nombre de la aplicación, la versión, etc.
-├── README.md
-```
-
-Las carpetas de `android`, `ios`, `linux`, `macos`, `windows` y `web` contienen los archivos necesarios para compilar la aplicación en cada uno de los sistemas operativos. Si se editan es para configurar la aplicación para cada uno de los sistemas operativos.
-Por ejemplo en `android` se configura el `AndroidManifest.xml` para establecer los permisos de la aplicación, incluso ellos te permiten escribir código en `Kotlin`.
-
 ## Sintáxis
 
 La sintaxis de Dart es orientada a objetos. Si hemos trabajado con otros lenguajes de programación orientados a objetos, como Java o Javascript, no tendremos problemas para entender la sintaxis de Dart.
