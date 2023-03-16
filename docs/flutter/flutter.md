@@ -106,7 +106,10 @@ En resumen, estas carpetas son importantes porque te permiten compilar y persona
 
 La sintaxis de Dart es orientada a objetos. Si hemos trabajado con otros lenguajes de programación orientados a objetos, como Java o Javascript, no tendremos problemas para entender la sintaxis de Dart.
 
-Tendremos un main.dart que será el punto de entrada de nuestra aplicación. En este archivo, tendremos que importar el paquete de Flutter, y ejecutar la función `runApp()`.
+Tendremos un main.dart que será el punto de entrada de nuestra aplicación.
+Como ya sabemos, en dart se requiere de una función main para ejecutar la aplicación.
+
+En este archivo, tendremos que importar el paquete de Flutter, y ejecutar la función `runApp()`.
 
 La función `runApp()` recibe como parámetro un widget, que es el widget raíz de nuestra aplicación.
 
@@ -120,7 +123,21 @@ void main() {
 
 ## Widgets
 
-Todo en Flutter es un widget, y los widgets se componen de otros widgets. Los widgets son como los componentes de React.
+Todo en Flutter es un widget, y los widgets se componen de otros widgets. Los widgets son como los componentes de React...
+Podemos decir que los widgets son lo que decide como renderizar el contenido en la pantalla.
+
+Los widgets tienen que extender de una clase, como por ejemplo, StatelessWidget o StatefulWidget. Requieren tener una key, y un método build, que es el que se encarga de renderizar el widget.
+
+```dart
+class HelloWorld extends StatelessWidget {
+  const HelloWorld({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Text('Hello World');
+  }
+}
+```
 
 Hay dos tipos de widgets, Stateless y Stateful.
 Stateless son widgets que no tienen estado, es decir, que no cambian. Por ejemplo, un widget que muestra un texto, no cambia, siempre muestra el mismo texto.
