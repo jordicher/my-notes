@@ -25,18 +25,6 @@ Flutter utiliza el lenguaje de programación Dart. Dart fue desarrollado por Goo
 
 La curva de aprendizaje de Flutter es muy corta, ya que se basa en el conocimiento de los lenguajes de programación muy populares, y si tienes conocimientos de lenguajes orientados a objetos, como Javascript, se reduce la complejidad de aprenderlo. Además, la construcción de pantallas, utilizar el framework en si, es simple, porque vamos creando instancias, hijos de otras instancias y asi vamos a crear la UI de nuestra aplicación.
 
-### Empezar con Flutter
-
-Para empezar con Flutter, lo primero que debemos hacer es instalar su SDK. Para ello, debemos seguir los pasos que se indican en la [documentación oficial](https://flutter.dev/docs/get-started/install).
-
-Tenemos que elegir el IDE que queremos utilizar, originalmente Flutter soporta tanto Android Studio como Visual Studio Code.
-
-Flutter se basa en el SDK y se compila a partir de los SDK oficiales, esto significa que si queremos compilar una aplicación para Android, necesitamos tener instalado Android Studio o Android SDK, aunque Android Studio ya incluye el SDK. Si no queremos compilar en Android, no es necesario tener instalado Android Studio. Para compilar en ios requerimos de un Mac. Si tenemos un Mac y queremos compilar en ios, necesitamos instalar Xcode.
-
-Una vez instalado el SDK, podemos crear un proyecto en el propio Visual Studio Code, o bien, podemos crearlo desde la terminal, con el comando `flutter create nombre_proyecto`.
-
-Se crea un scaffolding con la estructura de carpetas y archivos necesarios para empezar a trabajar con Flutter.
-
 ### Estructura de un proyecto Flutter
 
 La estructura de un proyecto Flutter es la siguiente:
@@ -62,15 +50,6 @@ La estructura de un proyecto Flutter es la siguiente:
 
 Las carpetas de `android`, `ios`, `linux`, `macos`, `windows` y `web` contienen los archivos necesarios para compilar la aplicación en cada uno de los sistemas operativos. Si se editan es para configurar la aplicación para cada uno de los sistemas operativos.
 Por ejemplo en `android` se configura el `AndroidManifest.xml` para establecer los permisos de la aplicación, incluso ellos te permiten escribir código en `Kotlin`.
-
-### Ejecutar la aplicación
-
-Para ejecutar la aplicación, debemos ejecutar el comando `flutter run` en la terminal. Este te preguntara donde quieres ejecutar la aplicación.
-Compilara la aplicación y la ejecutara en el dispositivo seleccionado.
-
-La primera vez que se ejecuta la aplicación puede tardar un poco en ejecutarse.
-
-Flutter tiene hot reload, es decir, que cuando se modifica el código, la aplicación se recarga automáticamente, sin necesidad de volver a compilar la aplicación.
 
 ## Sintáxis
 
