@@ -44,7 +44,16 @@ export default defineConfig({
             },
             {
               text: "Flutter",
-              link: "/flutter/flutter.md",
+              items: [
+                {
+                  text: "Primeros pasos",
+                  link: "/flutter/flutter.md",
+                },
+                {
+                  text: "Estados",
+                  link: "/flutter/states.md",
+                },
+              ],
             },
           ],
         },
