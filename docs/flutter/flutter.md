@@ -139,8 +139,48 @@ class HelloWorld extends StatelessWidget {
 }
 ```
 
-Hay dos tipos de widgets, Stateless y Stateful.
+## Estados
+
+### Stateless
+
 Stateless son widgets que no tienen estado, es decir, que no cambian. Por ejemplo, un widget que muestra un texto, no cambia, siempre muestra el mismo texto.
+
+```dart
+class Greet extends StatelessWidget {
+  const Greet({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    var name = "Jordi";
+    return const Text('Hello $name'); // Esto dara error, ya que detecta que hay una variable, y por lo tanto no es constante
+  }
+}
+```
+
+Los stateless widgets no pueden cambiar su estado, por lo que no pueden tener variables que cambien. Por ejemplo, si queremos que el texto cambie, no podemos hacerlo con un stateless widget.
+Ahora bien, el stateless widget si puede recibir parámetros, por ejemplo, el nombre de la persona a la que queremos saludar.
+
+```dart
+class Greet extends StatelessWidget {
+  const Greet({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    var name = "Jordi";
+    return Column(
+      children: [
+        Text('Hello $name'),
+        TextField(
+          onChanged: (value) => name = value, // no pasa nada
+        ),
+      ],
+    );
+  }
+}
+```
+
+### Stateful
+
 Stateful son widgets que tienen estado, es decir, que cambian. Por ejemplo, un widget que muestra un contador, el contador cambia, por lo tanto, es un widget stateful.
 
 ```dart
