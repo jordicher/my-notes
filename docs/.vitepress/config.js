@@ -53,6 +53,10 @@ export default defineConfig({
                   text: "Estados",
                   link: "/flutter/states.md",
                 },
+                {
+                  text: "UI",
+                  link: "/flutter/ui.md",
+                },
               ],
             },
           ],
