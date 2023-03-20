@@ -139,6 +139,8 @@ class HelloWorld extends StatelessWidget {
 }
 ```
 
+Nosotros podemos crear o utilizar widgets que ya existen. Por ejemplo, el widget `MaterialApp` es un widget que ya existe, y que nos permite crear una aplicación con el estilo Material Design.
+
 ## Estados
 
 ### Stateless
@@ -183,31 +185,6 @@ class Greet extends StatelessWidget {
 
 Stateful son widgets que tienen estado, es decir, que cambian. Por ejemplo, un widget que muestra un contador, el contador cambia, por lo tanto, es un widget stateful.
 
-```dart
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-```
-
-Cada widget tiene un método `build()`, que es el que se encarga de construir el widget y el que se a pintar en pantalla.
-
-Nosotros podemos crear o utilizar widgets que ya existen. Por ejemplo, el widget `MaterialApp` es un widget que ya existe, y que nos permite crear una aplicación con el estilo Material Design.
-
-Como nosotros vamos a configurar nuestros widgets, en el constructor de la clase, debemos pasarle los parámetros necesarios para configurar el widget. En este caso, title, un theme y un home.
-
-Todo lo que nosotros hagamos sera crear o usar widgets que nos proporciona Flutter.
-
 Nuestro home, es `MyHomePage`, que es un widget stateful, que se encarga de mostrar la pantalla principal de nuestra aplicación.
 
 **En flutter por tema de optimización, la UI no esta bindeada a un estado, es decir, que si cambiamos el estado de la aplicación, no se va a reflejar en la UI, sino que tenemos que decirle a Flutter que la UI ha cambiado, y que tiene que volver a pintarla.** Esto es diferente a React/Vue... en flutter tendremos que llamarlo para decirle que se repinte porque hay datos nuevos.
@@ -243,6 +220,8 @@ class _MyHomePageState extends State<MyHomePage> {
 ```
 
 Al ser un StatefulWidget, usualmente escribiremos el código en la clase privada, `_MyHomePageState`.
+
+El método `setState()` es el que se encarga de decirle a Flutter que la UI ha cambiado, y que tiene que volver a pintarla.
 
 ### build()
 
