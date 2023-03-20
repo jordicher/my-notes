@@ -4,9 +4,9 @@ title: Estados
 description: Estados en Flutter
 ---
 
-## Estados
+# Estados
 
-### Stateless
+## Stateless
 
 Stateless son widgets que no tienen estado, es decir, que no cambian. Por ejemplo, un widget que muestra un texto, no cambia, siempre muestra el mismo texto.
 
@@ -44,7 +44,7 @@ class Greet extends StatelessWidget {
 }
 ```
 
-### Stateful
+## Stateful
 
 Stateful son widgets que tienen estado, es decir, que cambian. Por ejemplo, un widget que muestra un contador, el contador cambia, por lo tanto, es un widget stateful.
 
@@ -86,7 +86,7 @@ Al ser un StatefulWidget, usualmente escribiremos el código en la clase privada
 
 El método `setState()` es el que se encarga de decirle a Flutter que la UI ha cambiado, y que tiene que volver a pintarla.
 
-### build()
+## build()
 
 El método `build()` es el que se encarga de construir el widget, y es el que se va a pintar en pantalla.
 
