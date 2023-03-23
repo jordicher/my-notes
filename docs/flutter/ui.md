@@ -91,3 +91,26 @@ return MaterialApp(
 ````
 
 Por nuestra parte, podemos crear y usar nuestros colores. Pero Material UI, nos da paletas para usar, diseñada por profesionales.
+
+## Center
+
+Para centrar un widget, podemos usar el widget Center, que recibe como parámetro un child, que es el widget que queremos centrar.
+
+```dart
+Center(
+  child: Text('Hola'),
+)
+```
+
+## Theme.of
+
+Para usar el theme, podemos usar el widget Theme.of, que recibe como parámetro un BuildContext, y devuelve un ThemeData.
+
+Por ejemplo para hacer un titulo grande.
+
+```dart
+Text(
+  'Hola',
+  style: Theme.of(context).textTheme.headlineLarge,
+)
+```
