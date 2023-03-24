@@ -136,3 +136,89 @@ ListView(
   ],
 )
 ```
+
+## Bottom Navigation Bar
+
+Para añadir una Bottom Navigation Bar, tenemos que usar el widget BottomNavigationBar, que recibe como parámetro un items, que es una lista de BottomNavigationBarItem, que es un objeto que tiene un icon, y un label.
+
+Este widget tiene que ir dentro de un Scaffold, y tiene que ir en la propiedad bottomNavigationBar.
+Scaffold lo podemos entender como el contenedor de la aplicación.
+
+```dart
+BottomNavigationBar(
+  backgroundColor: Colors.white,
+  items: [
+    BottomNavigationBarItem(
+      icon: Icon(Icons.home),
+      label: 'Home',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.search),
+      label: 'Search',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.person),
+      label: 'Profile',
+    ),
+  ],
+)
+```
+
+Los iconos que usamos, son los que nos da Material UI por defecto. [Material Icons](https://material.io/resources/icons/?style=baseline). Obviamente podemos usar otros iconos.
+
+### Bottom Navigation Bar con Navegación
+
+#### Ejemplo Simple
+
+```dart
+class _MyHomePageState extends State<MyHomePage> {
+  var selectedPage = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    Widget currentWidgetPage = const Text("!!!");
+
+    switch (selectedPage) {
+      case 0:
+        currentWidgetPage = const HelloWorld();
+        break;
+      case 1:
+        currentWidgetPage = const OffersPage();
+        break;
+      case 2:
+        currentWidgetPage = const Text("Order");
+        break;
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: currentWidgetPage,
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        currentIndex: selectedPage,
+        onTap: (index) {
+          setState(() {
+            selectedPage = index;
+          });
+        },
+      ),
+    );
+  }
+}
+```
