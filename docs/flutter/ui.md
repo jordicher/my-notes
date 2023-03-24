@@ -114,3 +114,25 @@ Text(
   style: Theme.of(context).textTheme.headlineLarge,
 )
 ```
+
+## Scroll
+
+Flutter por defecto no tiene scroll, pero podemos añadirlo con el widget SingleChildScrollView, que recibe como parámetro un child, que es el widget que queremos que tenga scroll.
+
+```dart
+SingleChildScrollView(
+  child: Text('Hola'),
+)
+```
+
+Aunque también podemos usar el widget ListView, que es un widget que tiene scroll, y que recibe como parámetro un children, que es una lista de widgets.
+
+```dart
+ListView(
+  children: [
+    Text('Hola'),
+    Text('Hola'),
+    Text('Hola'),
+  ],
+)
+```
