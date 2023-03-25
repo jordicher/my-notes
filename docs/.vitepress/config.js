@@ -57,6 +57,10 @@ export default defineConfig({
                   text: "UI",
                   link: "/flutter/ui.md",
                 },
+                {
+                  text: "Modelo de datos",
+                  link: "/flutter/data-model.md",
+                },
               ],
             },
           ],
