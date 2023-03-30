@@ -52,4 +52,9 @@ features:
     title: "TDD: Test-Driven Development"
     link: "./test-driven-development/"
     details: Introducción a TDD, sus pasos y ejemplos.
+
+  - icon: 🛠️
+    title: "Observables en JavaScript"
+    link: "./observables/"
+    details: Observables
 ---
