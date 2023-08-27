@@ -98,6 +98,11 @@ function nav() {
           activeMatch: "/web-components/",
         },
         {
+          text: "Flutter",
+          link: "/flutter/",
+          activeMatch: "/flutter/",
+        },
+        {
           text: "Rust",
           link: "/rust/",
           activeMatch: "/rust/",

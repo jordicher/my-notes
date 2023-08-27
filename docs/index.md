@@ -38,8 +38,7 @@ features:
     link: "./vue-unit-testing/"
     details: Introducción a los tests unitarios en Vue.
 
-  - icon: 🛠️
-    title: "Flutter"
+  - title: "Flutter"
     link: "./flutter/"
     details: Introducción a Flutter, su instalación, su sintaxis y ejemplos.
 
