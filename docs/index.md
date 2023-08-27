@@ -18,15 +18,18 @@ hero:
       link: https://www.linkedin.com/in/cherto/
 
 features:
-  - title: "JavaScript Performance"
+  - icon: ⭐
+    title: "JavaScript Performance"
     link: "./javascript-performance/"
     details: Optimización de JavaScript, v8 engine, rendering/load performance, caching, etc.
 
-  - title: "Monorepo"
+  - icon: ⭐
+    title: "Monorepo"
     link: "./monorepo/"
     details: Introducción al monorepo, gestión de dependencias y Lerna.
 
-  - title: "Web Components"
+  - icon: ⭐
+    title: "Web Components"
     link: "./web-components/"
     details: Como crear Web Components propios, DOM, su relación con css y js y múltiples ejemplos.
 
