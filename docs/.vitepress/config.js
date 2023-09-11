@@ -4,6 +4,15 @@ export default defineConfig({
   lang: "es-ES",
   title: "Apuntes jordicher",
   description: "Mis resumenes de programación",
+  head: [
+    [
+      "script",
+      {
+        async: true,
+        src: 'https://cdn.splitbee.io/sb.js',
+      },
+    ],
+  ],
 
   lastUpdated: true,
 

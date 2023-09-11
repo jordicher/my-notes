@@ -2,3 +2,5 @@ node_modules
 .temp
 .cache
 dist
+cache
+docs/.vitepress/cache/deps
