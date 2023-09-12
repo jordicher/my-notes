@@ -211,3 +211,77 @@ let a = 1; // number
 let b = "1"; // string
 let c = true; // boolean
 ```
+
+## Interfaces
+
+Las interfaces son una forma poderosa de definir contratos tanto para tu proyecto, como para el código externo al mismo.
+
+```ts
+interface Person {
+  name: string;
+  age: number;
+}
+
+function printPerson(person: Person) {
+  console.log(person.name, person.age);
+}
+
+printPerson({ name: "John", age: 30 });
+```
+
+### Propiedades opcionales
+
+```ts
+interface Person {
+  name: string;
+  age?: number;
+}
+
+function printPerson(person: Person) {
+  console.log(person.name, person.age);
+}
+
+printPerson({ name: "John" });
+```
+
+### Anidadas
+
+```ts
+interface User {
+  name: string;
+  address: {
+    street: string;
+    city: string;
+  };
+}
+
+interface UserResponse {
+  success: boolean;
+  user: User;
+}
+
+function printUser(data: UserResponse) {
+  console.log(data.user.name, data.user.address.city, data.success);
+}
+
+printUser({
+  success: true,
+  user: { name: "John", address: { street: "Main Street", city: "New York" } },
+});
+```
+
+### Index Signatures
+
+```ts
+interface Person {
+  name: string;
+  age: number;
+  [key: string]: any;
+}
+
+function printPerson(person: Person) {
+  console.log(person.name, person.age);
+}
+
+printPerson({ name: "John", age: 30, address: "Main Street" });
+```
