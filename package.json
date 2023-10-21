@@ -6,7 +6,7 @@
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs",
+    "docs:preview": "vitepress preview docs",
     "precommit": "pretty-quick --staged",
     "prepare": "husky install .husky"
   },
@@ -16,7 +16,7 @@
     "markdown-it": "13.0.1",
     "prettier": "2.7.1",
     "pretty-quick": "3.1.3",
-    "vitepress": "1.0.0-alpha.46",
+    "vitepress": "1.0.0-rc.22",
     "vitepress-plugin-search": "1.0.4-alpha.19",
     "vue": "3.2.45"
   }

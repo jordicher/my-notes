@@ -8,7 +8,7 @@ export default defineConfig({
     [
       "script",
       {
-        async: true,
+        async: "true",
         src: 'https://cdn.splitbee.io/sb.js',
       },
     ],
