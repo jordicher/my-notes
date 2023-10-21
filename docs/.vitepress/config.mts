@@ -9,12 +9,15 @@ export default defineConfig({
       "script",
       {
         async: "true",
-        src: 'https://cdn.splitbee.io/sb.js',
+        src: "https://cdn.splitbee.io/sb.js",
       },
     ],
   ],
 
   lastUpdated: true,
+  sitemap: {
+    hostname: "https://my-notes.cherto.es/",
+  },
 
   themeConfig: {
     nav: nav(),
