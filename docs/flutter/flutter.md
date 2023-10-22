@@ -42,6 +42,46 @@ Podemos usar Cupertino para Android o la web, pero se veria raro. Lo usual es us
 
 ## Setup
 
+### Cuentas de desarrollador
+
+La cuenta de desarrollador nos permite publicar aplicaciones en las tiendas de aplicaciones de Android y iOS. Para publicar aplicaciones en la tienda de aplicaciones de Android, necesitamos una cuenta de desarrollador de Google Play. Para publicar aplicaciones en la tienda de aplicaciones de iOS, necesitamos una cuenta de desarrollador de Apple.
+
+En el caso de que no queramos publicar aplicaciones en las tiendas de aplicaciones, no necesitamos una cuenta de desarrollador. Pero en caso contrario, es algo obligatorio.
+
+Además, publicar una aplicación no es tan sencillo, pues requiere de un proceso de revisión por parte de Google y Apple.
+
+**Tipos de cuenta:**
+
+Individual/Personal: Para desarrolladores individuales.
+Empresa: Para empresas.
+
+La mayor diferencia es la responsabilidad legal. En el caso de una cuenta individual, el desarrollador es el responsable legal de la aplicación.
+Por lo que si el usuario tiene algún problema con la aplicación, por ejemplo, piensa que no estás guardando de manera correcta sus datos personales, puede demandar al desarrollador.
+
+En el caso de una cuenta de empresa, la empresa es la responsable legal de la aplicación. Por lo que no tiene que ser la persona que ha desarollado la aplicación.
+
+Este punto suena como muy serio y lo más seguro que nunca pase nada, pero es algo que hay que tener en cuenta. Pues incluso la aplicación más inocente como una aplicación de notas, puede almacenar datos personales a los que los demás usuarios no deberían tener acceso.
+
+#### IOS
+
+Si nos registramos tenemos recursos extra como desarrollador, como test y despliegue de aplicaciones en dispositivos físicos, etc.
+
+**Precio:**
+El precio actual es de 99$ al año.
+
+[IOS registro](https://developer.apple.com/programs/enroll/)
+
+#### Android
+
+**Precio:**
+El precio actual es de 25$, pago único.
+
+[Android registro](https://play.google.com/console/u/0/signup)
+
+**Recursos:**
+
+- [Developer accounts - Vandad Nahavandipoor](https://www.youtube.com/watch?v=9cTNabpKtCE&list=PL6yRaaP0WPkVtoeNIGqILtRAgd3h2CNpT&index=2)
+
 ### Empezar con Flutter
 
 Para empezar con Flutter, lo primero que debemos hacer es instalar su SDK. Para ello, debemos seguir los pasos que se indican en la [documentación oficial](https://flutter.dev/docs/get-started/install).

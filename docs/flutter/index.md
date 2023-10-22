@@ -8,7 +8,8 @@ description: Introducción a Flutter
 
 Estos apuntes están basados:
 
-- Curso de [Web Components](https://frontendmasters.com/courses/flutter) - Maximiliano Firtman
+- Curso de [Cross-Platform Mobile Apps with Flutter](https://frontendmasters.com/courses/flutter) - Maximiliano Firtman
+- Curso de [Free Flutter Course](https://www.youtube.com/watch?v=IfUjHNODRoM&list=PL6yRaaP0WPkVtoeNIGqILtRAgd3h2CNpT) - Vandad Nahavandipoor
 - Directos de [Miguel Ángel Durán](https://www.twitch.tv/midudev)
 
 ## Introducción
