@@ -6,9 +6,11 @@ description: Flutter
 
 # Flutter
 
-En resumen:
+- Desarollado por Google. Open source (el código es abierto, cualquiera puede verlo y contribuir).
 
-- Declarative UI framework, esto significa que no se necesita escribir código para crear la interfaz de usuario, sino que se describe la interfaz de usuario y Flutter se encarga de crearla.
+- Utiliza Dart como lenguaje de programación, también mantenido por Google y open source.
+
+- Declarative UI framework (colección de herramientas), esto significa que no se necesita escribir código para crear la interfaz de usuario, sino que se describe la interfaz de usuario y Flutter se encarga de crearla.
 
 - Componentes componibles. Así que en realidad podemos crear componentes cuyo nombre que vamos a usar aquí es widgets, así que vamos a componer widgets que podemos reutilizar en diferentes partes de nuestra aplicación.
 
@@ -16,7 +18,7 @@ En resumen:
 
 - Todo en la interfaz de usuario se expresa en widgets. Y un widget es solo una clase Dart, que extenderíamos desde una superclase de widget.
 
-- El mismo código se puede ejecutar en mobile: Android y iOS, web. Desktop: Windows, Linux, Mac. Dispositivos embebidos: Fuchsia OS. Plataforma web.
+- El mismo código se puede ejecutar en mobile: Android y iOS, web. Desktop: Windows, Linux, Mac. Dispositivos embebidos: Fuchsia OS. Plataforma web. Por lo que **No es requerido reescribir el código para cada plataforma, un software un código**.
 
 ## Flutter vs React Native
 
@@ -84,11 +86,17 @@ El precio actual es de 25$, pago único.
 
 ### Empezar con Flutter
 
-Para empezar con Flutter, lo primero que debemos hacer es instalar su SDK. Para ello, debemos seguir los pasos que se indican en la [documentación oficial](https://flutter.dev/docs/get-started/install).
+Para empezar con Flutter, lo primero que debemos hacer es instalar su SDK(software development kit, que es un conjunto de herramientas que nos permiten desarrollar aplicaciones). Para ello, debemos seguir los pasos que se indican en la [documentación oficial](https://flutter.dev/docs/get-started/install).
 
 Tenemos que elegir el IDE que queremos utilizar, originalmente Flutter soporta tanto Android Studio como Visual Studio Code.
 
 Flutter se basa en el SDK y se compila a partir de los SDK oficiales, esto significa que si queremos compilar una aplicación para Android, necesitamos tener instalado Android Studio o Android SDK, aunque Android Studio ya incluye el SDK. Si no queremos compilar en Android, no es necesario tener instalado Android Studio. Para compilar en ios requerimos de un Mac. Si tenemos un Mac y queremos compilar en ios, necesitamos instalar Xcode.
+
+**Recursos:**
+
+- [Setup - Vandad Nahavandipoor](https://www.youtube.com/watch?v=RAL2RW3sSY4&list=PL6yRaaP0WPkVtoeNIGqILtRAgd3h2CNpT&index=3)
+
+### Ejecutar la aplicación
 
 Una vez instalado el SDK, podemos crear un proyecto en el propio Visual Studio Code, o bien, podemos crearlo desde la terminal, con el comando `flutter create nombre_proyecto`.
 
@@ -96,8 +104,6 @@ Se crea un scaffolding con la estructura de carpetas y archivos necesarios para 
 
 En VSC se recomienda instalar la extensión de Flutter, que nos permite hacer muchas cosas, como por ejemplo, ejecutar la aplicación en un emulador o en un dispositivo físico.
 Para crear una aplicación con la extensión. Podemos ir a la paleta de comandos y escribir `Flutter: New Project`.
-
-### Ejecutar la aplicación
 
 Para ejecutar la aplicación, debemos ejecutar el comando `flutter run` en la terminal. Este te preguntara donde quieres ejecutar la aplicación.
 Compilara la aplicación y la ejecutara en el dispositivo seleccionado.
@@ -107,7 +113,9 @@ También podemos ejecutar la aplicación desde el IDE, en este caso, desde VSC. 
 La primera vez que se ejecuta la aplicación puede tardar un poco en ejecutarse.
 En caso de detectar que no esta funcionando correctamente, podemos ejecutar el comando `flutter doctor` para comprobar que todo esta correcto y en caso contrario nos indicara que pasos debemos seguir para solucionarlo.
 
-[![Flutter doctor](./assets/flutter_doctor.png)]
+Al terminar de instalar flutter es muy frecuente que salgan un par de errores, como por ejemplo, que no encuentra el SDK de Android... no es preocupante, solo tenemos que seguir los pasos que nos indica el comando `flutter doctor` para solucionarlo.
+
+![Flutter doctor](./assets/flutter_doctor.png)
 
 Flutter tiene hot reload, es decir, que cuando se modifica el código, la aplicación se recarga automáticamente, sin necesidad de volver a compilar la aplicación.
 
