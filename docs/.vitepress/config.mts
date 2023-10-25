@@ -52,7 +52,16 @@ export default defineConfig({
             },
             {
               text: "Dart",
-              link: "/flutter/dart.md",
+              items: [
+                {
+                  text: "Introducción",
+                  link: "/flutter/dart-intro.md",
+                },
+                {
+                  text: "Avanzado",
+                  link: "/flutter/dart-advanced.md",
+                },
+              ],
             },
             {
               text: "Flutter",
