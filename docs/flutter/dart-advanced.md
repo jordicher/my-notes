@@ -6,39 +6,9 @@ description: Colecciones en Dart
 
 # Dart avanzado
 
-## Colecciones
-
-### List
-
-Las listas son colecciones ordenadas de elementos. En Dart, las listas se representan con la palabra clave `List`.
-
-```dart
-var list = [1, 2, 3];
-List<int> list = [1, 2, 3];
-```
-
-### Set
-
-Los conjuntos son colecciones de elementos únicos, por lo que no pueden contener elementos duplicados (da un warning) y no están ordenados. En Dart, los conjuntos se representan con la palabra clave `Set`.
-
-```dart
-var set = {1, 2, 3};
-Set<int> set = {1, 2, 3};
-```
-
-### Map
-
-Los mapas son colecciones de pares clave-valor. En Dart, los mapas se representan con la palabra clave `Map`.
-
-```dart
-var map = {1: 'one', 2: 'two', 3: 'three'};
-Map<int, String> map = {1: 'one', 2: 'two', 3: 'three'};
-Map<String, Object> user = {'name': 'Bob', 'age': 42};
-```
+## Null Safety
 
 Aunque digamos que todo en Dart es un objeto, no es del todo cierto, el valor null no es un objeto.
-
-## Null Safety
 
 Null safety es una característica de Dart que permite a los desarrolladores escribir código más seguro. Dart 2.12 es la primera versión de Dart que incluye Null safety. La variable no puede ser null a no ser que se especifique explícitamente.
 

@@ -284,29 +284,6 @@ var x = 1;
 x = 'Hello'; // Error: A value of type 'String' can't be assigned to a variable of type 'num'.
 ```
 
-### Conditions
-
-Los if, boolean conditions, functions etc. son iguales que en otros lenguajes de programación.
-
-```dart
-void main() {
-  var x = 1;
-  if (x == 1) {
-    print('x is 1'); <!-- sends a message to the console with a new line after -->
-  }
-  while (x < 5) {
-    print(x);
-    x++;
-  }
-  for (var i = 0; i < 5; i++) {
-    print(i);
-  }
-  for (var i in [1, 2, 3]) { <!-- it is more similar to a foreach loop -->
-    print(i);
-  }
-}
-```
-
 ### Nombres
 
 Las mismas reglas que en JavaScript, no se pueden usar palabras reservadas, no se pueden usar caracteres especiales, no se pueden usar espacios, no se pueden usar números al principio, etc.

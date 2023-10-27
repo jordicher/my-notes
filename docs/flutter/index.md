@@ -24,4 +24,6 @@ Flutter utiliza el lenguaje de programación Dart. Dart fue desarrollado por Goo
 
 ### Curva de aprendizaje
 
-La curva de aprendizaje de Flutter es muy corta, ya que se basa en el conocimiento de los lenguajes de programación muy populares, y si tienes conocimientos de lenguajes orientados a objetos, como Javascript, se reduce la complejidad de aprenderlo. Además, la construcción de pantallas, utilizar el framework en si, es simple, porque vamos creando instancias, hijos de otras instancias y asi vamos a crear la UI de nuestra aplicación.
+La curva de aprendizaje de Flutter es muy corta, ya que se basa en el conocimiento de los lenguajes de programación muy populares, y si tienes conocimientos de lenguajes orientados a objetos, como Javascript, se reduce la complejidad de aprenderlo. Además, la construcción de pantallas, utilizar el framework en si, es simple, porque vamos creando instancias, hijos de otras instancias...
+
+Recomiendo ver el [roadmap de Flutter](https://roadmap.sh/flutter) para ver las tecnologías que hay que aprender para ser un desarrollador de Flutter.

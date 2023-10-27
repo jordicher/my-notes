@@ -58,6 +58,10 @@ export default defineConfig({
                   link: "/flutter/dart-intro.md",
                 },
                 {
+                  text: "Control de Flujo y colecciones",
+                  link: "/flutter/dart-statements-collections.md",
+                },
+                {
                   text: "Avanzado",
                   link: "/flutter/dart-advanced.md",
                 },
