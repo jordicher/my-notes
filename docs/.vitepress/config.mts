@@ -62,6 +62,10 @@ export default defineConfig({
                   link: "/flutter/dart-statements-collections.md",
                 },
                 {
+                  text: "Enumeraciones, clases y objetos",
+                  link: "/flutter/dart-enum-class-object.md",
+                },
+                {
                   text: "Avanzado",
                   link: "/flutter/dart-advanced.md",
                 },
