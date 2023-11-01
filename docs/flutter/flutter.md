@@ -150,6 +150,30 @@ Las carpetas de `android`, `ios`, `linux`, `macos`, `windows` y `web` contienen 
 
 En resumen, estas carpetas son importantes porque te permiten compilar y personalizar tu aplicación para cada plataforma de destino, y así ofrecer una experiencia de usuario óptima para cada sistema operativo.
 
+### analysis_options.yaml
+
+Este archivo es para configurar el linter de Dart. El linter es una herramienta que nos permite analizar el código y encontrar errores o malas prácticas.
+
+### pubspec.yaml
+
+Este archivo es para configurar la aplicación. Aquí se especifican las dependencias, el nombre de la aplicación, la versión, etc.
+
+Aqui podemos encontrar el nombre de la aplicación, pero no veremos el nombre de empresa (si lo añadimos en el momento de crear el proyecto). El nombre de la empresa, lo podremos encontar en otros archivos internos, como por ejemplo, AndroidManifest.xml...
+
+**version**, se utiliza para especificar la versión de la aplicación. Es importante la versión de la aplicación para cuando se publique en la tienda de aplicaciones.
+Siempre que se publique una nueva versión, la versión debe ser mayor a la anterior.
+
+**environment**, se utiliza para especificar la versión de Dart y Flutter que se requiere para ejecutar la aplicación.
+
+**dependencies**, se utiliza para especificar las dependencias de la aplicación.
+Tenemos que ir con cuidado con las dependencias, pues esta hecha por la comunidad, y no todas las dependencias son de calidad. Por lo que es recomendable utilizar dependencias que tengan una buena comunidad detrás, y que estén actualizadas.
+
+**dev_dependencies**, se utiliza para especificar las dependencias de desarrollo de la aplicación.
+
+#### Añadir dependencias
+
+Para añadir dependencias, podemos usar el comando `flutter pub add nombre_dependencia`.
+
 ## Sintáxis
 
 La sintaxis de Dart es orientada a objetos. Si hemos trabajado con otros lenguajes de programación orientados a objetos, como Java o Javascript, no tendremos problemas para entender la sintaxis de Dart.
