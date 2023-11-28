@@ -44,6 +44,8 @@ class Greet extends StatelessWidget {
 }
 ```
 
+**El shortcut para crear un stateless widget en visual studio code es `stl`**
+
 ## Stateful
 
 Stateful son widgets que tienen estado, es decir, que cambian. Por ejemplo, un widget que muestra un contador, el contador cambia, por lo tanto, es un widget stateful.
@@ -137,3 +139,5 @@ También tenemos otros widgets, como Center, AppBar, Column, Text, etc. Eso nos 
 
 `setState()` es un método que nos proporciona Flutter, y que nos permite decirle a Flutter que estamos modificando el estado de la aplicación, y que una vez finalizado, tiene que volver a pintar la UI del widget, con los nuevos valores. Se va a refrescar en este caso MyHomePage, no refresca la aplicación entera.
 Yo solo llamando a `setState()` va a repintar la UI, aunque en su interior no haya cambiado nada.
+
+**El shortcut para crear un stateful widget en visual studio code es `stf`**

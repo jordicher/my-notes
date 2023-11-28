@@ -193,6 +193,51 @@ void main() {
 }
 ```
 
+### Mejorar el performance de main
+
+En el archivo main.dart, podemos ver que la función main es muy simple, solo ejecuta la función runApp, que recibe como parámetro un widget, que es el widget raíz de nuestra aplicación.
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+```
+
+Pero podemos mejorar el performance de la aplicación, si le pasamos directamente el widget raíz a la función runApp.
+
+```dart
+void main() {
+  runApp(MaterialApp(
+    title: 'Flutter Demo',
+    theme: ThemeData(
+      primarySwatch: Colors.blue,
+    ),
+    home: const MyHomePage(title: 'Flutter Demo Home Page'),
+  ));
+}
+```
+
+MaterialApp es como el scaffold de Flutter, es decir, que nos proporciona un conjunto de widgets que nos permiten crear una aplicación con el estilo Material Design.
+
+Poniendolo directamante en el main, estamos ahorrando un paso. Le estamos diciendo cada vez que no queremos que monte la aplicación o estructura, cuando estamos en hot reload.
+
 ## Widgets
 
 Todo en Flutter es un widget, y los widgets se componen de otros widgets. Los widgets son como los componentes de React...
