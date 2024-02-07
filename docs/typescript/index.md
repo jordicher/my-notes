@@ -324,9 +324,78 @@ let b = a as number;
 let c = <number>a;
 ```
 
-## Interfaces
+## Intersections
 
-Las interfaces son una forma poderosa de definir contratos tanto para tu proyecto, como para el código externo al mismo.
+En TypeScript, podemos hacer uniones de tipos con el operador `&`.
+
+```ts
+interface A {
+  a: number;
+}
+
+interface B {
+  b: number;
+}
+
+type C = A & B;
+
+const c: C = { a: 1, b: 2 };
+// const c: C = { a: 1 }; // Error
+```
+
+## Interface y Type
+
+La diferencia entre interface y type
+
+Las interfaces son más flexibles y se pueden extender.
+
+```ts
+interface A {
+  a: number;
+}
+
+interface B {
+  b: number;
+}
+
+interface C extends A, B {
+  c: number;
+}
+```
+
+Los interfaces solo sirven para definir la forma de un objeto. Por lo que cuando vamos a definir un tipo primitivo, siempre vamos a usar `type`.
+
+Con los `type` podemos hacer uniones, intersecciones, etc.
+
+```ts
+type A = number | string;
+
+type B = A & { b: number };
+
+type C = A | { c: number };
+```
+
+Las interfaces se pueden declarar varias veces, y se van a ir extendiendo. Los `type` no.
+
+```ts
+interface A {
+  a: number;
+}
+
+interface A {
+  b: number;
+}
+
+const a: A = { a: 1, b: 2 };
+
+type B = { a: number };
+
+type B = { b: number }; // Error
+```
+
+### Interfaces
+
+Las interfaces son una forma poderosa de definir contratos en TypeScript. Las interfaces son un tipo de dato que define una estructura de datos.
 
 ```ts
 interface Person {
@@ -341,7 +410,7 @@ function printPerson(person: Person) {
 printPerson({ name: "John", age: 30 });
 ```
 
-### Propiedades opcionales
+#### Propiedades opcionales
 
 ```ts
 interface Person {
@@ -356,7 +425,7 @@ function printPerson(person: Person) {
 printPerson({ name: "John" });
 ```
 
-### Anidadas
+#### Anidadas
 
 ```ts
 interface User {
@@ -382,7 +451,7 @@ printUser({
 });
 ```
 
-### Index Signatures
+#### Index Signatures
 
 ```ts
 interface Person {
@@ -397,3 +466,127 @@ function printPerson(person: Person) {
 
 printPerson({ name: "John", age: 30, address: "Main Street" });
 ```
+
+#### Extends
+
+```ts
+interface A {
+  a: number;
+}
+
+interface B {
+  b: number;
+}
+
+interface C extends A, B {
+  c: number;
+}
+
+const c: C = { a: 1, b: 2, c: 3 };
+```
+
+#### Implements
+
+La diferencia entre `extends` e `implements` es que `extends` se usa para extender una interface, y `implements` se usa para implementar una interfaz.
+
+```ts
+interface A {
+  a: number;
+}
+
+interface B {
+  b: number;
+}
+
+class C implements A, B {
+  a = 1;
+  b = 2;
+}
+```
+
+#### Open interfaces
+
+Las interfaces son abiertas, por lo que se pueden declarar varias veces, y se van a ir extendiendo.
+
+```ts
+interface A {
+  a: number;
+}
+
+interface A {
+  b: number;
+}
+
+const a: A = { a: 1, b: 2 };
+```
+
+#### Global
+
+Podemos declarar interfaces globales, y luego extenderlas.
+
+```ts
+declare global {
+  interface Window {
+    myVar: string;
+  }
+}
+
+window.myVar = "Hello";
+```
+
+### Type
+
+Puede contener cualquier tipo de dato, incluyendo primitivos, objetos, funciones, etc. Se puede usar para definir tipos primitivos, tipos de unión, tipos de intersección, etc.
+
+```ts
+type A = number | string;
+
+type B = A & { b: number };
+
+type C = A | { c: number };
+```
+
+#### Implements
+
+```ts
+type A = {
+  a: number;
+};
+
+type B = {
+  b: number;
+};
+
+class C implements A, B {
+  a = 1;
+  b = 2;
+}
+```
+
+Aunque no es recomendable, ya que los `type` pueden ser tipos primitivos, y no tienen sentido implementarlos. En este caso es mejor usar para los implementos las `interfaces`.
+
+```ts
+type A = number;
+
+type B = {
+  b: number;
+};
+
+class C implements A, B {
+  // Error
+  a = 1;
+  b = 2;
+}
+```
+
+#### Recursión
+
+Podemos encontrar recursión simple.
+
+```ts
+type NestedNumbers = number | NestedNumbers[];
+
+const numbers: NestedNumbers = [1, [2, [3, 4], 5], 6];
+```
+
+En este caso estamos definiendo un tipo que puede ser un número o un array de números, y a su vez, cada número puede ser un array de números.
