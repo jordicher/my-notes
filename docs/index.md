@@ -44,19 +44,4 @@ features:
   - title: "Flutter"
     link: "./flutter/"
     details: Introducción a Flutter, su instalación, su sintaxis y ejemplos.
-
-  - icon: 🛠️
-    title: "Animaciones y transiciones CSS"
-    link: "./css-animations-and-transitions/"
-    details: Introducción a las animaciones y transiciones CSS, sus propiedades y ejemplos.
-
-  - icon: 🛠️
-    title: "TDD: Test-Driven Development"
-    link: "./test-driven-development/"
-    details: Introducción a TDD, sus pasos y ejemplos.
-
-  - icon: 🛠️
-    title: "Observables en JavaScript"
-    link: "./observables/"
-    details: Observables
 ---
