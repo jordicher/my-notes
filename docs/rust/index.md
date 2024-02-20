@@ -34,6 +34,13 @@ Está pensado para hacer drivers de hardware, sistemas operativos, navegadores, 
 
 - No está pensado para un sistema operativo en concreto, sino que es multiplataforma. Por lo que podríamos ver partes del kernel de linux escritas en rust...
 
+## Typescript vs Rust
+
+- Typescript es un lenguaje de programación de alto nivel, que compila a javascript. Rust es un lenguaje de programación de bajo nivel, que compila a código nativo.
+- Especificando solo lectura versus mutación. En typescript, se debe especificar si una variable es solo lectura con `readonly`, pero podriamos llegar a mutarla, ejemplo, pasando la variable a una función que la muta. En rust, se debe especificar si una variable es mutable.
+- Undefined/null vs Option. En typescript, se puede tener un valor `undefined` o `null`, en rust, se utiliza `Option`.
+- Los errores en tiempo de ejecución, en muchas ocasiones tenemos errores en typescript que no se detectan hasta que se ejecuta el código. En rust, el compilador nos avisará de los errores en tiempo de compilación.
+
 ### Referencias
 
 El contenido de esta sección se ha extraído de los siguientes recursos gratuitos:

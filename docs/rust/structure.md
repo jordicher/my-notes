@@ -38,10 +38,6 @@ fn main() {
 }
 ```
 
-## Sangría del código
-
-La sangría se usa para definir el alcance de las variables y las funciones. La sangría se define con 4 espacios. Además se usa el `;` para indicar el final de una sentencia. En caso de no usar el `;` pasamos a la siguiente línea.
-
 ## Macros
 
 ### todo!
@@ -93,7 +89,7 @@ let name: String = "Jordi";
 
 ### Mutabilidad
 
-Las variables se pueden definir como mutables o inmutables. Las variables mutables se pueden modificar después de su creación. Las variables inmutables no se pueden modificar después de su creación. Por defecto las variables son inmutables.
+Las variables se pueden definir como mutables o inmutables. Las variables mutables se pueden modificar después de su creación. Las variables inmutables no se pueden modificar después de su creación. **Por defecto las variables son inmutables.**
 
 ```rust
 let name = "Jordi"; // inmutable
@@ -319,5 +315,93 @@ fn main() {
     println!("{:#?}", user_guest);
     println!("{:#?}", user_admin);
     println!("{:#?}", user_anonymous);
+}
+```
+
+## Sangría del código
+
+La sangría se usa para definir el alcance de las variables y las funciones. La sangría se define con 4 espacios. Además se usa el `;` para indicar el final de una sentencia. En caso de no usar el `;` pasamos a la siguiente línea.
+
+## Condicionales
+
+### if
+
+El condicional `if` se usa para ejecutar un bloque de código si una condición es verdadera.
+
+```rust
+let num = 10;
+
+if num > 5 {
+    println!("El número es mayor que 5");
+}
+```
+
+### if else
+
+El condicional `if else` se usa para ejecutar un bloque de código si una condición es verdadera, y otro bloque de código si la condición es falsa.
+
+```rust
+let num = 10;
+
+if num > 5 {
+    println!("El número es mayor que 5");
+} else {
+    println!("El número es menor o igual que 5");
+}
+```
+
+### if else if
+
+El condicional `if else if` se usa para ejecutar un bloque de código si una condición es verdadera, y otro bloque de código si la condición es falsa. Además, se pueden encadenar múltiples condiciones.
+
+```rust
+let num = 10;
+
+if num > 5 {
+    println!("El número es mayor que 5");
+} else if num == 5 {
+    println!("El número es igual a 5");
+} else {
+    println!("El número es menor que 5");
+}
+```
+
+## Operadores lógicos
+
+### and
+
+El operador lógico `and` se usa para comprobar si dos condiciones son verdaderas.
+
+```rust
+let num = 10;
+
+if num > 5 && num < 20 {
+    println!("El número es mayor que 5 y menor que 20");
+}
+```
+
+### or
+
+El operador lógico `or` se usa para comprobar si al menos una de dos condiciones es verdadera.
+
+```rust
+let num = 10;
+
+if num < 5 || num > 20 {
+    println!("El número es menor que 5 o mayor que 20");
+}
+```
+
+## Bucles
+
+### for
+
+El bucle `for` se usa para iterar sobre una colección de elementos.
+
+```rust
+let numbers = [1, 2, 3, 4, 5];
+
+for number in numbers.iter() {
+    println!("{}", number);
 }
 ```
