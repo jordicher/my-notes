@@ -99,6 +99,21 @@ export default defineConfig({
           ],
         },
       ],
+      "/typescript/": [
+        {
+          text: "TypeScript",
+          items: [
+            {
+              text: "Introducción",
+              link: "/typescript/",
+            },
+            {
+              text: "Type Queries",
+              link: "/typescript/type-queries.md",
+            },
+          ],
+        },
+      ],
     },
 
     outline: [2, 4],
@@ -139,6 +154,11 @@ function nav() {
           text: "Rust",
           link: "/rust/",
           activeMatch: "/rust/",
+        },
+        {
+          text: "TypeScript",
+          link: "/typescript/",
+          activeMatch: "/typescript/",
         },
         {
           text: "Vue Unit Testing",
