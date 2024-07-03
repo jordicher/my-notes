@@ -87,6 +87,18 @@ var person = new Person();
 const person = Person(); <!-- Flutter way -->
 ```
 
+### Public
+
+En Dart, todo es público por defecto. Si desea que algo sea privado, debe agregar un guión bajo (\_) al principio de su nombre.
+
+```dart
+class Person {
+  String name;
+  int age;
+  _Person(this.name, this.age);
+}
+```
+
 ### Constructores
 
 Los constructores son métodos especiales que se usan para crear instancias de una clase.

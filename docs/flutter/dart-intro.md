@@ -16,7 +16,52 @@ Dart en el caso de compilar Javascript lo hará con código fuente, si requerimo
 
 El código fuente es el código escrito por los programadores en un lenguaje de alto nivel que es legible por los seres humanos. El bytecode es el código intermedio generado por el compilador y está diseñado para ser interpretado o compilado en código de máquina específico. El código de máquina es el código binario que se ejecuta directamente en el hardware de la computadora.
 
-## Keywords
+## Basics
+
+Toda aplicación Dart tiene un punto de entrada, el método `main()`. Este método es el que se ejecuta cuando se ejecuta la aplicación.
+
+```dart
+void main() {
+  print('Hello, World!');
+}
+```
+
+### Semicolons
+
+En Dart, los puntos y comas son opcionales. Siempre que no escriba un punto y coma, el compilador asumirá que el siguiente token es una nueva declaración.
+
+```dart
+void main() {
+  print('Hello, World!');
+}
+```
+
+### Var
+
+En Dart, las variables se declaran con la palabra clave `var`.
+
+```dart
+var x = 1;
+var y = 2;
+```
+
+Aunque se parezca a JavaScript, Dart es un lenguaje de programación fuertemente tipado. Esto significa que las variables tienen un tipo explícito y no se pueden cambiar. Por ejemplo, si intenta asignar un valor de cadena a una variable de tipo num, el compilador lo rechazará.
+
+```dart
+var x = 1;
+x = 'Hello'; // Error: A value of type 'String' can't be assigned to a variable of type 'num'.
+```
+
+### Nombres
+
+Las mismas reglas que en JavaScript, no se pueden usar palabras reservadas, no se pueden usar caracteres especiales, no se pueden usar espacios, no se pueden usar números al principio, etc.
+
+Las directrices de estilo de Dart sugieren que:
+
+- Funciones y variables deben ser en camelCase.
+- Clases deben ser en PascalCase.
+
+### Keywords
 
 Las palabras clave son palabras reservadas que tienen un significado especial para el compilador. No se pueden usar como nombres de variables, nombres de funciones, nombres de clases, etc.
 
@@ -69,7 +114,7 @@ final int age = 42;
 const x = 42;
 ```
 
-#### Tiempo de compilación vs Tiempo de ejecución
+#### Tiempo de compilación vs Tiempo de ejecución, final vs const
 
 El tiempo de compilación es cuando el código se convierte en código de máquina. El tiempo de ejecución es cuando el código se ejecuta en el hardware de la computadora.
 
@@ -246,60 +291,4 @@ La interpolación de cadenas es una forma de insertar expresiones de Dart en cad
 var name = 'Bob';
 var age = 42;
 var message = "The name is $name and the age is $age";
-```
-
-## Basics
-
-Toda aplicación Dart tiene un punto de entrada, el método `main()`. Este método es el que se ejecuta cuando se ejecuta la aplicación.
-
-```dart
-void main() {
-  print('Hello, World!');
-}
-```
-
-### Semicolons
-
-En Dart, los puntos y comas son opcionales. Siempre que no escriba un punto y coma, el compilador asumirá que el siguiente token es una nueva declaración.
-
-```dart
-void main() {
-  print('Hello, World!');
-}
-```
-
-### Var
-
-En Dart, las variables se declaran con la palabra clave `var`.
-
-```dart
-var x = 1;
-var y = 2;
-```
-
-Aunque se parezca a JavaScript, Dart es un lenguaje de programación fuertemente tipado. Esto significa que las variables tienen un tipo explícito y no se pueden cambiar. Por ejemplo, si intenta asignar un valor de cadena a una variable de tipo num, el compilador lo rechazará.
-
-```dart
-var x = 1;
-x = 'Hello'; // Error: A value of type 'String' can't be assigned to a variable of type 'num'.
-```
-
-### Nombres
-
-Las mismas reglas que en JavaScript, no se pueden usar palabras reservadas, no se pueden usar caracteres especiales, no se pueden usar espacios, no se pueden usar números al principio, etc.
-
-Funciones y variables deben ser en camelCase.
-
-Clases deben ser en PascalCase.
-
-### Public
-
-En Dart, todo es público por defecto. Si desea que algo sea privado, debe agregar un guión bajo (\_) al principio de su nombre.
-
-```dart
-class Person {
-  String name;
-  int age;
-  _Person(this.name, this.age);
-}
 ```
