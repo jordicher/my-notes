@@ -37,6 +37,14 @@ late String name;
 print(name); // Error: LateInitializationError: Field 'name' has not been initialized.
 ```
 
+`late` es útil cuando no podemos inicializar una variable en el momento de la declaración.
+
+```dart
+late String name;
+name = 'Bob';
+print(name); // Bob
+```
+
 `?` es una palabra clave que se usa para indicar que una variable puede ser nula. Podemos hacer llamadas seguras a las variables nulas.
 
 ```dart

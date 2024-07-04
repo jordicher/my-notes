@@ -36,22 +36,6 @@ void main() {
 }
 ```
 
-### Var
-
-En Dart, las variables se declaran con la palabra clave `var`.
-
-```dart
-var x = 1;
-var y = 2;
-```
-
-Aunque se parezca a JavaScript, Dart es un lenguaje de programación fuertemente tipado. Esto significa que las variables tienen un tipo explícito y no se pueden cambiar. Por ejemplo, si intenta asignar un valor de cadena a una variable de tipo num, el compilador lo rechazará.
-
-```dart
-var x = 1;
-x = 'Hello'; // Error: A value of type 'String' can't be assigned to a variable of type 'num'.
-```
-
 ### Nombres
 
 Las mismas reglas que en JavaScript, no se pueden usar palabras reservadas, no se pueden usar caracteres especiales, no se pueden usar espacios, no se pueden usar números al principio, etc.
@@ -150,6 +134,13 @@ Se puede especificar el tipo de una variable.
 ```dart
 String name = 'Bob';
 int age = 42;
+```
+
+Aunque se parezca a JavaScript, Dart es un lenguaje de programación fuertemente tipado. Esto significa que las variables tienen un tipo explícito y no se pueden cambiar. Por ejemplo, si intenta asignar un valor de cadena a una variable de tipo num, el compilador lo rechazará.
+
+```dart
+var x = 1;
+x = 'Hello'; // Error: A value of type 'String' can't be assigned to a variable of type 'num'.
 ```
 
 Si no se especifica el tipo de una variable, el compilador la considera de tipo `dynamic`. Esto significa que la variable puede contener cualquier tipo de valor. Es una mala práctica usar `dynamic`.

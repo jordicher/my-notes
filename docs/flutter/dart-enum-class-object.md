@@ -31,7 +31,7 @@ void main() {
 }
 ```
 
-## Switch
+### Switch
 
 El switch es una estructura de control que nos permite ejecutar un bloque de código en función del valor de una variable.
 
