@@ -91,6 +91,14 @@ export default defineConfig({
                   link: "/flutter/states.md",
                 },
                 {
+                  text: "Formularios",
+                  link: "/flutter/form.md",
+                },
+                {
+                  text: "Future",
+                  link: "/flutter/future.md",
+                },
+                {
                   text: "UI",
                   link: "/flutter/ui.md",
                 },
