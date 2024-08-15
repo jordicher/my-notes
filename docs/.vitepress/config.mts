@@ -91,6 +91,10 @@ export default defineConfig({
                   link: "/flutter/states.md",
                 },
                 {
+                  text: "Log",
+                  link: "/flutter/log.md",
+                },
+                {
                   text: "Formularios",
                   link: "/flutter/form.md",
                 },
