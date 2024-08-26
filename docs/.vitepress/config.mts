@@ -99,16 +99,20 @@ export default defineConfig({
                   link: "/flutter/form.md",
                 },
                 {
-                  text: "Future",
-                  link: "/flutter/future.md",
-                },
-                {
                   text: "UI",
                   link: "/flutter/ui.md",
                 },
                 {
+                  text: "App Bar",
+                  link: "/flutter/appbar.md",
+                },
+                {
                   text: "Modelo de datos",
                   link: "/flutter/data-model.md",
+                },
+                {
+                  text: "Future",
+                  link: "/flutter/future.md",
                 },
               ],
             },
