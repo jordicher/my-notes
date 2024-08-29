@@ -48,12 +48,12 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  late final TextEditingController _controller = TextEditingController();
+  late final TextEditingController _controller;
 
   @override
   void initState() {
+    _controller = TextEditingController();
     super.initState();
-    _controler = TextEditingController();
   }
 
   @override
