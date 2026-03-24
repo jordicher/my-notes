@@ -66,6 +66,59 @@ ___________
 Eso no significa que este patron, este obsoleto, es el más usado en el mundo. 
 No todas las aplicaciones van a ser complejas, no es un patron obsoleto. 
 
+
+### Bueno
+
+- Separado por modulos. La dependencia entre modulos, esta controlada por contratos.
+- Separación clara. La separación de responsabilidades es clara.
+- Capas bien definidas.
+- Puede escalar verticalmente. 
+
+**Ejemplo** Un monolito bien acoplado. 3 modulos
+- Pedidos
+- Facturas
+- Clientes
+
+BBDD, donde se guarda la información.
+
+Entran las interfaz en juego
+La interfaz, es declarar es que operaciones se pueden usar desde el exterior sin revelar como funcionan. Es un contrato en que se especifica a que vas a poder acceder. 
+
+Si yo necesito para crear una factura, los pedidos accedo a pedidos con una interfaz
+
+El acceso a datos, bbdd
+Usamos el concepto de repositorio, Es el repo, quien marca que y como accedemos a la bbdd.
+
+### Malo
+
+- Codigo acoplado, No tenemos una separación clara de responsabilidades. Cada modulo hace un poco de todo.
+- No hay separación clara
+- Difícil de mantener, al tocar algo como depende de otra cosa... si no tocas la otra cosa, cae... Efecto domino, modificas una tonteria y tienes que modificar 30 cosas más.
+
+**Ejemplo** Un monolito mal acoplado. 3 modulos
+- Pedidos
+- Facturas
+- Clientes
+
+BBDD, donde se guarda la información.
+
+Que ocurre si lo acoplamos, 
+Facturas accede a pedidos, para ver que pedidos se han solicitado
+Pedidos accede a vase de datos para ver el costo de cada pedido
+Facturas para poder crear la factura, accede a clientes. Y lo hace a partir de metodos internos de clientes
+Clientes debe de acceder a facturas, para poder guardar un cliente en la bbdd y ver si el usuario tenia facturas previas.
+Facturas para poder elavorar la factura, accede a la base de datos
+Clientes accede a base de datos.
+
+Podemos ver que se esta accediendo demasiado a la base de datos.
+
+Pedidos imaginemos que también accede a clientes
+
+Esto sucede en aplicaciones que se crean a partir de que van surgiendo las tareas, sin previsión.
+
+Tendremos dependencia circular. 
+Para poder acceder a uno de otros usan metodos internos, rompe la encapsulamiento. 
+
 _____________
 
 Encontrariamos 3 modulos que se comunican con una bbdd
@@ -88,3 +141,5 @@ Podemos tener una aplicación
 ### Inconvenientes
 
 - Complejidad.
+
+## Actores de proyecto
